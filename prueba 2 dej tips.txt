@@ -1,0 +1,32 @@
+//declarar una fecha de nacimiento
+LocalDate fechaNacimiento.of(1982, Month.June, 22);
+//crear fecha de hoy para comparar
+LocalDate fechaHoy = LocalDate.now();
+//ahora comparar los años de las dos fechas y asi obtener la edad
+int edad = fechaHoy.getYear() - fechaNacimiento.getYear();
+
+
+
+41763003
+
+
+19521507-3
+
+
+
+usuarios : id , user , pass , id_datos , id_tipousuarios 
+
+tipo_usuario : id , descrp 
+
+datos : rut nombre apellido
+
+
+<!-- Start of  Zendesk Widget script -->
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=6f5a8d0d-3962-4ee9-bd06-5e8d25cfbf65"> </script>
+<!-- End of  Zendesk Widget script -->
+
+
+
+http://www.forosdelweb.com/f13/validacion-sencilla-formulario-login-con-javascript-1071397/
+
+https://translate.google.com/translate?hl=es&sl=es&tl=en&u=http%3A%2F%2Fblackdesert-forums.playredfox.com%2Findex.php&anno=2&sandbox=1
