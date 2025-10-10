@@ -1,0 +1,59 @@
+
+
+/ ->PRUEBA3
+
+
+       1-archivo.dad (nombre, seccion) -> copiar  ad y linux (cambiar nombre , permiso)
+
+
+      l-WINDOWS : ad , 
+
+
+
+        l-LINUX :
+
+
+
+------------------------------
+
+crear 2 usuarios, permisos .
+
+
+crear  2 grupo debe estar 1 usuario en cada 1.
+
+
+
+--------------------------------------
+
+ip table -F 
+ip table -P INPUT DROP
+ip table -P OUTPUT DROP
+ip table -P FORWARD DROP
+
+
+INPUT -A SET -J  (hacer que youtube puedra ingresar)
+groupadd
+useradd
+passwd
+
+----------------------------------------------------------
+
+ipconfig (ejecutarlo en cmd, para sacar la ip para win7)
+
+ifconfig (sacar la ip de linux)
+
+service httpd stard (iniciar servicio httpd)
+
+yum install -y vsftpd  (instalar vsftpd)
+
+service vsftpd start (iniciar servicio vsftpd)
+
+iptables -L (para ver las reglas predeterminadas)
+
+iptables -F (para borrar todas las reglas)
+
+iptables -X (borra todas las cadenas)
+
+iptables -Z (deja todo los contadores en 0)
+
+iptables -A INPUT -s "ip" (añade una regla)

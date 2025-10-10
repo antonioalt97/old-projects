@@ -1,0 +1,215 @@
+public class Cola {
+
+    private Nodo primero;
+    private Nodo ultimo;
+
+    public Cola() {
+
+        this.primero = null;
+        this.ultimo = null;
+    }
+
+    public Cola(Nodo primero, Nodo ultimo) {
+        this.primero = primero;
+        this.ultimo = ultimo;
+    }
+
+    /**
+     * @return the primero
+     */
+    public Nodo getPrimero() {
+        return primero;
+    }
+
+    /**
+     * @return the ultimo
+     */
+    public Nodo getUltimo() {
+        return ultimo;
+    }
+
+    /**
+     * @param primero the primero to set
+     */
+    public void setPrimero(Nodo primero) {
+        this.primero = primero;
+    }
+
+    /**
+     * @param ultimo the ultimo to set
+     */
+    public void setUltimo(Nodo ultimo) {
+        this.ultimo = ultimo;
+    }
+
+    @Override
+    public String toString() {
+        return "Cola{" + "primero=" + primero + ", ultimo=" + ultimo + '}';
+    }
+
+    public Boolean estaVacia() {
+
+        return (this.ultimo == null);
+    }
+
+    public void insertar(Object miObjeto) {
+        Nodo miNodoAux = new Nodo(miObjeto);
+
+        if (this.estaVacia()) {
+            this.primero = miNodoAux;
+            this.ultimo = this.primero;
+        } else {
+            this.ultimo.setEnlace(miNodoAux);
+            this.ultimo = miNodoAux;
+        }
+    }
+
+    public void insertarPrioridad(Alumno miAlumno, int prioridad) {
+
+        if (this.estaVacia()) {
+            insertarPrioridadUltimo(miAlumno, prioridad);
+        } else {
+            Nodo miNodoAux = new Nodo(miAlumno, prioridad);
+            if (miNodoAux.getPrioridad() > getPrimero().getPrioridad()) {
+                miNodoAux.setEnlace(getPrimero());
+                setPrimero(miNodoAux);
+            } else {
+                Nodo miNodoAux1 = this.primero;
+                boolean miBandera = false;
+                while (miNodoAux1.getEnlace() != null) {
+                    if (miNodoAux.getPrioridad() > miNodoAux1.getEnlace().getPrioridad()) {
+                        miNodoAux.setEnlace(miNodoAux1.getEnlace());
+                        miNodoAux1.setEnlace(miNodoAux);
+                        miBandera = true;
+                        break;
+                    }
+                    miNodoAux1 = miNodoAux1.getEnlace();
+                }
+
+                if (!miBandera) {
+                    insertarPrioridadUltimo(miAlumno, prioridad);
+                }
+            }
+        }
+
+    }
+
+    private void insertarPrioridadUltimo(Alumno miAlumno, int prioridad) {
+
+        Nodo miNodoAux = new Nodo(miAlumno, prioridad);
+
+        if (this.estaVacia()) {
+            this.primero = miNodoAux;
+            this.ultimo = this.primero;
+        } else {
+            this.ultimo.setEnlace(miNodoAux);
+            this.ultimo = miNodoAux;
+        }
+
+    }
+
+    public void listar() {
+        if (!this.estaVacia()) {
+            Nodo miNodoAux = this.primero;
+            while (miNodoAux != null) {
+                System.out.println(miNodoAux.getDato().toString());
+                miNodoAux = miNodoAux.getEnlace();
+            }
+        }
+
+    }
+
+    public Object desencolar() {
+
+        if (this.estaVacia()) {
+            return null;
+        } else {
+            Object miObjetoTmp = primero.getDato();
+            primero = primero.getEnlace();
+            return miObjetoTmp;
+        }
+
+    }
+
+    public Object verPrimero() {
+
+        return this.primero.getDato();
+
+    }
+
+    public Object verUltimo() {
+
+        return this.ultimo.getDato();
+
+    }
+
+    public void totalizarAhorroGiraEstudio() {
+        int totalizador = 0;
+
+        if (!this.estaVacia()) {
+            Nodo miNodoAux = this.primero;
+            while (miNodoAux != null) {
+                Alumno miAlumnoTmp = (Alumno) miNodoAux.getDato();
+                totalizador += miAlumnoTmp.getAhorroGiraEstudio();
+                miNodoAux = miNodoAux.getEnlace();
+            }
+        }
+        System.out.println(totalizador);
+
+    }
+
+    public void contadorCantidadAlumnosEnCiclosDeEnseñanza() {
+        int totalizadorBasica = 0;
+        int totalizadorMedia = 0;
+        if (!this.estaVacia()) {
+            Nodo miNodoAux = this.primero;
+            while (miNodoAux != null) {
+                Alumno miAlumnoTmp = (Alumno) miNodoAux.getDato();
+                if (miAlumnoTmp.getCicloEnseñanza().equalsIgnoreCase("BASICA")) {
+                    totalizadorBasica++;
+                }
+                if (miAlumnoTmp.getCicloEnseñanza().equalsIgnoreCase("MEDIA")) {
+                    totalizadorMedia++;
+                }
+                miNodoAux = miNodoAux.getEnlace();
+            }
+        }
+        System.out.println("Educación Básica    :   " + totalizadorBasica);
+        System.out.println("Educación Media     :   " + totalizadorMedia);
+
+    }
+
+    public void listarApellidosConLetraPorParametro(char c) {
+        if (!this.estaVacia()) {
+            Nodo miNodoAux = this.primero;
+            while (miNodoAux != null) {
+                Alumno miAlumnoTmp = (Alumno) miNodoAux.getDato();
+                if (miAlumnoTmp.getApellidoPaterno().toUpperCase().trim().charAt(0) == c) {
+                    System.out.println(miAlumnoTmp.getApellidoPaterno().trim());
+                }
+                miNodoAux = miNodoAux.getEnlace();
+            }
+        }
+
+    }
+
+    public int largo() {
+        int cont = 0;
+        if (!this.estaVacia()) {
+            Nodo aux = this.primero;
+            while (aux != null) {
+                cont++;
+                aux = aux.getEnlace();
+            }
+        }
+
+        return cont;
+    }
+
+    public void vaciar() {
+
+        this.primero = null;
+        this.ultimo = null;
+        System.out.println("Cola vacía");
+    }
+}
