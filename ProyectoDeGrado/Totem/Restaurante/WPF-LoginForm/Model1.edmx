@@ -1,0 +1,2027 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="18.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DETALLE_PEDIDO">
+          <Key>
+            <PropertyRef Name="PEDIDO_ID_PEDIDO" />
+          </Key>
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="CANTIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PEDIDO_ID_PEDIDO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RECETA_ID_RECETA" Type="number" Precision="38" Scale="0" />
+          <Property Name="PRODUCTO_ID_PRODUCTO" Type="number" Precision="38" Scale="0" />
+          <Property Name="PRODUCTO_ID_U_MEDIDA" Type="number" Precision="38" Scale="0" />
+          <Property Name="PRODUCTO_ID_TIPO" Type="number" Precision="38" Scale="0" />
+          <Property Name="EST_PEDIDO_ID_EST_PEDIDO" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EST_PEDIDO">
+          <Key>
+            <PropertyRef Name="ID_EST_PEDIDO" />
+          </Key>
+          <Property Name="ID_EST_PEDIDO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MENU">
+          <Key>
+            <PropertyRef Name="ID_MENU" />
+          </Key>
+          <Property Name="ID_MENU" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CODIGO_MENU" Type="varchar2" MaxLength="25" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="PRECIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FOTO" Type="blob" />
+          <Property Name="DISPONIBLE" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="TIPO_MENU_ID_TIPO_MENU" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MESA">
+          <Key>
+            <PropertyRef Name="ID_MESA" />
+          </Key>
+          <Property Name="ID_MESA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NUMERO_MESA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CAPACIDAD" Type="number" Precision="38" Scale="0" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="25" Nullable="false" />
+          <Property Name="EN_USO" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ACTIVA" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PAGO">
+          <Key>
+            <PropertyRef Name="ID_PAGO" />
+            <PropertyRef Name="TIPO_DE_PAGO_ID_TIPO_PAGO" />
+          </Key>
+          <Property Name="ID_PAGO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_PAGO" Type="date" />
+          <Property Name="URL" Type="varchar2" MaxLength="500" />
+          <Property Name="TOKEN" Type="varchar2" MaxLength="500" />
+          <Property Name="ORDEN_PAGO" Type="number" Precision="38" Scale="0" />
+          <Property Name="TIPO_DE_PAGO_ID_TIPO_PAGO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PEDIDO_ID_PEDIDO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CUOTAS" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="PEDIDO">
+          <Key>
+            <PropertyRef Name="ID_PEDIDO" />
+          </Key>
+          <Property Name="ID_PEDIDO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA" Type="date" Nullable="false" />
+          <Property Name="HORA" Type="date" Nullable="false" />
+          <Property Name="TOTAL" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROPINA" Type="number" Precision="38" Scale="0" />
+          <Property Name="MESA_ID_MESA" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRODUCTO">
+          <Key>
+            <PropertyRef Name="ID_PRODUCTO" />
+            <PropertyRef Name="UNIDAD_DE_MEDIDA_ID_U_MEDIDA" />
+            <PropertyRef Name="TIPO_PRODUCTO_ID_TIPO" />
+          </Key>
+          <Property Name="ID_PRODUCTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="150" Nullable="false" />
+          <Property Name="PRECIO_COMPRA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PRECIO_VENTA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="MARCA" Type="varchar2" MaxLength="25" />
+          <Property Name="CATEGORIA" Type="varchar2" MaxLength="25" Nullable="false" />
+          <Property Name="STOCK" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_VENCIMIENTO" Type="date" Nullable="false" />
+          <Property Name="UNIDAD_DE_MEDIDA_ID_U_MEDIDA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPO_PRODUCTO_ID_TIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROVEEDOR_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRODUCTO_MENU">
+          <Key>
+            <PropertyRef Name="PRODUCTO_ID_PRODUCTO" />
+            <PropertyRef Name="PRODUCTO_ID_U_MEDIDA" />
+            <PropertyRef Name="PRODUCTO_ID_TIPO" />
+            <PropertyRef Name="MENU_ID_MENU" />
+          </Key>
+          <Property Name="PRODUCTO_ID_PRODUCTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PRODUCTO_ID_U_MEDIDA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PRODUCTO_ID_TIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MENU_ID_MENU" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'RESTAURANTE.PRODUCTO_RECETA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="PRODUCTO_RECETA">
+          <Key>
+            <PropertyRef Name="CANTIDAD_PRODUCTO" />
+          </Key>
+          <Property Name="CANTIDAD_PRODUCTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RECETA_ID_RECETA" Type="number" Precision="38" Scale="0" />
+          <Property Name="PRODUCTO_ID_PRODUCTO" Type="number" Precision="38" Scale="0" />
+          <Property Name="PRODUCTO_ID_U_MEDIDA" Type="number" Precision="38" Scale="0" />
+          <Property Name="PRODUCTO_ID_TIPO" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="PROVEEDOR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="50" />
+          <Property Name="DIRECCION" Type="varchar2" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RECETA">
+          <Key>
+            <PropertyRef Name="ID_RECETA" />
+          </Key>
+          <Property Name="ID_RECETA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="25" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="150" Nullable="false" />
+          <Property Name="TIEMPO_PREPARACION" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PRECIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RECETA_MENU">
+          <Key>
+            <PropertyRef Name="RECETA_ID_RECETA" />
+            <PropertyRef Name="MENU_ID_MENU" />
+          </Key>
+          <Property Name="RECETA_ID_RECETA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MENU_ID_MENU" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RESERVA">
+          <Key>
+            <PropertyRef Name="ID_RESERVA" />
+          </Key>
+          <Property Name="ID_RESERVA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CODIGO_RESERVA" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="FECHA" Type="date" Nullable="false" />
+          <Property Name="CANTIDAD_COMENSALES" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ESTADO_RESERVA" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="USUARIO_ID_USUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USUARIO_ROL_ID_ROL" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MESA_ID_MESA" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ROL">
+          <Key>
+            <PropertyRef Name="ID_ROL" />
+          </Key>
+          <Property Name="ID_ROL" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPO_DE_PAGO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_PAGO" />
+          </Key>
+          <Property Name="ID_TIPO_PAGO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPO_MENU">
+          <Key>
+            <PropertyRef Name="ID_TIPO_MENU" />
+          </Key>
+          <Property Name="ID_TIPO_MENU" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPO_MENU" Type="varchar2" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPO_PRODUCTO">
+          <Key>
+            <PropertyRef Name="ID_TIPO" />
+          </Key>
+          <Property Name="ID_TIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPO_PRODUCTO" Type="varchar2" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UNIDAD_DE_MEDIDA">
+          <Key>
+            <PropertyRef Name="ID_U_MEDIDA" />
+          </Key>
+          <Property Name="ID_U_MEDIDA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CODIGO_U_MEDIDA" Type="varchar2" MaxLength="25" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+            <PropertyRef Name="ROL_ID_ROL" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CONTRASENA" Type="varchar2" MaxLength="150" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="APELLIDO" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="DIRECCION" Type="varchar2" MaxLength="100" />
+          <Property Name="ROL_ID_ROL" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="GENERO" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="ESTADO_USUARIO" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="TELEFONO" Type="varchar2" MaxLength="25" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'RESTAURANTE.USUARIO_PEDIDO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="USUARIO_PEDIDO">
+          <Key>
+            <PropertyRef Name="USUARIO_ID_USUARIO" />
+            <PropertyRef Name="USUARIO_ROL_ID_ROL" />
+            <PropertyRef Name="PEDIDO_ID_PEDIDO" />
+          </Key>
+          <Property Name="COMENTARIO_ESPECIAL" Type="varchar2" MaxLength="25" />
+          <Property Name="USUARIO_ID_USUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USUARIO_ROL_ID_ROL" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PEDIDO_ID_PEDIDO" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <Association Name="DETALLE_PEDIDO_EST_PEDIDO_FK">
+          <End Role="EST_PEDIDO" Type="Self.EST_PEDIDO" Multiplicity="1" />
+          <End Role="DETALLE_PEDIDO" Type="Self.DETALLE_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EST_PEDIDO">
+              <PropertyRef Name="ID_EST_PEDIDO" />
+            </Principal>
+            <Dependent Role="DETALLE_PEDIDO">
+              <PropertyRef Name="EST_PEDIDO_ID_EST_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_PEDIDO_PEDIDO_FK">
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
+          <End Role="DETALLE_PEDIDO" Type="Self.DETALLE_PEDIDO" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PEDIDO">
+              <PropertyRef Name="ID_PEDIDO" />
+            </Principal>
+            <Dependent Role="DETALLE_PEDIDO">
+              <PropertyRef Name="PEDIDO_ID_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_PEDIDO_PRODUCTO_FK">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="0..1" />
+          <End Role="DETALLE_PEDIDO" Type="Self.DETALLE_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="ID_PRODUCTO" />
+              <PropertyRef Name="UNIDAD_DE_MEDIDA_ID_U_MEDIDA" />
+              <PropertyRef Name="TIPO_PRODUCTO_ID_TIPO" />
+            </Principal>
+            <Dependent Role="DETALLE_PEDIDO">
+              <PropertyRef Name="PRODUCTO_ID_PRODUCTO" />
+              <PropertyRef Name="PRODUCTO_ID_U_MEDIDA" />
+              <PropertyRef Name="PRODUCTO_ID_TIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_PEDIDO_RECETA_FK">
+          <End Role="RECETA" Type="Self.RECETA" Multiplicity="0..1" />
+          <End Role="DETALLE_PEDIDO" Type="Self.DETALLE_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECETA">
+              <PropertyRef Name="ID_RECETA" />
+            </Principal>
+            <Dependent Role="DETALLE_PEDIDO">
+              <PropertyRef Name="RECETA_ID_RECETA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MENU_TIPO_MENU_FK">
+          <End Role="TIPO_MENU" Type="Self.TIPO_MENU" Multiplicity="1" />
+          <End Role="MENU" Type="Self.MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_MENU">
+              <PropertyRef Name="ID_TIPO_MENU" />
+            </Principal>
+            <Dependent Role="MENU">
+              <PropertyRef Name="TIPO_MENU_ID_TIPO_MENU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PAGO_PEDIDO_FK">
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
+          <End Role="PAGO" Type="Self.PAGO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PEDIDO">
+              <PropertyRef Name="ID_PEDIDO" />
+            </Principal>
+            <Dependent Role="PAGO">
+              <PropertyRef Name="PEDIDO_ID_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PAGO_TIPO_DE_PAGO_FK">
+          <End Role="TIPO_DE_PAGO" Type="Self.TIPO_DE_PAGO" Multiplicity="1" />
+          <End Role="PAGO" Type="Self.PAGO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_DE_PAGO">
+              <PropertyRef Name="ID_TIPO_PAGO" />
+            </Principal>
+            <Dependent Role="PAGO">
+              <PropertyRef Name="TIPO_DE_PAGO_ID_TIPO_PAGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PEDIDO_MESA_FK">
+          <End Role="MESA" Type="Self.MESA" Multiplicity="1" />
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MESA">
+              <PropertyRef Name="ID_MESA" />
+            </Principal>
+            <Dependent Role="PEDIDO">
+              <PropertyRef Name="MESA_ID_MESA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_MENU_MENU_FK">
+          <End Role="MENU" Type="Self.MENU" Multiplicity="1" />
+          <End Role="PRODUCTO_MENU" Type="Self.PRODUCTO_MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MENU">
+              <PropertyRef Name="ID_MENU" />
+            </Principal>
+            <Dependent Role="PRODUCTO_MENU">
+              <PropertyRef Name="MENU_ID_MENU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_MENU_PRODUCTO_FK">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1" />
+          <End Role="PRODUCTO_MENU" Type="Self.PRODUCTO_MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="ID_PRODUCTO" />
+              <PropertyRef Name="UNIDAD_DE_MEDIDA_ID_U_MEDIDA" />
+              <PropertyRef Name="TIPO_PRODUCTO_ID_TIPO" />
+            </Principal>
+            <Dependent Role="PRODUCTO_MENU">
+              <PropertyRef Name="PRODUCTO_ID_PRODUCTO" />
+              <PropertyRef Name="PRODUCTO_ID_U_MEDIDA" />
+              <PropertyRef Name="PRODUCTO_ID_TIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_PROVEEDOR_FK">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="PROVEEDOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_RECETA_PRODUCTO_FK">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="0..1" />
+          <End Role="PRODUCTO_RECETA" Type="Self.PRODUCTO_RECETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="ID_PRODUCTO" />
+              <PropertyRef Name="UNIDAD_DE_MEDIDA_ID_U_MEDIDA" />
+              <PropertyRef Name="TIPO_PRODUCTO_ID_TIPO" />
+            </Principal>
+            <Dependent Role="PRODUCTO_RECETA">
+              <PropertyRef Name="PRODUCTO_ID_PRODUCTO" />
+              <PropertyRef Name="PRODUCTO_ID_U_MEDIDA" />
+              <PropertyRef Name="PRODUCTO_ID_TIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_RECETA_RECETA_FK">
+          <End Role="RECETA" Type="Self.RECETA" Multiplicity="0..1" />
+          <End Role="PRODUCTO_RECETA" Type="Self.PRODUCTO_RECETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECETA">
+              <PropertyRef Name="ID_RECETA" />
+            </Principal>
+            <Dependent Role="PRODUCTO_RECETA">
+              <PropertyRef Name="RECETA_ID_RECETA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_TIPO_PRODUCTO_FK">
+          <End Role="TIPO_PRODUCTO" Type="Self.TIPO_PRODUCTO" Multiplicity="1" />
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_PRODUCTO">
+              <PropertyRef Name="ID_TIPO" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="TIPO_PRODUCTO_ID_TIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_UNIDAD_DE_MEDIDA_FK">
+          <End Role="UNIDAD_DE_MEDIDA" Type="Self.UNIDAD_DE_MEDIDA" Multiplicity="1" />
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UNIDAD_DE_MEDIDA">
+              <PropertyRef Name="ID_U_MEDIDA" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="UNIDAD_DE_MEDIDA_ID_U_MEDIDA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RECETA_MENU_MENU_FK">
+          <End Role="MENU" Type="Self.MENU" Multiplicity="1" />
+          <End Role="RECETA_MENU" Type="Self.RECETA_MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MENU">
+              <PropertyRef Name="ID_MENU" />
+            </Principal>
+            <Dependent Role="RECETA_MENU">
+              <PropertyRef Name="MENU_ID_MENU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RECETA_MENU_RECETA_FK">
+          <End Role="RECETA" Type="Self.RECETA" Multiplicity="1" />
+          <End Role="RECETA_MENU" Type="Self.RECETA_MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECETA">
+              <PropertyRef Name="ID_RECETA" />
+            </Principal>
+            <Dependent Role="RECETA_MENU">
+              <PropertyRef Name="RECETA_ID_RECETA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RESERVA_MESA_FK">
+          <End Role="MESA" Type="Self.MESA" Multiplicity="1" />
+          <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MESA">
+              <PropertyRef Name="ID_MESA" />
+            </Principal>
+            <Dependent Role="RESERVA">
+              <PropertyRef Name="MESA_ID_MESA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RESERVA_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+              <PropertyRef Name="ROL_ID_ROL" />
+            </Principal>
+            <Dependent Role="RESERVA">
+              <PropertyRef Name="USUARIO_ID_USUARIO" />
+              <PropertyRef Name="USUARIO_ROL_ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_PEDIDO_PEDIDO_FK">
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
+          <End Role="USUARIO_PEDIDO" Type="Self.USUARIO_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PEDIDO">
+              <PropertyRef Name="ID_PEDIDO" />
+            </Principal>
+            <Dependent Role="USUARIO_PEDIDO">
+              <PropertyRef Name="PEDIDO_ID_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_PEDIDO_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="USUARIO_PEDIDO" Type="Self.USUARIO_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+              <PropertyRef Name="ROL_ID_ROL" />
+            </Principal>
+            <Dependent Role="USUARIO_PEDIDO">
+              <PropertyRef Name="USUARIO_ID_USUARIO" />
+              <PropertyRef Name="USUARIO_ROL_ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_ROL_FK">
+          <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="ID_ROL" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ROL_ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="AGREGARDETALLEPEDIDO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_CANTIDAD" Type="number" Mode="In" />
+          <Parameter Name="P_PEDIDO_ID_PEDIDO" Type="number" Mode="In" />
+          <Parameter Name="P_RECETA_ID_RECETA" Type="number" Mode="In" />
+          <Parameter Name="P_PRODUCTO_ID_PRODUCTO" Type="number" Mode="In" />
+          <Parameter Name="P_PRODUCTO_ID_U_MEDIDA" Type="number" Mode="In" />
+          <Parameter Name="P_PRODUCTO_ID_TIPO" Type="number" Mode="In" />
+          <Parameter Name="P_EST_PEDIDO_ID_EST_PEDIDO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="ASIGNARMESAACLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_MESA" Type="number" Mode="In" />
+          <Parameter Name="P_CLIENTE_NOMBRE" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="CANTIDADPRODUCTOSPORCATEGORIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE" />
+        <Function Name="CONTROLARSTOCK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_PRODUCTO" Type="number" Mode="In" />
+          <Parameter Name="P_CANTIDAD_VENTA" Type="number" Mode="In" />
+        </Function>
+        <Function Name="DASHBOARDDATOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="TOTVENTAS" Type="number" Mode="Out" />
+          <Parameter Name="NPRODUCTO" Type="number" Mode="Out" />
+          <Parameter Name="NPROVEEDORES" Type="number" Mode="Out" />
+          <Parameter Name="NPEDIDO" Type="number" Mode="Out" />
+          <Parameter Name="NTRABAJADORES" Type="number" Mode="Out" />
+          <Parameter Name="NCLIENTES" Type="number" Mode="Out" />
+        </Function>
+        <Function Name="ELIMINARMENU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_MENU" Type="number" Mode="In" />
+        </Function>
+        <Function Name="ELIMINARMESA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_MESA" Type="number" Mode="In" />
+        </Function>
+        <Function Name="ELIMINARPAGO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_PAGO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="ELIMINARPRODUCTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_PRODUCTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="ELIMINARPROVEEDOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID" Type="number" Mode="In" />
+        </Function>
+        <Function Name="ELIMINARRECETA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_RECETA" Type="number" Mode="In" />
+        </Function>
+        <Function Name="ELIMINARRESERVA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_RESERVA" Type="number" Mode="In" />
+        </Function>
+        <Function Name="ELIMINARRESERVACONUSUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_RESERVA" Type="number" Mode="In" />
+        </Function>
+        <Function Name="ELIMINARUSUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_USUARIO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INGRESARRECETA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_RECETA" Type="number" Mode="In" />
+          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_TIEMPO_PREPARACION" Type="number" Mode="In" />
+          <Parameter Name="P_PRECIO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INGRESARRECETA2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_TIEMPO_PREPARACION" Type="number" Mode="In" />
+          <Parameter Name="P_PRECIO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INGRESARRECETA3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_TIEMPO_PREPARACION" Type="number" Mode="In" />
+          <Parameter Name="P_PRECIO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INSERTARMENU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_MENU" Type="number" Mode="In" />
+          <Parameter Name="P_CODIGO_MENU" Type="varchar2" Mode="In" />
+          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_PRECIO" Type="number" Mode="In" />
+          <Parameter Name="P_FOTO" Type="blob" Mode="In" />
+          <Parameter Name="P_DISPONIBLE" Type="number" Mode="In" />
+          <Parameter Name="P_TIPO_MENU_ID" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INSERTARMESA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_MESA" Type="number" Mode="In" />
+          <Parameter Name="P_NUMERO_MESA" Type="number" Mode="In" />
+          <Parameter Name="P_CAPACIDAD" Type="number" Mode="In" />
+          <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_EN_USO" Type="char" Mode="In" />
+          <Parameter Name="P_ACTIVA" Type="char" Mode="In" />
+        </Function>
+        <Function Name="INSERTARPAGO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_PAGO" Type="number" Mode="In" />
+          <Parameter Name="P_FECHA_PAGO" Type="date" Mode="In" />
+          <Parameter Name="P_URL" Type="varchar2" Mode="In" />
+          <Parameter Name="P_TOKEN" Type="varchar2" Mode="In" />
+          <Parameter Name="P_ORDEN_PAGO" Type="number" Mode="In" />
+          <Parameter Name="P_TIPO_DE_PAGO_ID_TIPO_PAGO" Type="number" Mode="In" />
+          <Parameter Name="P_PEDIDO_ID_PEDIDO" Type="number" Mode="In" />
+          <Parameter Name="P_CUOTAS" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INSERTARPRODUCTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_PRODUCTO" Type="number" Mode="In" />
+          <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_PRECIO_COMPRA" Type="number" Mode="In" />
+          <Parameter Name="P_PRECIO_VENTA" Type="number" Mode="In" />
+          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_MARCA" Type="varchar2" Mode="In" />
+          <Parameter Name="P_CATEGORIA" Type="varchar2" Mode="In" />
+          <Parameter Name="P_STOCK" Type="number" Mode="In" />
+          <Parameter Name="P_FECHA_VENCIMIENTO" Type="date" Mode="In" />
+          <Parameter Name="P_UNIDAD_DE_MEDIDA_ID" Type="number" Mode="In" />
+          <Parameter Name="P_TIPO_PRODUCTO_ID" Type="number" Mode="In" />
+          <Parameter Name="P_PROVEEDOR_ID" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INSERTARPROVEEDOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID" Type="number" Mode="In" />
+          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_EMAIL" Type="varchar2" Mode="In" />
+          <Parameter Name="P_DIRECCION" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="INSERTARPROVEEDOR2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_EMAIL" Type="varchar2" Mode="In" />
+          <Parameter Name="P_DIRECCION" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="INSERTARRESERVA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_RESERVA" Type="number" Mode="In" />
+          <Parameter Name="P_CODIGO_RESERVA" Type="varchar2" Mode="In" />
+          <Parameter Name="P_FECHA" Type="date" Mode="In" />
+          <Parameter Name="P_CANTIDAD_COMENSALES" Type="number" Mode="In" />
+          <Parameter Name="P_ESTADO_RESERVA" Type="char" Mode="In" />
+          <Parameter Name="P_USUARIO_ID_USUARIO" Type="number" Mode="In" />
+          <Parameter Name="P_USUARIO_ROL_ID_ROL" Type="number" Mode="In" />
+          <Parameter Name="P_MESA_ID_MESA" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INSERTARUSUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_USUARIO" Type="number" Mode="In" />
+          <Parameter Name="P_CONTRASENA" Type="varchar2" Mode="In" />
+          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_APELLIDO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_EMAIL" Type="varchar2" Mode="In" />
+          <Parameter Name="P_DIRECCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_ROL_ID_ROL" Type="number" Mode="In" />
+          <Parameter Name="P_GENERO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_ESTADO_USUARIO" Type="number" Mode="In" />
+          <Parameter Name="P_TELEFONO" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="INSERTARUSUARIO2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_CONTRASENA" Type="varchar2" Mode="In" />
+          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_APELLIDO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_EMAIL" Type="varchar2" Mode="In" />
+          <Parameter Name="P_DIRECCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_ROL_ID_ROL" Type="number" Mode="In" />
+          <Parameter Name="P_GENERO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_ESTADO_USUARIO" Type="number" Mode="In" />
+          <Parameter Name="P_TELEFONO" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="INSERTARUSUARIO3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_CONTRASENA" Type="varchar2" Mode="In" />
+          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_APELLIDO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_EMAIL" Type="varchar2" Mode="In" />
+          <Parameter Name="P_DIRECCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_ROL_ID_ROL" Type="number" Mode="In" />
+          <Parameter Name="P_GENERO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_ESTADO_USUARIO" Type="number" Mode="In" />
+          <Parameter Name="P_TELEFONO" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="LISTARMENUS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE" />
+        <Function Name="LISTARMESAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE" />
+        <Function Name="LISTARPAGOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE" />
+        <Function Name="LISTARPRODUCTOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE" />
+        <Function Name="LISTARPROVEEDORES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE" />
+        <Function Name="LISTARRECETAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE" />
+        <Function Name="LISTARRESERVAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE" />
+        <Function Name="LISTARUSUARIOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE" />
+        <Function Name="MODIFICARESTADOPEDIDO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_PEDIDO_ID_PEDIDO" Type="number" Mode="In" />
+          <Parameter Name="P_EST_PEDIDO_ID_EST_PEDIDO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="MODIFICARMENU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_MENU" Type="number" Mode="In" />
+          <Parameter Name="P_CODIGO_MENU" Type="varchar2" Mode="In" />
+          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_PRECIO" Type="number" Mode="In" />
+          <Parameter Name="P_FOTO" Type="blob" Mode="In" />
+          <Parameter Name="P_DISPONIBLE" Type="number" Mode="In" />
+          <Parameter Name="P_TIPO_MENU_ID" Type="number" Mode="In" />
+        </Function>
+        <Function Name="MODIFICARMESA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_MESA" Type="number" Mode="In" />
+          <Parameter Name="P_NUMERO_MESA" Type="number" Mode="In" />
+          <Parameter Name="P_CAPACIDAD" Type="number" Mode="In" />
+          <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_EN_USO" Type="char" Mode="In" />
+          <Parameter Name="P_ACTIVA" Type="char" Mode="In" />
+        </Function>
+        <Function Name="MODIFICARPAGO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_PAGO" Type="number" Mode="In" />
+          <Parameter Name="P_FECHA_PAGO" Type="date" Mode="In" />
+          <Parameter Name="P_URL" Type="varchar2" Mode="In" />
+          <Parameter Name="P_TOKEN" Type="varchar2" Mode="In" />
+          <Parameter Name="P_ORDEN_PAGO" Type="number" Mode="In" />
+          <Parameter Name="P_TIPO_DE_PAGO_ID_TIPO_PAGO" Type="number" Mode="In" />
+          <Parameter Name="P_PEDIDO_ID_PEDIDO" Type="number" Mode="In" />
+          <Parameter Name="P_CUOTAS" Type="number" Mode="In" />
+        </Function>
+        <Function Name="MODIFICARPRODUCTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_PRODUCTO" Type="number" Mode="In" />
+          <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_PRECIO_COMPRA" Type="number" Mode="In" />
+          <Parameter Name="P_PRECIO_VENTA" Type="number" Mode="In" />
+          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_MARCA" Type="varchar2" Mode="In" />
+          <Parameter Name="P_CATEGORIA" Type="varchar2" Mode="In" />
+          <Parameter Name="P_STOCK" Type="number" Mode="In" />
+          <Parameter Name="P_FECHA_VENCIMIENTO" Type="date" Mode="In" />
+          <Parameter Name="P_UNIDAD_DE_MEDIDA_ID" Type="number" Mode="In" />
+          <Parameter Name="P_TIPO_PRODUCTO_ID" Type="number" Mode="In" />
+          <Parameter Name="P_PROVEEDOR_ID" Type="number" Mode="In" />
+        </Function>
+        <Function Name="MODIFICARPROVEEDOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID" Type="number" Mode="In" />
+          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_EMAIL" Type="varchar2" Mode="In" />
+          <Parameter Name="P_DIRECCION" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="MODIFICARRECETA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_RECETA" Type="number" Mode="In" />
+          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_DESCRIPCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_TIEMPO_PREPARACION" Type="number" Mode="In" />
+          <Parameter Name="P_PRECIO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="MODIFICARRESERVA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_RESERVA" Type="number" Mode="In" />
+          <Parameter Name="P_CODIGO_RESERVA" Type="varchar2" Mode="In" />
+          <Parameter Name="P_FECHA" Type="date" Mode="In" />
+          <Parameter Name="P_CANTIDAD_COMENSALES" Type="number" Mode="In" />
+          <Parameter Name="P_ESTADO_RESERVA" Type="char" Mode="In" />
+          <Parameter Name="P_USUARIO_ID_USUARIO" Type="number" Mode="In" />
+          <Parameter Name="P_USUARIO_ROL_ID_ROL" Type="number" Mode="In" />
+          <Parameter Name="P_MESA_ID_MESA" Type="number" Mode="In" />
+        </Function>
+        <Function Name="MODIFICARUSUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_ID_USUARIO" Type="number" Mode="In" />
+          <Parameter Name="P_CONTRASENA" Type="varchar2" Mode="In" />
+          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="P_APELLIDO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_EMAIL" Type="varchar2" Mode="In" />
+          <Parameter Name="P_DIRECCION" Type="varchar2" Mode="In" />
+          <Parameter Name="P_ROL_ID_ROL" Type="number" Mode="In" />
+          <Parameter Name="P_GENERO" Type="varchar2" Mode="In" />
+          <Parameter Name="P_ESTADO_USUARIO" Type="number" Mode="In" />
+          <Parameter Name="P_TELEFONO" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="PRODUCTOSTOP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE" />
+        <Function Name="REALIZARRESERVA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="RESTAURANTE">
+          <Parameter Name="P_CODIGO_RESERVA" Type="varchar2" Mode="In" />
+          <Parameter Name="P_FECHA" Type="date" Mode="In" />
+          <Parameter Name="P_CANTIDAD_COMENSALES" Type="number" Mode="In" />
+          <Parameter Name="P_USUARIO_ID_USUARIO" Type="number" Mode="In" />
+        </Function>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="DETALLE_PEDIDO" EntityType="Self.DETALLE_PEDIDO" Schema="RESTAURANTE" store:Type="Tables" />
+          <EntitySet Name="EST_PEDIDO" EntityType="Self.EST_PEDIDO" Schema="RESTAURANTE" store:Type="Tables" />
+          <EntitySet Name="MENU" EntityType="Self.MENU" Schema="RESTAURANTE" store:Type="Tables" />
+          <EntitySet Name="MESA" EntityType="Self.MESA" Schema="RESTAURANTE" store:Type="Tables" />
+          <EntitySet Name="PAGO" EntityType="Self.PAGO" Schema="RESTAURANTE" store:Type="Tables" />
+          <EntitySet Name="PEDIDO" EntityType="Self.PEDIDO" Schema="RESTAURANTE" store:Type="Tables" />
+          <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="RESTAURANTE" store:Type="Tables" />
+          <EntitySet Name="PRODUCTO_MENU" EntityType="Self.PRODUCTO_MENU" Schema="RESTAURANTE" store:Type="Tables" />
+          <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" Schema="RESTAURANTE" store:Type="Tables" />
+          <EntitySet Name="RECETA" EntityType="Self.RECETA" Schema="RESTAURANTE" store:Type="Tables" />
+          <EntitySet Name="RECETA_MENU" EntityType="Self.RECETA_MENU" Schema="RESTAURANTE" store:Type="Tables" />
+          <EntitySet Name="RESERVA" EntityType="Self.RESERVA" Schema="RESTAURANTE" store:Type="Tables" />
+          <EntitySet Name="ROL" EntityType="Self.ROL" Schema="RESTAURANTE" store:Type="Tables" />
+          <EntitySet Name="TIPO_DE_PAGO" EntityType="Self.TIPO_DE_PAGO" Schema="RESTAURANTE" store:Type="Tables" />
+          <EntitySet Name="TIPO_MENU" EntityType="Self.TIPO_MENU" Schema="RESTAURANTE" store:Type="Tables" />
+          <EntitySet Name="TIPO_PRODUCTO" EntityType="Self.TIPO_PRODUCTO" Schema="RESTAURANTE" store:Type="Tables" />
+          <EntitySet Name="UNIDAD_DE_MEDIDA" EntityType="Self.UNIDAD_DE_MEDIDA" Schema="RESTAURANTE" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="RESTAURANTE" store:Type="Tables" />
+          <EntitySet Name="PRODUCTO_RECETA" EntityType="Self.PRODUCTO_RECETA" store:Type="Tables" store:Schema="RESTAURANTE">
+            <DefiningQuery>SELECT 
+"PRODUCTO_RECETA"."CANTIDAD_PRODUCTO" AS "CANTIDAD_PRODUCTO", 
+"PRODUCTO_RECETA"."RECETA_ID_RECETA" AS "RECETA_ID_RECETA", 
+"PRODUCTO_RECETA"."PRODUCTO_ID_PRODUCTO" AS "PRODUCTO_ID_PRODUCTO", 
+"PRODUCTO_RECETA"."PRODUCTO_ID_U_MEDIDA" AS "PRODUCTO_ID_U_MEDIDA", 
+"PRODUCTO_RECETA"."PRODUCTO_ID_TIPO" AS "PRODUCTO_ID_TIPO"
+FROM "RESTAURANTE"."PRODUCTO_RECETA" "PRODUCTO_RECETA"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="USUARIO_PEDIDO" EntityType="Self.USUARIO_PEDIDO" store:Type="Tables" store:Schema="RESTAURANTE">
+            <DefiningQuery>SELECT 
+"USUARIO_PEDIDO"."COMENTARIO_ESPECIAL" AS "COMENTARIO_ESPECIAL", 
+"USUARIO_PEDIDO"."USUARIO_ID_USUARIO" AS "USUARIO_ID_USUARIO", 
+"USUARIO_PEDIDO"."USUARIO_ROL_ID_ROL" AS "USUARIO_ROL_ID_ROL", 
+"USUARIO_PEDIDO"."PEDIDO_ID_PEDIDO" AS "PEDIDO_ID_PEDIDO"
+FROM "RESTAURANTE"."USUARIO_PEDIDO" "USUARIO_PEDIDO"</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="DETALLE_PEDIDO_EST_PEDIDO_FK" Association="Self.DETALLE_PEDIDO_EST_PEDIDO_FK">
+            <End Role="EST_PEDIDO" EntitySet="EST_PEDIDO" />
+            <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_PEDIDO_PEDIDO_FK" Association="Self.DETALLE_PEDIDO_PEDIDO_FK">
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
+            <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_PEDIDO_PRODUCTO_FK" Association="Self.DETALLE_PEDIDO_PRODUCTO_FK">
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+            <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_PEDIDO_RECETA_FK" Association="Self.DETALLE_PEDIDO_RECETA_FK">
+            <End Role="RECETA" EntitySet="RECETA" />
+            <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="MENU_TIPO_MENU_FK" Association="Self.MENU_TIPO_MENU_FK">
+            <End Role="TIPO_MENU" EntitySet="TIPO_MENU" />
+            <End Role="MENU" EntitySet="MENU" />
+          </AssociationSet>
+          <AssociationSet Name="PAGO_PEDIDO_FK" Association="Self.PAGO_PEDIDO_FK">
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
+            <End Role="PAGO" EntitySet="PAGO" />
+          </AssociationSet>
+          <AssociationSet Name="PAGO_TIPO_DE_PAGO_FK" Association="Self.PAGO_TIPO_DE_PAGO_FK">
+            <End Role="TIPO_DE_PAGO" EntitySet="TIPO_DE_PAGO" />
+            <End Role="PAGO" EntitySet="PAGO" />
+          </AssociationSet>
+          <AssociationSet Name="PEDIDO_MESA_FK" Association="Self.PEDIDO_MESA_FK">
+            <End Role="MESA" EntitySet="MESA" />
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_MENU_MENU_FK" Association="Self.PRODUCTO_MENU_MENU_FK">
+            <End Role="MENU" EntitySet="MENU" />
+            <End Role="PRODUCTO_MENU" EntitySet="PRODUCTO_MENU" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_MENU_PRODUCTO_FK" Association="Self.PRODUCTO_MENU_PRODUCTO_FK">
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+            <End Role="PRODUCTO_MENU" EntitySet="PRODUCTO_MENU" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_PROVEEDOR_FK" Association="Self.PRODUCTO_PROVEEDOR_FK">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_RECETA_PRODUCTO_FK" Association="Self.PRODUCTO_RECETA_PRODUCTO_FK">
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+            <End Role="PRODUCTO_RECETA" EntitySet="PRODUCTO_RECETA" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_RECETA_RECETA_FK" Association="Self.PRODUCTO_RECETA_RECETA_FK">
+            <End Role="RECETA" EntitySet="RECETA" />
+            <End Role="PRODUCTO_RECETA" EntitySet="PRODUCTO_RECETA" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_TIPO_PRODUCTO_FK" Association="Self.PRODUCTO_TIPO_PRODUCTO_FK">
+            <End Role="TIPO_PRODUCTO" EntitySet="TIPO_PRODUCTO" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_UNIDAD_DE_MEDIDA_FK" Association="Self.PRODUCTO_UNIDAD_DE_MEDIDA_FK">
+            <End Role="UNIDAD_DE_MEDIDA" EntitySet="UNIDAD_DE_MEDIDA" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="RECETA_MENU_MENU_FK" Association="Self.RECETA_MENU_MENU_FK">
+            <End Role="MENU" EntitySet="MENU" />
+            <End Role="RECETA_MENU" EntitySet="RECETA_MENU" />
+          </AssociationSet>
+          <AssociationSet Name="RECETA_MENU_RECETA_FK" Association="Self.RECETA_MENU_RECETA_FK">
+            <End Role="RECETA" EntitySet="RECETA" />
+            <End Role="RECETA_MENU" EntitySet="RECETA_MENU" />
+          </AssociationSet>
+          <AssociationSet Name="RESERVA_MESA_FK" Association="Self.RESERVA_MESA_FK">
+            <End Role="MESA" EntitySet="MESA" />
+            <End Role="RESERVA" EntitySet="RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="RESERVA_USUARIO_FK" Association="Self.RESERVA_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="RESERVA" EntitySet="RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIO_PEDIDO_PEDIDO_FK" Association="Self.USUARIO_PEDIDO_PEDIDO_FK">
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
+            <End Role="USUARIO_PEDIDO" EntitySet="USUARIO_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIO_PEDIDO_USUARIO_FK" Association="Self.USUARIO_PEDIDO_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="USUARIO_PEDIDO" EntitySet="USUARIO_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIO_ROL_FK" Association="Self.USUARIO_ROL_FK">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DETALLE_PEDIDO">
+          <Key>
+            <PropertyRef Name="PEDIDO_ID_PEDIDO" />
+          </Key>
+          <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PEDIDO_ID_PEDIDO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RECETA_ID_RECETA" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="PRODUCTO_ID_PRODUCTO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="PRODUCTO_ID_U_MEDIDA" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="PRODUCTO_ID_TIPO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="EST_PEDIDO_ID_EST_PEDIDO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="EST_PEDIDO" Relationship="Self.DETALLE_PEDIDO_EST_PEDIDO_FK" FromRole="DETALLE_PEDIDO" ToRole="EST_PEDIDO" />
+          <NavigationProperty Name="PEDIDO" Relationship="Self.DETALLE_PEDIDO_PEDIDO_FK" FromRole="DETALLE_PEDIDO" ToRole="PEDIDO" />
+          <NavigationProperty Name="PRODUCTO" Relationship="Self.DETALLE_PEDIDO_PRODUCTO_FK" FromRole="DETALLE_PEDIDO" ToRole="PRODUCTO" />
+          <NavigationProperty Name="RECETA" Relationship="Self.DETALLE_PEDIDO_RECETA_FK" FromRole="DETALLE_PEDIDO" ToRole="RECETA" />
+        </EntityType>
+        <EntityType Name="EST_PEDIDO">
+          <Key>
+            <PropertyRef Name="ID_EST_PEDIDO" />
+          </Key>
+          <Property Name="ID_EST_PEDIDO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DETALLE_PEDIDO" Relationship="Self.DETALLE_PEDIDO_EST_PEDIDO_FK" FromRole="EST_PEDIDO" ToRole="DETALLE_PEDIDO" />
+        </EntityType>
+        <EntityType Name="MENU">
+          <Key>
+            <PropertyRef Name="ID_MENU" />
+          </Key>
+          <Property Name="ID_MENU" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CODIGO_MENU" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRECIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="DISPONIBLE" Type="Boolean" Nullable="false" />
+          <Property Name="TIPO_MENU_ID_TIPO_MENU" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="TIPO_MENU" Relationship="Self.MENU_TIPO_MENU_FK" FromRole="MENU" ToRole="TIPO_MENU" />
+          <NavigationProperty Name="PRODUCTO" Relationship="Self.PRODUCTO_MENU" FromRole="MENU" ToRole="PRODUCTO" />
+          <NavigationProperty Name="RECETA" Relationship="Self.RECETA_MENU" FromRole="MENU" ToRole="RECETA" />
+        </EntityType>
+        <EntityType Name="MESA">
+          <Key>
+            <PropertyRef Name="ID_MESA" />
+          </Key>
+          <Property Name="ID_MESA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NUMERO_MESA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CAPACIDAD" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EN_USO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ACTIVA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PEDIDO" Relationship="Self.PEDIDO_MESA_FK" FromRole="MESA" ToRole="PEDIDO" />
+          <NavigationProperty Name="RESERVA" Relationship="Self.RESERVA_MESA_FK" FromRole="MESA" ToRole="RESERVA" />
+        </EntityType>
+        <EntityType Name="PAGO">
+          <Key>
+            <PropertyRef Name="ID_PAGO" />
+            <PropertyRef Name="TIPO_DE_PAGO_ID_TIPO_PAGO" />
+          </Key>
+          <Property Name="ID_PAGO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_PAGO" Type="DateTime" />
+          <Property Name="URL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="TOKEN" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ORDEN_PAGO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="TIPO_DE_PAGO_ID_TIPO_PAGO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PEDIDO_ID_PEDIDO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CUOTAS" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="PEDIDO" Relationship="Self.PAGO_PEDIDO_FK" FromRole="PAGO" ToRole="PEDIDO" />
+          <NavigationProperty Name="TIPO_DE_PAGO" Relationship="Self.PAGO_TIPO_DE_PAGO_FK" FromRole="PAGO" ToRole="TIPO_DE_PAGO" />
+        </EntityType>
+        <EntityType Name="PEDIDO">
+          <Key>
+            <PropertyRef Name="ID_PEDIDO" />
+          </Key>
+          <Property Name="ID_PEDIDO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA" Type="DateTime" Nullable="false" />
+          <Property Name="HORA" Type="DateTime" Nullable="false" />
+          <Property Name="TOTAL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROPINA" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="MESA_ID_MESA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="DETALLE_PEDIDO" Relationship="Self.DETALLE_PEDIDO_PEDIDO_FK" FromRole="PEDIDO" ToRole="DETALLE_PEDIDO" />
+          <NavigationProperty Name="MESA" Relationship="Self.PEDIDO_MESA_FK" FromRole="PEDIDO" ToRole="MESA" />
+          <NavigationProperty Name="PAGO" Relationship="Self.PAGO_PEDIDO_FK" FromRole="PEDIDO" ToRole="PAGO" />
+          <NavigationProperty Name="USUARIO_PEDIDO" Relationship="Self.USUARIO_PEDIDO_PEDIDO_FK" FromRole="PEDIDO" ToRole="USUARIO_PEDIDO" />
+        </EntityType>
+        <EntityType Name="PRODUCTO">
+          <Key>
+            <PropertyRef Name="ID_PRODUCTO" />
+            <PropertyRef Name="UNIDAD_DE_MEDIDA_ID_U_MEDIDA" />
+            <PropertyRef Name="TIPO_PRODUCTO_ID_TIPO" />
+          </Key>
+          <Property Name="ID_PRODUCTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRECIO_COMPRA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PRECIO_VENTA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MARCA" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CATEGORIA" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STOCK" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_VENCIMIENTO" Type="DateTime" Nullable="false" />
+          <Property Name="UNIDAD_DE_MEDIDA_ID_U_MEDIDA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPO_PRODUCTO_ID_TIPO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROVEEDOR_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="DETALLE_PEDIDO" Relationship="Self.DETALLE_PEDIDO_PRODUCTO_FK" FromRole="PRODUCTO" ToRole="DETALLE_PEDIDO" />
+          <NavigationProperty Name="PROVEEDOR" Relationship="Self.PRODUCTO_PROVEEDOR_FK" FromRole="PRODUCTO" ToRole="PROVEEDOR" />
+          <NavigationProperty Name="PRODUCTO_RECETA" Relationship="Self.PRODUCTO_RECETA_PRODUCTO_FK" FromRole="PRODUCTO" ToRole="PRODUCTO_RECETA" />
+          <NavigationProperty Name="TIPO_PRODUCTO" Relationship="Self.PRODUCTO_TIPO_PRODUCTO_FK" FromRole="PRODUCTO" ToRole="TIPO_PRODUCTO" />
+          <NavigationProperty Name="UNIDAD_DE_MEDIDA" Relationship="Self.PRODUCTO_UNIDAD_DE_MEDIDA_FK" FromRole="PRODUCTO" ToRole="UNIDAD_DE_MEDIDA" />
+          <NavigationProperty Name="MENU" Relationship="Self.PRODUCTO_MENU" FromRole="PRODUCTO" ToRole="MENU" />
+        </EntityType>
+        <EntityType Name="PROVEEDOR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PRODUCTO" Relationship="Self.PRODUCTO_PROVEEDOR_FK" FromRole="PROVEEDOR" ToRole="PRODUCTO" />
+        </EntityType>
+        <EntityType Name="RECETA">
+          <Key>
+            <PropertyRef Name="ID_RECETA" />
+          </Key>
+          <Property Name="ID_RECETA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIEMPO_PREPARACION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PRECIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="DETALLE_PEDIDO" Relationship="Self.DETALLE_PEDIDO_RECETA_FK" FromRole="RECETA" ToRole="DETALLE_PEDIDO" />
+          <NavigationProperty Name="PRODUCTO_RECETA" Relationship="Self.PRODUCTO_RECETA_RECETA_FK" FromRole="RECETA" ToRole="PRODUCTO_RECETA" />
+          <NavigationProperty Name="MENU" Relationship="Self.RECETA_MENU" FromRole="RECETA" ToRole="MENU" />
+        </EntityType>
+        <EntityType Name="RESERVA">
+          <Key>
+            <PropertyRef Name="ID_RESERVA" />
+          </Key>
+          <Property Name="ID_RESERVA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CODIGO_RESERVA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FECHA" Type="DateTime" Nullable="false" />
+          <Property Name="CANTIDAD_COMENSALES" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ESTADO_RESERVA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="USUARIO_ID_USUARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USUARIO_ROL_ID_ROL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MESA_ID_MESA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="MESA" Relationship="Self.RESERVA_MESA_FK" FromRole="RESERVA" ToRole="MESA" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.RESERVA_USUARIO_FK" FromRole="RESERVA" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="ROL">
+          <Key>
+            <PropertyRef Name="ID_ROL" />
+          </Key>
+          <Property Name="ID_ROL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.USUARIO_ROL_FK" FromRole="ROL" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="TIPO_DE_PAGO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_PAGO" />
+          </Key>
+          <Property Name="ID_TIPO_PAGO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PAGO" Relationship="Self.PAGO_TIPO_DE_PAGO_FK" FromRole="TIPO_DE_PAGO" ToRole="PAGO" />
+        </EntityType>
+        <EntityType Name="TIPO_MENU">
+          <Key>
+            <PropertyRef Name="ID_TIPO_MENU" />
+          </Key>
+          <Property Name="ID_TIPO_MENU" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPO_MENU1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MENU" Relationship="Self.MENU_TIPO_MENU_FK" FromRole="TIPO_MENU" ToRole="MENU" />
+        </EntityType>
+        <EntityType Name="TIPO_PRODUCTO">
+          <Key>
+            <PropertyRef Name="ID_TIPO" />
+          </Key>
+          <Property Name="ID_TIPO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPO_PRODUCTO1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PRODUCTO" Relationship="Self.PRODUCTO_TIPO_PRODUCTO_FK" FromRole="TIPO_PRODUCTO" ToRole="PRODUCTO" />
+        </EntityType>
+        <EntityType Name="UNIDAD_DE_MEDIDA">
+          <Key>
+            <PropertyRef Name="ID_U_MEDIDA" />
+          </Key>
+          <Property Name="ID_U_MEDIDA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CODIGO_U_MEDIDA" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PRODUCTO" Relationship="Self.PRODUCTO_UNIDAD_DE_MEDIDA_FK" FromRole="UNIDAD_DE_MEDIDA" ToRole="PRODUCTO" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+            <PropertyRef Name="ROL_ID_ROL" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CONTRASENA" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APELLIDO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DIRECCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ROL_ID_ROL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="GENERO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ESTADO_USUARIO" Type="Boolean" Nullable="false" />
+          <Property Name="TELEFONO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RESERVA" Relationship="Self.RESERVA_USUARIO_FK" FromRole="USUARIO" ToRole="RESERVA" />
+          <NavigationProperty Name="ROL" Relationship="Self.USUARIO_ROL_FK" FromRole="USUARIO" ToRole="ROL" />
+          <NavigationProperty Name="USUARIO_PEDIDO" Relationship="Self.USUARIO_PEDIDO_USUARIO_FK" FromRole="USUARIO" ToRole="USUARIO_PEDIDO" />
+        </EntityType>
+        <EntityType Name="PRODUCTO_RECETA">
+          <Key>
+            <PropertyRef Name="CANTIDAD_PRODUCTO" />
+          </Key>
+          <Property Name="CANTIDAD_PRODUCTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RECETA_ID_RECETA" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="PRODUCTO_ID_PRODUCTO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="PRODUCTO_ID_U_MEDIDA" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="PRODUCTO_ID_TIPO" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="PRODUCTO" Relationship="Self.PRODUCTO_RECETA_PRODUCTO_FK" FromRole="PRODUCTO_RECETA" ToRole="PRODUCTO" />
+          <NavigationProperty Name="RECETA" Relationship="Self.PRODUCTO_RECETA_RECETA_FK" FromRole="PRODUCTO_RECETA" ToRole="RECETA" />
+        </EntityType>
+        <EntityType Name="USUARIO_PEDIDO">
+          <Key>
+            <PropertyRef Name="USUARIO_ID_USUARIO" />
+            <PropertyRef Name="USUARIO_ROL_ID_ROL" />
+            <PropertyRef Name="PEDIDO_ID_PEDIDO" />
+          </Key>
+          <Property Name="COMENTARIO_ESPECIAL" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="USUARIO_ID_USUARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USUARIO_ROL_ID_ROL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PEDIDO_ID_PEDIDO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="PEDIDO" Relationship="Self.USUARIO_PEDIDO_PEDIDO_FK" FromRole="USUARIO_PEDIDO" ToRole="PEDIDO" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.USUARIO_PEDIDO_USUARIO_FK" FromRole="USUARIO_PEDIDO" ToRole="USUARIO" />
+        </EntityType>
+        <Association Name="DETALLE_PEDIDO_EST_PEDIDO_FK">
+          <End Role="EST_PEDIDO" Type="Self.EST_PEDIDO" Multiplicity="1" />
+          <End Role="DETALLE_PEDIDO" Type="Self.DETALLE_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EST_PEDIDO">
+              <PropertyRef Name="ID_EST_PEDIDO" />
+            </Principal>
+            <Dependent Role="DETALLE_PEDIDO">
+              <PropertyRef Name="EST_PEDIDO_ID_EST_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_PEDIDO_PEDIDO_FK">
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
+          <End Role="DETALLE_PEDIDO" Type="Self.DETALLE_PEDIDO" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PEDIDO">
+              <PropertyRef Name="ID_PEDIDO" />
+            </Principal>
+            <Dependent Role="DETALLE_PEDIDO">
+              <PropertyRef Name="PEDIDO_ID_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_PEDIDO_PRODUCTO_FK">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="0..1" />
+          <End Role="DETALLE_PEDIDO" Type="Self.DETALLE_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="ID_PRODUCTO" />
+              <PropertyRef Name="UNIDAD_DE_MEDIDA_ID_U_MEDIDA" />
+              <PropertyRef Name="TIPO_PRODUCTO_ID_TIPO" />
+            </Principal>
+            <Dependent Role="DETALLE_PEDIDO">
+              <PropertyRef Name="PRODUCTO_ID_PRODUCTO" />
+              <PropertyRef Name="PRODUCTO_ID_U_MEDIDA" />
+              <PropertyRef Name="PRODUCTO_ID_TIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_PEDIDO_RECETA_FK">
+          <End Role="RECETA" Type="Self.RECETA" Multiplicity="0..1" />
+          <End Role="DETALLE_PEDIDO" Type="Self.DETALLE_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECETA">
+              <PropertyRef Name="ID_RECETA" />
+            </Principal>
+            <Dependent Role="DETALLE_PEDIDO">
+              <PropertyRef Name="RECETA_ID_RECETA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MENU_TIPO_MENU_FK">
+          <End Role="TIPO_MENU" Type="Self.TIPO_MENU" Multiplicity="1" />
+          <End Role="MENU" Type="Self.MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_MENU">
+              <PropertyRef Name="ID_TIPO_MENU" />
+            </Principal>
+            <Dependent Role="MENU">
+              <PropertyRef Name="TIPO_MENU_ID_TIPO_MENU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PEDIDO_MESA_FK">
+          <End Role="MESA" Type="Self.MESA" Multiplicity="1" />
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MESA">
+              <PropertyRef Name="ID_MESA" />
+            </Principal>
+            <Dependent Role="PEDIDO">
+              <PropertyRef Name="MESA_ID_MESA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RESERVA_MESA_FK">
+          <End Role="MESA" Type="Self.MESA" Multiplicity="1" />
+          <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MESA">
+              <PropertyRef Name="ID_MESA" />
+            </Principal>
+            <Dependent Role="RESERVA">
+              <PropertyRef Name="MESA_ID_MESA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PAGO_PEDIDO_FK">
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
+          <End Role="PAGO" Type="Self.PAGO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PEDIDO">
+              <PropertyRef Name="ID_PEDIDO" />
+            </Principal>
+            <Dependent Role="PAGO">
+              <PropertyRef Name="PEDIDO_ID_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PAGO_TIPO_DE_PAGO_FK">
+          <End Role="TIPO_DE_PAGO" Type="Self.TIPO_DE_PAGO" Multiplicity="1" />
+          <End Role="PAGO" Type="Self.PAGO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_DE_PAGO">
+              <PropertyRef Name="ID_TIPO_PAGO" />
+            </Principal>
+            <Dependent Role="PAGO">
+              <PropertyRef Name="TIPO_DE_PAGO_ID_TIPO_PAGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_PEDIDO_PEDIDO_FK">
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
+          <End Role="USUARIO_PEDIDO" Type="Self.USUARIO_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PEDIDO">
+              <PropertyRef Name="ID_PEDIDO" />
+            </Principal>
+            <Dependent Role="USUARIO_PEDIDO">
+              <PropertyRef Name="PEDIDO_ID_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_PROVEEDOR_FK">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="PROVEEDOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_RECETA_PRODUCTO_FK">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="0..1" />
+          <End Role="PRODUCTO_RECETA" Type="Self.PRODUCTO_RECETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="ID_PRODUCTO" />
+              <PropertyRef Name="UNIDAD_DE_MEDIDA_ID_U_MEDIDA" />
+              <PropertyRef Name="TIPO_PRODUCTO_ID_TIPO" />
+            </Principal>
+            <Dependent Role="PRODUCTO_RECETA">
+              <PropertyRef Name="PRODUCTO_ID_PRODUCTO" />
+              <PropertyRef Name="PRODUCTO_ID_U_MEDIDA" />
+              <PropertyRef Name="PRODUCTO_ID_TIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_TIPO_PRODUCTO_FK">
+          <End Role="TIPO_PRODUCTO" Type="Self.TIPO_PRODUCTO" Multiplicity="1" />
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_PRODUCTO">
+              <PropertyRef Name="ID_TIPO" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="TIPO_PRODUCTO_ID_TIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_UNIDAD_DE_MEDIDA_FK">
+          <End Role="UNIDAD_DE_MEDIDA" Type="Self.UNIDAD_DE_MEDIDA" Multiplicity="1" />
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UNIDAD_DE_MEDIDA">
+              <PropertyRef Name="ID_U_MEDIDA" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="UNIDAD_DE_MEDIDA_ID_U_MEDIDA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_RECETA_RECETA_FK">
+          <End Role="RECETA" Type="Self.RECETA" Multiplicity="0..1" />
+          <End Role="PRODUCTO_RECETA" Type="Self.PRODUCTO_RECETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECETA">
+              <PropertyRef Name="ID_RECETA" />
+            </Principal>
+            <Dependent Role="PRODUCTO_RECETA">
+              <PropertyRef Name="RECETA_ID_RECETA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RESERVA_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+              <PropertyRef Name="ROL_ID_ROL" />
+            </Principal>
+            <Dependent Role="RESERVA">
+              <PropertyRef Name="USUARIO_ID_USUARIO" />
+              <PropertyRef Name="USUARIO_ROL_ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_ROL_FK">
+          <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="ID_ROL" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ROL_ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_PEDIDO_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="USUARIO_PEDIDO" Type="Self.USUARIO_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+              <PropertyRef Name="ROL_ID_ROL" />
+            </Principal>
+            <Dependent Role="USUARIO_PEDIDO">
+              <PropertyRef Name="USUARIO_ID_USUARIO" />
+              <PropertyRef Name="USUARIO_ROL_ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_MENU">
+          <End Role="MENU" Type="Self.MENU" Multiplicity="*" />
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+        </Association>
+        <Association Name="RECETA_MENU">
+          <End Role="MENU" Type="Self.MENU" Multiplicity="*" />
+          <End Role="RECETA" Type="Self.RECETA" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="RestauranteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DETALLE_PEDIDO" EntityType="Self.DETALLE_PEDIDO" />
+          <EntitySet Name="EST_PEDIDO" EntityType="Self.EST_PEDIDO" />
+          <EntitySet Name="MENU" EntityType="Self.MENU" />
+          <EntitySet Name="MESA" EntityType="Self.MESA" />
+          <EntitySet Name="PAGO" EntityType="Self.PAGO" />
+          <EntitySet Name="PEDIDO" EntityType="Self.PEDIDO" />
+          <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" />
+          <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" />
+          <EntitySet Name="RECETA" EntityType="Self.RECETA" />
+          <EntitySet Name="RESERVA" EntityType="Self.RESERVA" />
+          <EntitySet Name="ROL" EntityType="Self.ROL" />
+          <EntitySet Name="TIPO_DE_PAGO" EntityType="Self.TIPO_DE_PAGO" />
+          <EntitySet Name="TIPO_MENU" EntityType="Self.TIPO_MENU" />
+          <EntitySet Name="TIPO_PRODUCTO" EntityType="Self.TIPO_PRODUCTO" />
+          <EntitySet Name="UNIDAD_DE_MEDIDA" EntityType="Self.UNIDAD_DE_MEDIDA" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <EntitySet Name="PRODUCTO_RECETA" EntityType="Self.PRODUCTO_RECETA" />
+          <EntitySet Name="USUARIO_PEDIDO" EntityType="Self.USUARIO_PEDIDO" />
+          <AssociationSet Name="DETALLE_PEDIDO_EST_PEDIDO_FK" Association="Self.DETALLE_PEDIDO_EST_PEDIDO_FK">
+            <End Role="EST_PEDIDO" EntitySet="EST_PEDIDO" />
+            <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_PEDIDO_PEDIDO_FK" Association="Self.DETALLE_PEDIDO_PEDIDO_FK">
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
+            <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_PEDIDO_PRODUCTO_FK" Association="Self.DETALLE_PEDIDO_PRODUCTO_FK">
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+            <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_PEDIDO_RECETA_FK" Association="Self.DETALLE_PEDIDO_RECETA_FK">
+            <End Role="RECETA" EntitySet="RECETA" />
+            <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="MENU_TIPO_MENU_FK" Association="Self.MENU_TIPO_MENU_FK">
+            <End Role="TIPO_MENU" EntitySet="TIPO_MENU" />
+            <End Role="MENU" EntitySet="MENU" />
+          </AssociationSet>
+          <AssociationSet Name="PEDIDO_MESA_FK" Association="Self.PEDIDO_MESA_FK">
+            <End Role="MESA" EntitySet="MESA" />
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="RESERVA_MESA_FK" Association="Self.RESERVA_MESA_FK">
+            <End Role="MESA" EntitySet="MESA" />
+            <End Role="RESERVA" EntitySet="RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="PAGO_PEDIDO_FK" Association="Self.PAGO_PEDIDO_FK">
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
+            <End Role="PAGO" EntitySet="PAGO" />
+          </AssociationSet>
+          <AssociationSet Name="PAGO_TIPO_DE_PAGO_FK" Association="Self.PAGO_TIPO_DE_PAGO_FK">
+            <End Role="TIPO_DE_PAGO" EntitySet="TIPO_DE_PAGO" />
+            <End Role="PAGO" EntitySet="PAGO" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIO_PEDIDO_PEDIDO_FK" Association="Self.USUARIO_PEDIDO_PEDIDO_FK">
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
+            <End Role="USUARIO_PEDIDO" EntitySet="USUARIO_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_PROVEEDOR_FK" Association="Self.PRODUCTO_PROVEEDOR_FK">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_RECETA_PRODUCTO_FK" Association="Self.PRODUCTO_RECETA_PRODUCTO_FK">
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+            <End Role="PRODUCTO_RECETA" EntitySet="PRODUCTO_RECETA" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_TIPO_PRODUCTO_FK" Association="Self.PRODUCTO_TIPO_PRODUCTO_FK">
+            <End Role="TIPO_PRODUCTO" EntitySet="TIPO_PRODUCTO" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_UNIDAD_DE_MEDIDA_FK" Association="Self.PRODUCTO_UNIDAD_DE_MEDIDA_FK">
+            <End Role="UNIDAD_DE_MEDIDA" EntitySet="UNIDAD_DE_MEDIDA" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_RECETA_RECETA_FK" Association="Self.PRODUCTO_RECETA_RECETA_FK">
+            <End Role="RECETA" EntitySet="RECETA" />
+            <End Role="PRODUCTO_RECETA" EntitySet="PRODUCTO_RECETA" />
+          </AssociationSet>
+          <AssociationSet Name="RESERVA_USUARIO_FK" Association="Self.RESERVA_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="RESERVA" EntitySet="RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIO_ROL_FK" Association="Self.USUARIO_ROL_FK">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIO_PEDIDO_USUARIO_FK" Association="Self.USUARIO_PEDIDO_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="USUARIO_PEDIDO" EntitySet="USUARIO_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_MENU" Association="Self.PRODUCTO_MENU">
+            <End Role="MENU" EntitySet="MENU" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="RECETA_MENU" Association="Self.RECETA_MENU">
+            <End Role="MENU" EntitySet="MENU" />
+            <End Role="RECETA" EntitySet="RECETA" />
+          </AssociationSet>
+          <FunctionImport Name="AGREGARDETALLEPEDIDO">
+            <Parameter Name="P_DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="P_CANTIDAD" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PEDIDO_ID_PEDIDO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_RECETA_ID_RECETA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PRODUCTO_ID_PRODUCTO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PRODUCTO_ID_U_MEDIDA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PRODUCTO_ID_TIPO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_EST_PEDIDO_ID_EST_PEDIDO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ASIGNARMESAACLIENTE">
+            <Parameter Name="P_ID_MESA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_CLIENTE_NOMBRE" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CANTIDADPRODUCTOSPORCATEGORIA" />
+          <FunctionImport Name="CONTROLARSTOCK">
+            <Parameter Name="P_ID_PRODUCTO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_CANTIDAD_VENTA" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="DASHBOARDDATOS">
+            <Parameter Name="TOTVENTAS" Mode="Out" Type="Decimal" />
+            <Parameter Name="NPRODUCTO" Mode="Out" Type="Decimal" />
+            <Parameter Name="NPROVEEDORES" Mode="Out" Type="Decimal" />
+            <Parameter Name="NPEDIDO" Mode="Out" Type="Decimal" />
+            <Parameter Name="NTRABAJADORES" Mode="Out" Type="Decimal" />
+            <Parameter Name="NCLIENTES" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ELIMINARMENU">
+            <Parameter Name="P_ID_MENU" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ELIMINARMESA">
+            <Parameter Name="P_ID_MESA" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ELIMINARPAGO">
+            <Parameter Name="P_ID_PAGO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ELIMINARPRODUCTO">
+            <Parameter Name="P_ID_PRODUCTO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ELIMINARPROVEEDOR">
+            <Parameter Name="P_ID" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ELIMINARRECETA">
+            <Parameter Name="P_ID_RECETA" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ELIMINARRESERVA">
+            <Parameter Name="P_ID_RESERVA" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ELIMINARRESERVACONUSUARIO">
+            <Parameter Name="P_ID_RESERVA" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ELIMINARUSUARIO">
+            <Parameter Name="P_ID_USUARIO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INGRESARRECETA">
+            <Parameter Name="P_ID_RECETA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="P_DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="P_TIEMPO_PREPARACION" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PRECIO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INGRESARRECETA2">
+            <Parameter Name="P_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="P_DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="P_TIEMPO_PREPARACION" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PRECIO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INGRESARRECETA3">
+            <Parameter Name="P_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="P_DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="P_TIEMPO_PREPARACION" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PRECIO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTARMENU">
+            <Parameter Name="P_ID_MENU" Mode="In" Type="Decimal" />
+            <Parameter Name="P_CODIGO_MENU" Mode="In" Type="String" />
+            <Parameter Name="P_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="P_PRECIO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_FOTO" Mode="In" Type="Binary" />
+            <Parameter Name="P_DISPONIBLE" Mode="In" Type="Decimal" />
+            <Parameter Name="P_TIPO_MENU_ID" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTARMESA">
+            <Parameter Name="P_ID_MESA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_NUMERO_MESA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_CAPACIDAD" Mode="In" Type="Decimal" />
+            <Parameter Name="P_DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="P_EN_USO" Mode="In" Type="String" />
+            <Parameter Name="P_ACTIVA" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTARPAGO">
+            <Parameter Name="P_ID_PAGO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_FECHA_PAGO" Mode="In" Type="DateTime" />
+            <Parameter Name="P_URL" Mode="In" Type="String" />
+            <Parameter Name="P_TOKEN" Mode="In" Type="String" />
+            <Parameter Name="P_ORDEN_PAGO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_TIPO_DE_PAGO_ID_TIPO_PAGO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PEDIDO_ID_PEDIDO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_CUOTAS" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTARPRODUCTO">
+            <Parameter Name="P_ID_PRODUCTO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="P_PRECIO_COMPRA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PRECIO_VENTA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="P_MARCA" Mode="In" Type="String" />
+            <Parameter Name="P_CATEGORIA" Mode="In" Type="String" />
+            <Parameter Name="P_STOCK" Mode="In" Type="Decimal" />
+            <Parameter Name="P_FECHA_VENCIMIENTO" Mode="In" Type="DateTime" />
+            <Parameter Name="P_UNIDAD_DE_MEDIDA_ID" Mode="In" Type="Decimal" />
+            <Parameter Name="P_TIPO_PRODUCTO_ID" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PROVEEDOR_ID" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTARPROVEEDOR">
+            <Parameter Name="P_ID" Mode="In" Type="Decimal" />
+            <Parameter Name="P_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="P_EMAIL" Mode="In" Type="String" />
+            <Parameter Name="P_DIRECCION" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTARPROVEEDOR2">
+            <Parameter Name="P_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="P_EMAIL" Mode="In" Type="String" />
+            <Parameter Name="P_DIRECCION" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTARRESERVA">
+            <Parameter Name="P_ID_RESERVA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_CODIGO_RESERVA" Mode="In" Type="String" />
+            <Parameter Name="P_FECHA" Mode="In" Type="DateTime" />
+            <Parameter Name="P_CANTIDAD_COMENSALES" Mode="In" Type="Decimal" />
+            <Parameter Name="P_ESTADO_RESERVA" Mode="In" Type="String" />
+            <Parameter Name="P_USUARIO_ID_USUARIO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_USUARIO_ROL_ID_ROL" Mode="In" Type="Decimal" />
+            <Parameter Name="P_MESA_ID_MESA" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTARUSUARIO">
+            <Parameter Name="P_ID_USUARIO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_CONTRASENA" Mode="In" Type="String" />
+            <Parameter Name="P_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="P_APELLIDO" Mode="In" Type="String" />
+            <Parameter Name="P_EMAIL" Mode="In" Type="String" />
+            <Parameter Name="P_DIRECCION" Mode="In" Type="String" />
+            <Parameter Name="P_ROL_ID_ROL" Mode="In" Type="Decimal" />
+            <Parameter Name="P_GENERO" Mode="In" Type="String" />
+            <Parameter Name="P_ESTADO_USUARIO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_TELEFONO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTARUSUARIO2">
+            <Parameter Name="P_CONTRASENA" Mode="In" Type="String" />
+            <Parameter Name="P_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="P_APELLIDO" Mode="In" Type="String" />
+            <Parameter Name="P_EMAIL" Mode="In" Type="String" />
+            <Parameter Name="P_DIRECCION" Mode="In" Type="String" />
+            <Parameter Name="P_ROL_ID_ROL" Mode="In" Type="Decimal" />
+            <Parameter Name="P_GENERO" Mode="In" Type="String" />
+            <Parameter Name="P_ESTADO_USUARIO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_TELEFONO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTARUSUARIO3">
+            <Parameter Name="P_CONTRASENA" Mode="In" Type="String" />
+            <Parameter Name="P_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="P_APELLIDO" Mode="In" Type="String" />
+            <Parameter Name="P_EMAIL" Mode="In" Type="String" />
+            <Parameter Name="P_DIRECCION" Mode="In" Type="String" />
+            <Parameter Name="P_ROL_ID_ROL" Mode="In" Type="Decimal" />
+            <Parameter Name="P_GENERO" Mode="In" Type="String" />
+            <Parameter Name="P_ESTADO_USUARIO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_TELEFONO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="LISTARMENUS" />
+          <FunctionImport Name="LISTARMESAS" />
+          <FunctionImport Name="LISTARPAGOS" />
+          <FunctionImport Name="LISTARPRODUCTOS" />
+          <FunctionImport Name="LISTARPROVEEDORES" />
+          <FunctionImport Name="LISTARRECETAS" />
+          <FunctionImport Name="LISTARRESERVAS" />
+          <FunctionImport Name="LISTARUSUARIOS" />
+          <FunctionImport Name="MODIFICARESTADOPEDIDO">
+            <Parameter Name="P_PEDIDO_ID_PEDIDO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_EST_PEDIDO_ID_EST_PEDIDO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="MODIFICARMENU">
+            <Parameter Name="P_ID_MENU" Mode="In" Type="Decimal" />
+            <Parameter Name="P_CODIGO_MENU" Mode="In" Type="String" />
+            <Parameter Name="P_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="P_PRECIO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_FOTO" Mode="In" Type="Binary" />
+            <Parameter Name="P_DISPONIBLE" Mode="In" Type="Decimal" />
+            <Parameter Name="P_TIPO_MENU_ID" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="MODIFICARMESA">
+            <Parameter Name="P_ID_MESA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_NUMERO_MESA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_CAPACIDAD" Mode="In" Type="Decimal" />
+            <Parameter Name="P_DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="P_EN_USO" Mode="In" Type="String" />
+            <Parameter Name="P_ACTIVA" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="MODIFICARPAGO">
+            <Parameter Name="P_ID_PAGO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_FECHA_PAGO" Mode="In" Type="DateTime" />
+            <Parameter Name="P_URL" Mode="In" Type="String" />
+            <Parameter Name="P_TOKEN" Mode="In" Type="String" />
+            <Parameter Name="P_ORDEN_PAGO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_TIPO_DE_PAGO_ID_TIPO_PAGO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PEDIDO_ID_PEDIDO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_CUOTAS" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="MODIFICARPRODUCTO">
+            <Parameter Name="P_ID_PRODUCTO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="P_PRECIO_COMPRA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PRECIO_VENTA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="P_MARCA" Mode="In" Type="String" />
+            <Parameter Name="P_CATEGORIA" Mode="In" Type="String" />
+            <Parameter Name="P_STOCK" Mode="In" Type="Decimal" />
+            <Parameter Name="P_FECHA_VENCIMIENTO" Mode="In" Type="DateTime" />
+            <Parameter Name="P_UNIDAD_DE_MEDIDA_ID" Mode="In" Type="Decimal" />
+            <Parameter Name="P_TIPO_PRODUCTO_ID" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PROVEEDOR_ID" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="MODIFICARPROVEEDOR">
+            <Parameter Name="P_ID" Mode="In" Type="Decimal" />
+            <Parameter Name="P_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="P_EMAIL" Mode="In" Type="String" />
+            <Parameter Name="P_DIRECCION" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="MODIFICARRECETA">
+            <Parameter Name="P_ID_RECETA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="P_DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="P_TIEMPO_PREPARACION" Mode="In" Type="Decimal" />
+            <Parameter Name="P_PRECIO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="MODIFICARRESERVA">
+            <Parameter Name="P_ID_RESERVA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_CODIGO_RESERVA" Mode="In" Type="String" />
+            <Parameter Name="P_FECHA" Mode="In" Type="DateTime" />
+            <Parameter Name="P_CANTIDAD_COMENSALES" Mode="In" Type="Decimal" />
+            <Parameter Name="P_ESTADO_RESERVA" Mode="In" Type="String" />
+            <Parameter Name="P_USUARIO_ID_USUARIO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_USUARIO_ROL_ID_ROL" Mode="In" Type="Decimal" />
+            <Parameter Name="P_MESA_ID_MESA" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="MODIFICARUSUARIO">
+            <Parameter Name="P_ID_USUARIO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_CONTRASENA" Mode="In" Type="String" />
+            <Parameter Name="P_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="P_APELLIDO" Mode="In" Type="String" />
+            <Parameter Name="P_EMAIL" Mode="In" Type="String" />
+            <Parameter Name="P_DIRECCION" Mode="In" Type="String" />
+            <Parameter Name="P_ROL_ID_ROL" Mode="In" Type="Decimal" />
+            <Parameter Name="P_GENERO" Mode="In" Type="String" />
+            <Parameter Name="P_ESTADO_USUARIO" Mode="In" Type="Decimal" />
+            <Parameter Name="P_TELEFONO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PRODUCTOSTOP" />
+          <FunctionImport Name="REALIZARRESERVA">
+            <Parameter Name="P_CODIGO_RESERVA" Mode="In" Type="String" />
+            <Parameter Name="P_FECHA" Mode="In" Type="DateTime" />
+            <Parameter Name="P_CANTIDAD_COMENSALES" Mode="In" Type="Decimal" />
+            <Parameter Name="P_USUARIO_ID_USUARIO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="RestauranteEntities">
+          <EntitySetMapping Name="DETALLE_PEDIDO">
+            <EntityTypeMapping TypeName="Model.DETALLE_PEDIDO">
+              <MappingFragment StoreEntitySet="DETALLE_PEDIDO">
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="PEDIDO_ID_PEDIDO" ColumnName="PEDIDO_ID_PEDIDO" />
+                <ScalarProperty Name="RECETA_ID_RECETA" ColumnName="RECETA_ID_RECETA" />
+                <ScalarProperty Name="PRODUCTO_ID_PRODUCTO" ColumnName="PRODUCTO_ID_PRODUCTO" />
+                <ScalarProperty Name="PRODUCTO_ID_U_MEDIDA" ColumnName="PRODUCTO_ID_U_MEDIDA" />
+                <ScalarProperty Name="PRODUCTO_ID_TIPO" ColumnName="PRODUCTO_ID_TIPO" />
+                <ScalarProperty Name="EST_PEDIDO_ID_EST_PEDIDO" ColumnName="EST_PEDIDO_ID_EST_PEDIDO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EST_PEDIDO">
+            <EntityTypeMapping TypeName="Model.EST_PEDIDO">
+              <MappingFragment StoreEntitySet="EST_PEDIDO">
+                <ScalarProperty Name="ID_EST_PEDIDO" ColumnName="ID_EST_PEDIDO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MENU">
+            <EntityTypeMapping TypeName="Model.MENU">
+              <MappingFragment StoreEntitySet="MENU">
+                <ScalarProperty Name="ID_MENU" ColumnName="ID_MENU" />
+                <ScalarProperty Name="CODIGO_MENU" ColumnName="CODIGO_MENU" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+                <ScalarProperty Name="FOTO" ColumnName="FOTO" />
+                <ScalarProperty Name="DISPONIBLE" ColumnName="DISPONIBLE" />
+                <ScalarProperty Name="TIPO_MENU_ID_TIPO_MENU" ColumnName="TIPO_MENU_ID_TIPO_MENU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MESA">
+            <EntityTypeMapping TypeName="Model.MESA">
+              <MappingFragment StoreEntitySet="MESA">
+                <ScalarProperty Name="ID_MESA" ColumnName="ID_MESA" />
+                <ScalarProperty Name="NUMERO_MESA" ColumnName="NUMERO_MESA" />
+                <ScalarProperty Name="CAPACIDAD" ColumnName="CAPACIDAD" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="EN_USO" ColumnName="EN_USO" />
+                <ScalarProperty Name="ACTIVA" ColumnName="ACTIVA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAGO">
+            <EntityTypeMapping TypeName="Model.PAGO">
+              <MappingFragment StoreEntitySet="PAGO">
+                <ScalarProperty Name="ID_PAGO" ColumnName="ID_PAGO" />
+                <ScalarProperty Name="FECHA_PAGO" ColumnName="FECHA_PAGO" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="TOKEN" ColumnName="TOKEN" />
+                <ScalarProperty Name="ORDEN_PAGO" ColumnName="ORDEN_PAGO" />
+                <ScalarProperty Name="TIPO_DE_PAGO_ID_TIPO_PAGO" ColumnName="TIPO_DE_PAGO_ID_TIPO_PAGO" />
+                <ScalarProperty Name="PEDIDO_ID_PEDIDO" ColumnName="PEDIDO_ID_PEDIDO" />
+                <ScalarProperty Name="CUOTAS" ColumnName="CUOTAS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PEDIDO">
+            <EntityTypeMapping TypeName="Model.PEDIDO">
+              <MappingFragment StoreEntitySet="PEDIDO">
+                <ScalarProperty Name="ID_PEDIDO" ColumnName="ID_PEDIDO" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="HORA" ColumnName="HORA" />
+                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+                <ScalarProperty Name="PROPINA" ColumnName="PROPINA" />
+                <ScalarProperty Name="MESA_ID_MESA" ColumnName="MESA_ID_MESA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTO">
+            <EntityTypeMapping TypeName="Model.PRODUCTO">
+              <MappingFragment StoreEntitySet="PRODUCTO">
+                <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="PRECIO_COMPRA" ColumnName="PRECIO_COMPRA" />
+                <ScalarProperty Name="PRECIO_VENTA" ColumnName="PRECIO_VENTA" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="MARCA" ColumnName="MARCA" />
+                <ScalarProperty Name="CATEGORIA" ColumnName="CATEGORIA" />
+                <ScalarProperty Name="STOCK" ColumnName="STOCK" />
+                <ScalarProperty Name="FECHA_VENCIMIENTO" ColumnName="FECHA_VENCIMIENTO" />
+                <ScalarProperty Name="UNIDAD_DE_MEDIDA_ID_U_MEDIDA" ColumnName="UNIDAD_DE_MEDIDA_ID_U_MEDIDA" />
+                <ScalarProperty Name="TIPO_PRODUCTO_ID_TIPO" ColumnName="TIPO_PRODUCTO_ID_TIPO" />
+                <ScalarProperty Name="PROVEEDOR_ID" ColumnName="PROVEEDOR_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROVEEDOR">
+            <EntityTypeMapping TypeName="Model.PROVEEDOR">
+              <MappingFragment StoreEntitySet="PROVEEDOR">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RECETA">
+            <EntityTypeMapping TypeName="Model.RECETA">
+              <MappingFragment StoreEntitySet="RECETA">
+                <ScalarProperty Name="ID_RECETA" ColumnName="ID_RECETA" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="TIEMPO_PREPARACION" ColumnName="TIEMPO_PREPARACION" />
+                <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESERVA">
+            <EntityTypeMapping TypeName="Model.RESERVA">
+              <MappingFragment StoreEntitySet="RESERVA">
+                <ScalarProperty Name="ID_RESERVA" ColumnName="ID_RESERVA" />
+                <ScalarProperty Name="CODIGO_RESERVA" ColumnName="CODIGO_RESERVA" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="CANTIDAD_COMENSALES" ColumnName="CANTIDAD_COMENSALES" />
+                <ScalarProperty Name="ESTADO_RESERVA" ColumnName="ESTADO_RESERVA" />
+                <ScalarProperty Name="USUARIO_ID_USUARIO" ColumnName="USUARIO_ID_USUARIO" />
+                <ScalarProperty Name="USUARIO_ROL_ID_ROL" ColumnName="USUARIO_ROL_ID_ROL" />
+                <ScalarProperty Name="MESA_ID_MESA" ColumnName="MESA_ID_MESA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROL">
+            <EntityTypeMapping TypeName="Model.ROL">
+              <MappingFragment StoreEntitySet="ROL">
+                <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_DE_PAGO">
+            <EntityTypeMapping TypeName="Model.TIPO_DE_PAGO">
+              <MappingFragment StoreEntitySet="TIPO_DE_PAGO">
+                <ScalarProperty Name="ID_TIPO_PAGO" ColumnName="ID_TIPO_PAGO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_MENU">
+            <EntityTypeMapping TypeName="Model.TIPO_MENU">
+              <MappingFragment StoreEntitySet="TIPO_MENU">
+                <ScalarProperty Name="ID_TIPO_MENU" ColumnName="ID_TIPO_MENU" />
+                <ScalarProperty Name="TIPO_MENU1" ColumnName="TIPO_MENU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_PRODUCTO">
+            <EntityTypeMapping TypeName="Model.TIPO_PRODUCTO">
+              <MappingFragment StoreEntitySet="TIPO_PRODUCTO">
+                <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+                <ScalarProperty Name="TIPO_PRODUCTO1" ColumnName="TIPO_PRODUCTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UNIDAD_DE_MEDIDA">
+            <EntityTypeMapping TypeName="Model.UNIDAD_DE_MEDIDA">
+              <MappingFragment StoreEntitySet="UNIDAD_DE_MEDIDA">
+                <ScalarProperty Name="ID_U_MEDIDA" ColumnName="ID_U_MEDIDA" />
+                <ScalarProperty Name="CODIGO_U_MEDIDA" ColumnName="CODIGO_U_MEDIDA" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="Model.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="CONTRASENA" ColumnName="CONTRASENA" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="ROL_ID_ROL" ColumnName="ROL_ID_ROL" />
+                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+                <ScalarProperty Name="ESTADO_USUARIO" ColumnName="ESTADO_USUARIO" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTO_RECETA">
+            <EntityTypeMapping TypeName="Model.PRODUCTO_RECETA">
+              <MappingFragment StoreEntitySet="PRODUCTO_RECETA">
+                <ScalarProperty Name="CANTIDAD_PRODUCTO" ColumnName="CANTIDAD_PRODUCTO" />
+                <ScalarProperty Name="RECETA_ID_RECETA" ColumnName="RECETA_ID_RECETA" />
+                <ScalarProperty Name="PRODUCTO_ID_PRODUCTO" ColumnName="PRODUCTO_ID_PRODUCTO" />
+                <ScalarProperty Name="PRODUCTO_ID_U_MEDIDA" ColumnName="PRODUCTO_ID_U_MEDIDA" />
+                <ScalarProperty Name="PRODUCTO_ID_TIPO" ColumnName="PRODUCTO_ID_TIPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO_PEDIDO">
+            <EntityTypeMapping TypeName="Model.USUARIO_PEDIDO">
+              <MappingFragment StoreEntitySet="USUARIO_PEDIDO">
+                <ScalarProperty Name="COMENTARIO_ESPECIAL" ColumnName="COMENTARIO_ESPECIAL" />
+                <ScalarProperty Name="USUARIO_ID_USUARIO" ColumnName="USUARIO_ID_USUARIO" />
+                <ScalarProperty Name="USUARIO_ROL_ID_ROL" ColumnName="USUARIO_ROL_ID_ROL" />
+                <ScalarProperty Name="PEDIDO_ID_PEDIDO" ColumnName="PEDIDO_ID_PEDIDO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="PRODUCTO_MENU" TypeName="Model.PRODUCTO_MENU" StoreEntitySet="PRODUCTO_MENU">
+            <EndProperty Name="MENU">
+              <ScalarProperty Name="ID_MENU" ColumnName="MENU_ID_MENU" />
+            </EndProperty>
+            <EndProperty Name="PRODUCTO">
+              <ScalarProperty Name="ID_PRODUCTO" ColumnName="PRODUCTO_ID_PRODUCTO" />
+              <ScalarProperty Name="UNIDAD_DE_MEDIDA_ID_U_MEDIDA" ColumnName="PRODUCTO_ID_U_MEDIDA" />
+              <ScalarProperty Name="TIPO_PRODUCTO_ID_TIPO" ColumnName="PRODUCTO_ID_TIPO" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="RECETA_MENU" TypeName="Model.RECETA_MENU" StoreEntitySet="RECETA_MENU">
+            <EndProperty Name="MENU">
+              <ScalarProperty Name="ID_MENU" ColumnName="MENU_ID_MENU" />
+            </EndProperty>
+            <EndProperty Name="RECETA">
+              <ScalarProperty Name="ID_RECETA" ColumnName="RECETA_ID_RECETA" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="AGREGARDETALLEPEDIDO" FunctionName="Model.Store.AGREGARDETALLEPEDIDO" />
+          <FunctionImportMapping FunctionImportName="ASIGNARMESAACLIENTE" FunctionName="Model.Store.ASIGNARMESAACLIENTE" />
+          <FunctionImportMapping FunctionImportName="CANTIDADPRODUCTOSPORCATEGORIA" FunctionName="Model.Store.CANTIDADPRODUCTOSPORCATEGORIA" />
+          <FunctionImportMapping FunctionImportName="CONTROLARSTOCK" FunctionName="Model.Store.CONTROLARSTOCK" />
+          <FunctionImportMapping FunctionImportName="DASHBOARDDATOS" FunctionName="Model.Store.DASHBOARDDATOS" />
+          <FunctionImportMapping FunctionImportName="ELIMINARMENU" FunctionName="Model.Store.ELIMINARMENU" />
+          <FunctionImportMapping FunctionImportName="ELIMINARMESA" FunctionName="Model.Store.ELIMINARMESA" />
+          <FunctionImportMapping FunctionImportName="ELIMINARPAGO" FunctionName="Model.Store.ELIMINARPAGO" />
+          <FunctionImportMapping FunctionImportName="ELIMINARPRODUCTO" FunctionName="Model.Store.ELIMINARPRODUCTO" />
+          <FunctionImportMapping FunctionImportName="ELIMINARPROVEEDOR" FunctionName="Model.Store.ELIMINARPROVEEDOR" />
+          <FunctionImportMapping FunctionImportName="ELIMINARRECETA" FunctionName="Model.Store.ELIMINARRECETA" />
+          <FunctionImportMapping FunctionImportName="ELIMINARRESERVA" FunctionName="Model.Store.ELIMINARRESERVA" />
+          <FunctionImportMapping FunctionImportName="ELIMINARRESERVACONUSUARIO" FunctionName="Model.Store.ELIMINARRESERVACONUSUARIO" />
+          <FunctionImportMapping FunctionImportName="ELIMINARUSUARIO" FunctionName="Model.Store.ELIMINARUSUARIO" />
+          <FunctionImportMapping FunctionImportName="INGRESARRECETA" FunctionName="Model.Store.INGRESARRECETA" />
+          <FunctionImportMapping FunctionImportName="INGRESARRECETA2" FunctionName="Model.Store.INGRESARRECETA2" />
+          <FunctionImportMapping FunctionImportName="INGRESARRECETA3" FunctionName="Model.Store.INGRESARRECETA3" />
+          <FunctionImportMapping FunctionImportName="INSERTARMENU" FunctionName="Model.Store.INSERTARMENU" />
+          <FunctionImportMapping FunctionImportName="INSERTARMESA" FunctionName="Model.Store.INSERTARMESA" />
+          <FunctionImportMapping FunctionImportName="INSERTARPAGO" FunctionName="Model.Store.INSERTARPAGO" />
+          <FunctionImportMapping FunctionImportName="INSERTARPRODUCTO" FunctionName="Model.Store.INSERTARPRODUCTO" />
+          <FunctionImportMapping FunctionImportName="INSERTARPROVEEDOR" FunctionName="Model.Store.INSERTARPROVEEDOR" />
+          <FunctionImportMapping FunctionImportName="INSERTARPROVEEDOR2" FunctionName="Model.Store.INSERTARPROVEEDOR2" />
+          <FunctionImportMapping FunctionImportName="INSERTARRESERVA" FunctionName="Model.Store.INSERTARRESERVA" />
+          <FunctionImportMapping FunctionImportName="INSERTARUSUARIO" FunctionName="Model.Store.INSERTARUSUARIO" />
+          <FunctionImportMapping FunctionImportName="INSERTARUSUARIO2" FunctionName="Model.Store.INSERTARUSUARIO2" />
+          <FunctionImportMapping FunctionImportName="INSERTARUSUARIO3" FunctionName="Model.Store.INSERTARUSUARIO3" />
+          <FunctionImportMapping FunctionImportName="LISTARMENUS" FunctionName="Model.Store.LISTARMENUS" />
+          <FunctionImportMapping FunctionImportName="LISTARMESAS" FunctionName="Model.Store.LISTARMESAS" />
+          <FunctionImportMapping FunctionImportName="LISTARPAGOS" FunctionName="Model.Store.LISTARPAGOS" />
+          <FunctionImportMapping FunctionImportName="LISTARPRODUCTOS" FunctionName="Model.Store.LISTARPRODUCTOS" />
+          <FunctionImportMapping FunctionImportName="LISTARPROVEEDORES" FunctionName="Model.Store.LISTARPROVEEDORES" />
+          <FunctionImportMapping FunctionImportName="LISTARRECETAS" FunctionName="Model.Store.LISTARRECETAS" />
+          <FunctionImportMapping FunctionImportName="LISTARRESERVAS" FunctionName="Model.Store.LISTARRESERVAS" />
+          <FunctionImportMapping FunctionImportName="LISTARUSUARIOS" FunctionName="Model.Store.LISTARUSUARIOS" />
+          <FunctionImportMapping FunctionImportName="MODIFICARESTADOPEDIDO" FunctionName="Model.Store.MODIFICARESTADOPEDIDO" />
+          <FunctionImportMapping FunctionImportName="MODIFICARMENU" FunctionName="Model.Store.MODIFICARMENU" />
+          <FunctionImportMapping FunctionImportName="MODIFICARMESA" FunctionName="Model.Store.MODIFICARMESA" />
+          <FunctionImportMapping FunctionImportName="MODIFICARPAGO" FunctionName="Model.Store.MODIFICARPAGO" />
+          <FunctionImportMapping FunctionImportName="MODIFICARPRODUCTO" FunctionName="Model.Store.MODIFICARPRODUCTO" />
+          <FunctionImportMapping FunctionImportName="MODIFICARPROVEEDOR" FunctionName="Model.Store.MODIFICARPROVEEDOR" />
+          <FunctionImportMapping FunctionImportName="MODIFICARRECETA" FunctionName="Model.Store.MODIFICARRECETA" />
+          <FunctionImportMapping FunctionImportName="MODIFICARRESERVA" FunctionName="Model.Store.MODIFICARRESERVA" />
+          <FunctionImportMapping FunctionImportName="MODIFICARUSUARIO" FunctionName="Model.Store.MODIFICARUSUARIO" />
+          <FunctionImportMapping FunctionImportName="PRODUCTOSTOP" FunctionName="Model.Store.PRODUCTOSTOP" />
+          <FunctionImportMapping FunctionImportName="REALIZARRESERVA" FunctionName="Model.Store.REALIZARRESERVA" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

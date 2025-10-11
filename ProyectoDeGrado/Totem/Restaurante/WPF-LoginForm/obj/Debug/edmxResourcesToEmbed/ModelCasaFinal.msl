@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OKCASAModelStoreContainer" CdmEntityContainer="OKCASAEntities">
+    <EntitySetMapping Name="admin_interface_theme">
+      <EntityTypeMapping TypeName="OKCASAModel.admin_interface_theme">
+        <MappingFragment StoreEntitySet="admin_interface_theme">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="title_visible" ColumnName="title_visible" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+          <ScalarProperty Name="logo_visible" ColumnName="logo_visible" />
+          <ScalarProperty Name="css_header_background_color" ColumnName="css_header_background_color" />
+          <ScalarProperty Name="title_color" ColumnName="title_color" />
+          <ScalarProperty Name="css_header_text_color" ColumnName="css_header_text_color" />
+          <ScalarProperty Name="css_header_link_color" ColumnName="css_header_link_color" />
+          <ScalarProperty Name="css_header_link_hover_color" ColumnName="css_header_link_hover_color" />
+          <ScalarProperty Name="css_module_background_color" ColumnName="css_module_background_color" />
+          <ScalarProperty Name="css_module_text_color" ColumnName="css_module_text_color" />
+          <ScalarProperty Name="css_module_link_color" ColumnName="css_module_link_color" />
+          <ScalarProperty Name="css_module_link_hover_color" ColumnName="css_module_link_hover_color" />
+          <ScalarProperty Name="css_module_rounded_corners" ColumnName="css_module_rounded_corners" />
+          <ScalarProperty Name="css_generic_link_color" ColumnName="css_generic_link_color" />
+          <ScalarProperty Name="css_generic_link_hover_color" ColumnName="css_generic_link_hover_color" />
+          <ScalarProperty Name="css_save_button_background_color" ColumnName="css_save_button_background_color" />
+          <ScalarProperty Name="css_save_button_background_hover_color" ColumnName="css_save_button_background_hover_color" />
+          <ScalarProperty Name="css_save_button_text_color" ColumnName="css_save_button_text_color" />
+          <ScalarProperty Name="css_delete_button_background_color" ColumnName="css_delete_button_background_color" />
+          <ScalarProperty Name="css_delete_button_background_hover_color" ColumnName="css_delete_button_background_hover_color" />
+          <ScalarProperty Name="css_delete_button_text_color" ColumnName="css_delete_button_text_color" />
+          <ScalarProperty Name="list_filter_dropdown" ColumnName="list_filter_dropdown" />
+          <ScalarProperty Name="related_modal_active" ColumnName="related_modal_active" />
+          <ScalarProperty Name="related_modal_background_color" ColumnName="related_modal_background_color" />
+          <ScalarProperty Name="related_modal_rounded_corners" ColumnName="related_modal_rounded_corners" />
+          <ScalarProperty Name="logo_color" ColumnName="logo_color" />
+          <ScalarProperty Name="recent_actions_visible" ColumnName="recent_actions_visible" />
+          <ScalarProperty Name="favicon" ColumnName="favicon" />
+          <ScalarProperty Name="related_modal_background_opacity" ColumnName="related_modal_background_opacity" />
+          <ScalarProperty Name="env_name" ColumnName="env_name" />
+          <ScalarProperty Name="env_visible_in_header" ColumnName="env_visible_in_header" />
+          <ScalarProperty Name="env_color" ColumnName="env_color" />
+          <ScalarProperty Name="env_visible_in_favicon" ColumnName="env_visible_in_favicon" />
+          <ScalarProperty Name="related_modal_close_button_visible" ColumnName="related_modal_close_button_visible" />
+          <ScalarProperty Name="language_chooser_active" ColumnName="language_chooser_active" />
+          <ScalarProperty Name="language_chooser_display" ColumnName="language_chooser_display" />
+          <ScalarProperty Name="list_filter_sticky" ColumnName="list_filter_sticky" />
+          <ScalarProperty Name="form_pagination_sticky" ColumnName="form_pagination_sticky" />
+          <ScalarProperty Name="form_submit_sticky" ColumnName="form_submit_sticky" />
+          <ScalarProperty Name="css_module_background_selected_color" ColumnName="css_module_background_selected_color" />
+          <ScalarProperty Name="css_module_link_selected_color" ColumnName="css_module_link_selected_color" />
+          <ScalarProperty Name="logo_max_height" ColumnName="logo_max_height" />
+          <ScalarProperty Name="logo_max_width" ColumnName="logo_max_width" />
+          <ScalarProperty Name="foldable_apps" ColumnName="foldable_apps" />
+          <ScalarProperty Name="language_chooser_control" ColumnName="language_chooser_control" />
+          <ScalarProperty Name="list_filter_highlight" ColumnName="list_filter_highlight" />
+          <ScalarProperty Name="list_filter_removal_links" ColumnName="list_filter_removal_links" />
+          <ScalarProperty Name="show_fieldsets_as_tabs" ColumnName="show_fieldsets_as_tabs" />
+          <ScalarProperty Name="show_inlines_as_tabs" ColumnName="show_inlines_as_tabs" />
+          <ScalarProperty Name="css_generic_link_active_color" ColumnName="css_generic_link_active_color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="api_cliente">
+      <EntityTypeMapping TypeName="OKCASAModel.api_cliente">
+        <MappingFragment StoreEntitySet="api_cliente">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="rut" ColumnName="rut" />
+          <ScalarProperty Name="es_hipotecario" ColumnName="es_hipotecario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="app_customuser">
+      <EntityTypeMapping TypeName="OKCASAModel.app_customuser">
+        <MappingFragment StoreEntitySet="app_customuser">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="last_login" ColumnName="last_login" />
+          <ScalarProperty Name="is_superuser" ColumnName="is_superuser" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="is_staff" ColumnName="is_staff" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="date_joined" ColumnName="date_joined" />
+          <ScalarProperty Name="rut" ColumnName="rut" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="app_customuser_groups">
+      <EntityTypeMapping TypeName="OKCASAModel.app_customuser_groups">
+        <MappingFragment StoreEntitySet="app_customuser_groups">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="customuser_id" ColumnName="customuser_id" />
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="app_customuser_user_permissions">
+      <EntityTypeMapping TypeName="OKCASAModel.app_customuser_user_permissions">
+        <MappingFragment StoreEntitySet="app_customuser_user_permissions">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="customuser_id" ColumnName="customuser_id" />
+          <ScalarProperty Name="permission_id" ColumnName="permission_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="app_eqinsp">
+      <EntityTypeMapping TypeName="OKCASAModel.app_eqinsp">
+        <MappingFragment StoreEntitySet="app_eqinsp">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="app_inspeccion">
+      <EntityTypeMapping TypeName="OKCASAModel.app_inspeccion">
+        <MappingFragment StoreEntitySet="app_inspeccion">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="ideqp_id" ColumnName="ideqp_id" />
+          <ScalarProperty Name="idsol_id" ColumnName="idsol_id" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="app_salida">
+      <EntityTypeMapping TypeName="OKCASAModel.app_salida">
+        <MappingFragment StoreEntitySet="app_salida">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="salida" ColumnName="salida" />
+          <ScalarProperty Name="ideqps_id" ColumnName="ideqps_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="app_solicitud">
+      <EntityTypeMapping TypeName="OKCASAModel.app_solicitud">
+        <MappingFragment StoreEntitySet="app_solicitud">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tipo_sol" ColumnName="tipo_sol" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="rut_cliente" ColumnName="rut_cliente" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="grupo_inspeccion_id" ColumnName="grupo_inspeccion_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="auth_group">
+      <EntityTypeMapping TypeName="OKCASAModel.auth_group">
+        <MappingFragment StoreEntitySet="auth_group">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="auth_group_permissions">
+      <EntityTypeMapping TypeName="OKCASAModel.auth_group_permissions">
+        <MappingFragment StoreEntitySet="auth_group_permissions">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+          <ScalarProperty Name="permission_id" ColumnName="permission_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="auth_permission">
+      <EntityTypeMapping TypeName="OKCASAModel.auth_permission">
+        <MappingFragment StoreEntitySet="auth_permission">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="content_type_id" ColumnName="content_type_id" />
+          <ScalarProperty Name="codename" ColumnName="codename" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BANCO">
+      <EntityTypeMapping TypeName="OKCASAModel.BANCO">
+        <MappingFragment StoreEntitySet="BANCO">
+          <ScalarProperty Name="idbanco" ColumnName="idbanco" />
+          <ScalarProperty Name="nombreclib" ColumnName="nombreclib" />
+          <ScalarProperty Name="apellidoclib" ColumnName="apellidoclib" />
+          <ScalarProperty Name="telefonoclib" ColumnName="telefonoclib" />
+          <ScalarProperty Name="emailclib" ColumnName="emailclib" />
+          <ScalarProperty Name="direclib" ColumnName="direclib" />
+          <ScalarProperty Name="hipoteca" ColumnName="hipoteca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="django_admin_log">
+      <EntityTypeMapping TypeName="OKCASAModel.django_admin_log">
+        <MappingFragment StoreEntitySet="django_admin_log">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="action_time" ColumnName="action_time" />
+          <ScalarProperty Name="object_id" ColumnName="object_id" />
+          <ScalarProperty Name="object_repr" ColumnName="object_repr" />
+          <ScalarProperty Name="action_flag" ColumnName="action_flag" />
+          <ScalarProperty Name="change_message" ColumnName="change_message" />
+          <ScalarProperty Name="content_type_id" ColumnName="content_type_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="django_content_type">
+      <EntityTypeMapping TypeName="OKCASAModel.django_content_type">
+        <MappingFragment StoreEntitySet="django_content_type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="app_label" ColumnName="app_label" />
+          <ScalarProperty Name="model" ColumnName="model" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="django_migrations">
+      <EntityTypeMapping TypeName="OKCASAModel.django_migrations">
+        <MappingFragment StoreEntitySet="django_migrations">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="app" ColumnName="app" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="applied" ColumnName="applied" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="django_session">
+      <EntityTypeMapping TypeName="OKCASAModel.django_session">
+        <MappingFragment StoreEntitySet="django_session">
+          <ScalarProperty Name="session_key" ColumnName="session_key" />
+          <ScalarProperty Name="session_data" ColumnName="session_data" />
+          <ScalarProperty Name="expire_date" ColumnName="expire_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOG_HISTORIALCLIENTE">
+      <EntityTypeMapping TypeName="OKCASAModel.LOG_HISTORIALCLIENTE">
+        <MappingFragment StoreEntitySet="LOG_HISTORIALCLIENTE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOG_HISTORIALEQINSP">
+      <EntityTypeMapping TypeName="OKCASAModel.LOG_HISTORIALEQINSP">
+        <MappingFragment StoreEntitySet="LOG_HISTORIALEQINSP">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

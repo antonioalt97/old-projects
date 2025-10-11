@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OKCASAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admin_interface_theme">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="active" Type="bit" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="title_visible" Type="bit" Nullable="false" />
+    <Property Name="logo" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="logo_visible" Type="bit" Nullable="false" />
+    <Property Name="css_header_background_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="title_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_header_text_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_header_link_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_header_link_hover_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_module_background_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_module_text_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_module_link_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_module_link_hover_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_module_rounded_corners" Type="bit" Nullable="false" />
+    <Property Name="css_generic_link_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_generic_link_hover_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_save_button_background_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_save_button_background_hover_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_save_button_text_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_delete_button_background_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_delete_button_background_hover_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_delete_button_text_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="list_filter_dropdown" Type="bit" Nullable="false" />
+    <Property Name="related_modal_active" Type="bit" Nullable="false" />
+    <Property Name="related_modal_background_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="related_modal_rounded_corners" Type="bit" Nullable="false" />
+    <Property Name="logo_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="recent_actions_visible" Type="bit" Nullable="false" />
+    <Property Name="favicon" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="related_modal_background_opacity" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="env_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="env_visible_in_header" Type="bit" Nullable="false" />
+    <Property Name="env_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="env_visible_in_favicon" Type="bit" Nullable="false" />
+    <Property Name="related_modal_close_button_visible" Type="bit" Nullable="false" />
+    <Property Name="language_chooser_active" Type="bit" Nullable="false" />
+    <Property Name="language_chooser_display" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="list_filter_sticky" Type="bit" Nullable="false" />
+    <Property Name="form_pagination_sticky" Type="bit" Nullable="false" />
+    <Property Name="form_submit_sticky" Type="bit" Nullable="false" />
+    <Property Name="css_module_background_selected_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_module_link_selected_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="logo_max_height" Type="smallint" Nullable="false" />
+    <Property Name="logo_max_width" Type="smallint" Nullable="false" />
+    <Property Name="foldable_apps" Type="bit" Nullable="false" />
+    <Property Name="language_chooser_control" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="list_filter_highlight" Type="bit" Nullable="false" />
+    <Property Name="list_filter_removal_links" Type="bit" Nullable="false" />
+    <Property Name="show_fieldsets_as_tabs" Type="bit" Nullable="false" />
+    <Property Name="show_inlines_as_tabs" Type="bit" Nullable="false" />
+    <Property Name="css_generic_link_active_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="api_cliente">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="apellido" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="rut" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="es_hipotecario" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="app_customuser">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="last_login" Type="datetimeoffset" Precision="7" />
+    <Property Name="is_superuser" Type="bit" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="first_name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="last_name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="254" Nullable="false" />
+    <Property Name="is_staff" Type="bit" Nullable="false" />
+    <Property Name="is_active" Type="bit" Nullable="false" />
+    <Property Name="date_joined" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="rut" Type="nvarchar" MaxLength="20" />
+    <Property Name="direccion" Type="nvarchar" MaxLength="100" />
+    <Property Name="telefono" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="app_customuser_groups">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customuser_id" Type="bigint" Nullable="false" />
+    <Property Name="group_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="app_customuser_user_permissions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customuser_id" Type="bigint" Nullable="false" />
+    <Property Name="permission_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="app_eqinsp">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombres" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="app_inspeccion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="estado" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="valor" Type="int" Nullable="false" />
+    <Property Name="ideqp_id" Type="bigint" Nullable="false" />
+    <Property Name="idsol_id" Type="bigint" Nullable="false" />
+    <Property Name="fecha" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="app_salida">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="salida" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="ideqps_id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="app_solicitud">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo_sol" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="created_at" Type="date" Nullable="false" />
+    <Property Name="rut_cliente" Type="nvarchar" MaxLength="20" />
+    <Property Name="estado" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="fecha" Type="datetimeoffset" Precision="7" />
+    <Property Name="grupo_inspeccion_id" Type="bigint" />
+  </EntityType>
+  <EntityType Name="auth_group">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="auth_group_permissions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="group_id" Type="int" Nullable="false" />
+    <Property Name="permission_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="auth_permission">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="content_type_id" Type="int" Nullable="false" />
+    <Property Name="codename" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BANCO">
+    <Key>
+      <PropertyRef Name="idbanco" />
+    </Key>
+    <Property Name="idbanco" Type="int" Nullable="false" />
+    <Property Name="nombreclib" Type="nvarchar" MaxLength="40" />
+    <Property Name="apellidoclib" Type="nvarchar" MaxLength="40" />
+    <Property Name="telefonoclib" Type="nvarchar" MaxLength="40" />
+    <Property Name="emailclib" Type="nvarchar" MaxLength="100" />
+    <Property Name="direclib" Type="nvarchar" MaxLength="100" />
+    <Property Name="hipoteca" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="django_admin_log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="action_time" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="object_id" Type="nvarchar(max)" />
+    <Property Name="object_repr" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="action_flag" Type="smallint" Nullable="false" />
+    <Property Name="change_message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="content_type_id" Type="int" />
+    <Property Name="user_id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="django_content_type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="app_label" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="model" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="django_migrations">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="app" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="applied" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="django_session">
+    <Key>
+      <PropertyRef Name="session_key" />
+    </Key>
+    <Property Name="session_key" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="session_data" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="expire_date" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LOG_HISTORIALCLIENTE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FECHA" Type="datetime" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="40" />
+    <Property Name="USUARIO" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="LOG_HISTORIALEQINSP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FECHA" Type="datetime" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="40" />
+    <Property Name="USUARIO" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="app_customuser_groups_customuser_id_164d073f_fk_app_customuser_id">
+    <End Role="app_customuser" Type="Self.app_customuser" Multiplicity="1" />
+    <End Role="app_customuser_groups" Type="Self.app_customuser_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_customuser">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="app_customuser_groups">
+        <PropertyRef Name="customuser_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="app_customuser_groups_group_id_47e49ebd_fk_auth_group_id">
+    <End Role="auth_group" Type="Self.auth_group" Multiplicity="1" />
+    <End Role="app_customuser_groups" Type="Self.app_customuser_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_group">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="app_customuser_groups">
+        <PropertyRef Name="group_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="app_customuser_user_permissions_customuser_id_4bcbaafb_fk_app_customuser_id">
+    <End Role="app_customuser" Type="Self.app_customuser" Multiplicity="1" />
+    <End Role="app_customuser_user_permissions" Type="Self.app_customuser_user_permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_customuser">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="app_customuser_user_permissions">
+        <PropertyRef Name="customuser_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="app_customuser_user_permissions_permission_id_c5920c75_fk_auth_permission_id">
+    <End Role="auth_permission" Type="Self.auth_permission" Multiplicity="1" />
+    <End Role="app_customuser_user_permissions" Type="Self.app_customuser_user_permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_permission">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="app_customuser_user_permissions">
+        <PropertyRef Name="permission_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="app_inspeccion_ideqp_id_12422748_fk_app_eqinsp_id">
+    <End Role="app_eqinsp" Type="Self.app_eqinsp" Multiplicity="1" />
+    <End Role="app_inspeccion" Type="Self.app_inspeccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_eqinsp">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="app_inspeccion">
+        <PropertyRef Name="ideqp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="app_inspeccion_idsol_id_2bb0ba11_fk_app_solicitud_id">
+    <End Role="app_solicitud" Type="Self.app_solicitud" Multiplicity="1" />
+    <End Role="app_inspeccion" Type="Self.app_inspeccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_solicitud">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="app_inspeccion">
+        <PropertyRef Name="idsol_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="app_salida_ideqps_id_7f27bb54_fk_app_eqinsp_id">
+    <End Role="app_eqinsp" Type="Self.app_eqinsp" Multiplicity="1" />
+    <End Role="app_salida" Type="Self.app_salida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_eqinsp">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="app_salida">
+        <PropertyRef Name="ideqps_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="app_solicitud_grupo_inspeccion_id_4ddd556e_fk_app_eqinsp_id">
+    <End Role="app_eqinsp" Type="Self.app_eqinsp" Multiplicity="0..1" />
+    <End Role="app_solicitud" Type="Self.app_solicitud" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_eqinsp">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="app_solicitud">
+        <PropertyRef Name="grupo_inspeccion_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="auth_group_permissions_group_id_b120cbf9_fk_auth_group_id">
+    <End Role="auth_group" Type="Self.auth_group" Multiplicity="1" />
+    <End Role="auth_group_permissions" Type="Self.auth_group_permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_group">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="auth_group_permissions">
+        <PropertyRef Name="group_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="auth_group_permissions_permission_id_84c5c92e_fk_auth_permission_id">
+    <End Role="auth_permission" Type="Self.auth_permission" Multiplicity="1" />
+    <End Role="auth_group_permissions" Type="Self.auth_group_permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_permission">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="auth_group_permissions">
+        <PropertyRef Name="permission_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="auth_permission_content_type_id_2f476e4b_fk_django_content_type_id">
+    <End Role="django_content_type" Type="Self.django_content_type" Multiplicity="1" />
+    <End Role="auth_permission" Type="Self.auth_permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="django_content_type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="auth_permission">
+        <PropertyRef Name="content_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="django_admin_log_content_type_id_c4bce8eb_fk_django_content_type_id">
+    <End Role="django_content_type" Type="Self.django_content_type" Multiplicity="0..1" />
+    <End Role="django_admin_log" Type="Self.django_admin_log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="django_content_type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="django_admin_log">
+        <PropertyRef Name="content_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="django_admin_log_user_id_c564eba6_fk_app_customuser_id">
+    <End Role="app_customuser" Type="Self.app_customuser" Multiplicity="1" />
+    <End Role="django_admin_log" Type="Self.django_admin_log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_customuser">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="django_admin_log">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OKCASAModelStoreContainer">
+    <EntitySet Name="admin_interface_theme" EntityType="Self.admin_interface_theme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="api_cliente" EntityType="Self.api_cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="app_customuser" EntityType="Self.app_customuser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="app_customuser_groups" EntityType="Self.app_customuser_groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="app_customuser_user_permissions" EntityType="Self.app_customuser_user_permissions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="app_eqinsp" EntityType="Self.app_eqinsp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="app_inspeccion" EntityType="Self.app_inspeccion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="app_salida" EntityType="Self.app_salida" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="app_solicitud" EntityType="Self.app_solicitud" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="auth_group" EntityType="Self.auth_group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="auth_group_permissions" EntityType="Self.auth_group_permissions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="auth_permission" EntityType="Self.auth_permission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BANCO" EntityType="Self.BANCO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="django_admin_log" EntityType="Self.django_admin_log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="django_content_type" EntityType="Self.django_content_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="django_migrations" EntityType="Self.django_migrations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="django_session" EntityType="Self.django_session" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOG_HISTORIALCLIENTE" EntityType="Self.LOG_HISTORIALCLIENTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOG_HISTORIALEQINSP" EntityType="Self.LOG_HISTORIALEQINSP" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="app_customuser_groups_customuser_id_164d073f_fk_app_customuser_id" Association="Self.app_customuser_groups_customuser_id_164d073f_fk_app_customuser_id">
+      <End Role="app_customuser" EntitySet="app_customuser" />
+      <End Role="app_customuser_groups" EntitySet="app_customuser_groups" />
+    </AssociationSet>
+    <AssociationSet Name="app_customuser_groups_group_id_47e49ebd_fk_auth_group_id" Association="Self.app_customuser_groups_group_id_47e49ebd_fk_auth_group_id">
+      <End Role="auth_group" EntitySet="auth_group" />
+      <End Role="app_customuser_groups" EntitySet="app_customuser_groups" />
+    </AssociationSet>
+    <AssociationSet Name="app_customuser_user_permissions_customuser_id_4bcbaafb_fk_app_customuser_id" Association="Self.app_customuser_user_permissions_customuser_id_4bcbaafb_fk_app_customuser_id">
+      <End Role="app_customuser" EntitySet="app_customuser" />
+      <End Role="app_customuser_user_permissions" EntitySet="app_customuser_user_permissions" />
+    </AssociationSet>
+    <AssociationSet Name="app_customuser_user_permissions_permission_id_c5920c75_fk_auth_permission_id" Association="Self.app_customuser_user_permissions_permission_id_c5920c75_fk_auth_permission_id">
+      <End Role="auth_permission" EntitySet="auth_permission" />
+      <End Role="app_customuser_user_permissions" EntitySet="app_customuser_user_permissions" />
+    </AssociationSet>
+    <AssociationSet Name="app_inspeccion_ideqp_id_12422748_fk_app_eqinsp_id" Association="Self.app_inspeccion_ideqp_id_12422748_fk_app_eqinsp_id">
+      <End Role="app_eqinsp" EntitySet="app_eqinsp" />
+      <End Role="app_inspeccion" EntitySet="app_inspeccion" />
+    </AssociationSet>
+    <AssociationSet Name="app_inspeccion_idsol_id_2bb0ba11_fk_app_solicitud_id" Association="Self.app_inspeccion_idsol_id_2bb0ba11_fk_app_solicitud_id">
+      <End Role="app_solicitud" EntitySet="app_solicitud" />
+      <End Role="app_inspeccion" EntitySet="app_inspeccion" />
+    </AssociationSet>
+    <AssociationSet Name="app_salida_ideqps_id_7f27bb54_fk_app_eqinsp_id" Association="Self.app_salida_ideqps_id_7f27bb54_fk_app_eqinsp_id">
+      <End Role="app_eqinsp" EntitySet="app_eqinsp" />
+      <End Role="app_salida" EntitySet="app_salida" />
+    </AssociationSet>
+    <AssociationSet Name="app_solicitud_grupo_inspeccion_id_4ddd556e_fk_app_eqinsp_id" Association="Self.app_solicitud_grupo_inspeccion_id_4ddd556e_fk_app_eqinsp_id">
+      <End Role="app_eqinsp" EntitySet="app_eqinsp" />
+      <End Role="app_solicitud" EntitySet="app_solicitud" />
+    </AssociationSet>
+    <AssociationSet Name="auth_group_permissions_group_id_b120cbf9_fk_auth_group_id" Association="Self.auth_group_permissions_group_id_b120cbf9_fk_auth_group_id">
+      <End Role="auth_group" EntitySet="auth_group" />
+      <End Role="auth_group_permissions" EntitySet="auth_group_permissions" />
+    </AssociationSet>
+    <AssociationSet Name="auth_group_permissions_permission_id_84c5c92e_fk_auth_permission_id" Association="Self.auth_group_permissions_permission_id_84c5c92e_fk_auth_permission_id">
+      <End Role="auth_permission" EntitySet="auth_permission" />
+      <End Role="auth_group_permissions" EntitySet="auth_group_permissions" />
+    </AssociationSet>
+    <AssociationSet Name="auth_permission_content_type_id_2f476e4b_fk_django_content_type_id" Association="Self.auth_permission_content_type_id_2f476e4b_fk_django_content_type_id">
+      <End Role="django_content_type" EntitySet="django_content_type" />
+      <End Role="auth_permission" EntitySet="auth_permission" />
+    </AssociationSet>
+    <AssociationSet Name="django_admin_log_content_type_id_c4bce8eb_fk_django_content_type_id" Association="Self.django_admin_log_content_type_id_c4bce8eb_fk_django_content_type_id">
+      <End Role="django_content_type" EntitySet="django_content_type" />
+      <End Role="django_admin_log" EntitySet="django_admin_log" />
+    </AssociationSet>
+    <AssociationSet Name="django_admin_log_user_id_c564eba6_fk_app_customuser_id" Association="Self.django_admin_log_user_id_c564eba6_fk_app_customuser_id">
+      <End Role="app_customuser" EntitySet="app_customuser" />
+      <End Role="django_admin_log" EntitySet="django_admin_log" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

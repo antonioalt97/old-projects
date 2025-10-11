@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="integracionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admin_interface_theme">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="active" Type="bit" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="title_visible" Type="bit" Nullable="false" />
+    <Property Name="logo" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="logo_visible" Type="bit" Nullable="false" />
+    <Property Name="css_header_background_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="title_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_header_text_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_header_link_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_header_link_hover_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_module_background_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_module_text_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_module_link_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_module_link_hover_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_module_rounded_corners" Type="bit" Nullable="false" />
+    <Property Name="css_generic_link_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_generic_link_hover_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_save_button_background_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_save_button_background_hover_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_save_button_text_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_delete_button_background_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_delete_button_background_hover_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_delete_button_text_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="list_filter_dropdown" Type="bit" Nullable="false" />
+    <Property Name="related_modal_active" Type="bit" Nullable="false" />
+    <Property Name="related_modal_background_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="related_modal_rounded_corners" Type="bit" Nullable="false" />
+    <Property Name="logo_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="recent_actions_visible" Type="bit" Nullable="false" />
+    <Property Name="favicon" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="related_modal_background_opacity" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="env_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="env_visible_in_header" Type="bit" Nullable="false" />
+    <Property Name="env_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="env_visible_in_favicon" Type="bit" Nullable="false" />
+    <Property Name="related_modal_close_button_visible" Type="bit" Nullable="false" />
+    <Property Name="language_chooser_active" Type="bit" Nullable="false" />
+    <Property Name="language_chooser_display" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="list_filter_sticky" Type="bit" Nullable="false" />
+    <Property Name="form_pagination_sticky" Type="bit" Nullable="false" />
+    <Property Name="form_submit_sticky" Type="bit" Nullable="false" />
+    <Property Name="css_module_background_selected_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="css_module_link_selected_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="logo_max_height" Type="smallint" Nullable="false" />
+    <Property Name="logo_max_width" Type="smallint" Nullable="false" />
+    <Property Name="foldable_apps" Type="bit" Nullable="false" />
+    <Property Name="language_chooser_control" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="list_filter_highlight" Type="bit" Nullable="false" />
+    <Property Name="list_filter_removal_links" Type="bit" Nullable="false" />
+    <Property Name="show_fieldsets_as_tabs" Type="bit" Nullable="false" />
+    <Property Name="show_inlines_as_tabs" Type="bit" Nullable="false" />
+    <Property Name="css_generic_link_active_color" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="auth_group">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="auth_group_permissions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="group_id" Type="int" Nullable="false" />
+    <Property Name="permission_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="auth_permission">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="content_type_id" Type="int" Nullable="false" />
+    <Property Name="codename" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="auth_user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="last_login" Type="datetimeoffset" Precision="7" />
+    <Property Name="is_superuser" Type="bit" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="first_name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="last_name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="254" Nullable="false" />
+    <Property Name="is_staff" Type="bit" Nullable="false" />
+    <Property Name="is_active" Type="bit" Nullable="false" />
+    <Property Name="date_joined" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="auth_user_groups">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="group_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="auth_user_user_permissions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="permission_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BANCO">
+    <Key>
+      <PropertyRef Name="idbanco" />
+    </Key>
+    <Property Name="idbanco" Type="int" Nullable="false" />
+    <Property Name="nombreclib" Type="nvarchar" MaxLength="40" />
+    <Property Name="apellidoclib" Type="nvarchar" MaxLength="40" />
+    <Property Name="telefonoclib" Type="nvarchar" MaxLength="40" />
+    <Property Name="emailclib" Type="nvarchar" MaxLength="100" />
+    <Property Name="direclib" Type="nvarchar" MaxLength="100" />
+    <Property Name="hipoteca" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="idcliente" />
+    </Key>
+    <Property Name="idcliente" Type="int" Nullable="false" />
+    <Property Name="nombrecli" Type="nvarchar" MaxLength="40" />
+    <Property Name="apellidocli" Type="nvarchar" MaxLength="40" />
+    <Property Name="telefonocli" Type="nvarchar" MaxLength="40" />
+    <Property Name="emailcli" Type="nvarchar" MaxLength="100" />
+    <Property Name="direcli" Type="nvarchar" MaxLength="100" />
+    <Property Name="servicio" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="django_admin_log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="action_time" Type="datetimeoffset" Precision="7" Nullable="false" />
+    <Property Name="object_id" Type="nvarchar(max)" />
+    <Property Name="object_repr" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="action_flag" Type="smallint" Nullable="false" />
+    <Property Name="change_message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="content_type_id" Type="int" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="django_content_type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="app_label" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="model" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="django_migrations">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="app" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="applied" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="django_session">
+    <Key>
+      <PropertyRef Name="session_key" />
+    </Key>
+    <Property Name="session_key" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="session_data" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="expire_date" Type="datetimeoffset" Precision="7" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'integracion.dbo.EQINSP' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="EQINSP">
+    <Key>
+      <PropertyRef Name="idequipo" />
+      <PropertyRef Name="nombres" />
+    </Key>
+    <Property Name="idequipo" Type="int" Nullable="false" />
+    <Property Name="nombres" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="estadoequipo" Type="int" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'integracion.dbo.INSPECCION' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="INSPECCION">
+          <Property Name="idinspeccion" Type="int" />
+          <Property Name="estado" Type="int" />
+          <Property Name="descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="idusuario" Type="int" />
+          <Property Name="idequipo" Type="int" />
+          <Property Name="monto" Type="int" />
+          <Property Name="fechains" Type="nvarchar" MaxLength="30" />
+        </EntityType>-->
+  <EntityType Name="LOG_HISTORIALCLIENTE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FECHA" Type="datetime" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="40" />
+    <Property Name="USUARIO" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="LOG_HISTORIALEQINSP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FECHA" Type="datetime" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="40" />
+    <Property Name="USUARIO" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'integracion.dbo.SALIDA' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="SALIDA">
+          <Property Name="idsalida" Type="int" />
+          <Property Name="fecha" Type="datetime" />
+          <Property Name="idequipo" Type="int" />
+        </EntityType>-->
+  <EntityType Name="SOLICITUD">
+    <Key>
+      <PropertyRef Name="id_solicitud" />
+    </Key>
+    <Property Name="id_solicitud" Type="int" Nullable="false" />
+    <Property Name="run_cli" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="run_emp" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="tipo_solicitud" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="fecha_solicitud" Type="date" Nullable="false" />
+  </EntityType>
+  <Association Name="auth_group_permissions_group_id_b120cbf9_fk_auth_group_id">
+    <End Role="auth_group" Type="Self.auth_group" Multiplicity="1" />
+    <End Role="auth_group_permissions" Type="Self.auth_group_permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_group">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="auth_group_permissions">
+        <PropertyRef Name="group_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="auth_group_permissions_permission_id_84c5c92e_fk_auth_permission_id">
+    <End Role="auth_permission" Type="Self.auth_permission" Multiplicity="1" />
+    <End Role="auth_group_permissions" Type="Self.auth_group_permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_permission">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="auth_group_permissions">
+        <PropertyRef Name="permission_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="auth_permission_content_type_id_2f476e4b_fk_django_content_type_id">
+    <End Role="django_content_type" Type="Self.django_content_type" Multiplicity="1" />
+    <End Role="auth_permission" Type="Self.auth_permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="django_content_type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="auth_permission">
+        <PropertyRef Name="content_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="auth_user_groups_group_id_97559544_fk_auth_group_id">
+    <End Role="auth_group" Type="Self.auth_group" Multiplicity="1" />
+    <End Role="auth_user_groups" Type="Self.auth_user_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_group">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="auth_user_groups">
+        <PropertyRef Name="group_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="auth_user_groups_user_id_6a12ed8b_fk_auth_user_id">
+    <End Role="auth_user" Type="Self.auth_user" Multiplicity="1" />
+    <End Role="auth_user_groups" Type="Self.auth_user_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="auth_user_groups">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="auth_user_user_permissions_permission_id_1fbb5f2c_fk_auth_permission_id">
+    <End Role="auth_permission" Type="Self.auth_permission" Multiplicity="1" />
+    <End Role="auth_user_user_permissions" Type="Self.auth_user_user_permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_permission">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="auth_user_user_permissions">
+        <PropertyRef Name="permission_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id">
+    <End Role="auth_user" Type="Self.auth_user" Multiplicity="1" />
+    <End Role="auth_user_user_permissions" Type="Self.auth_user_user_permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="auth_user_user_permissions">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="django_admin_log_content_type_id_c4bce8eb_fk_django_content_type_id">
+    <End Role="django_content_type" Type="Self.django_content_type" Multiplicity="0..1" />
+    <End Role="django_admin_log" Type="Self.django_admin_log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="django_content_type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="django_admin_log">
+        <PropertyRef Name="content_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="django_admin_log_user_id_c564eba6_fk_auth_user_id">
+    <End Role="auth_user" Type="Self.auth_user" Multiplicity="1" />
+    <End Role="django_admin_log" Type="Self.django_admin_log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="django_admin_log">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="buscarbanco" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="banco" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ExisteEquipo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="descrp" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_ActualizarEqInsp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_eqinsp" Type="int" Mode="In" />
+    <Parameter Name="nombres" Type="nvarchar" Mode="In" />
+    <Parameter Name="estado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_ActualizarInspeccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idins" Type="int" Mode="In" />
+    <Parameter Name="estadoinspeccion" Type="int" Mode="In" />
+    <Parameter Name="descrpinsp" Type="nvarchar" Mode="In" />
+    <Parameter Name="idusuario" Type="int" Mode="In" />
+    <Parameter Name="idequipo" Type="int" Mode="In" />
+    <Parameter Name="monto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_ActualizarSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idsolici" Type="int" Mode="In" />
+    <Parameter Name="Rutcli" Type="nvarchar" Mode="In" />
+    <Parameter Name="Runemp" Type="nvarchar" Mode="In" />
+    <Parameter Name="tiposolicitud" Type="int" Mode="In" />
+    <Parameter Name="fechasolicitud" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_auth_user_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_auth_user_insertcliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="pass" Type="nvarchar" Mode="In" />
+    <Parameter Name="username" Type="nvarchar" Mode="In" />
+    <Parameter Name="firstn" Type="nvarchar" Mode="In" />
+    <Parameter Name="lastn" Type="nvarchar" Mode="In" />
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_auth_user_updatecliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="pass" Type="nvarchar" Mode="In" />
+    <Parameter Name="username" Type="nvarchar" Mode="In" />
+    <Parameter Name="firstn" Type="nvarchar" Mode="In" />
+    <Parameter Name="lastn" Type="nvarchar" Mode="In" />
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_buscarbanco" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_cliente_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_cliente_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="nom" Type="nvarchar" Mode="In" />
+    <Parameter Name="ape" Type="nvarchar" Mode="In" />
+    <Parameter Name="tel" Type="nvarchar" Mode="In" />
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+    <Parameter Name="dire" Type="nvarchar" Mode="In" />
+    <Parameter Name="servicio" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_cliente_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="nom" Type="nvarchar" Mode="In" />
+    <Parameter Name="ape" Type="nvarchar" Mode="In" />
+    <Parameter Name="tel" Type="nvarchar" Mode="In" />
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+    <Parameter Name="dire" Type="nvarchar" Mode="In" />
+    <Parameter Name="servicio" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_eqinsp_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_ExisteCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombc" Type="nvarchar" Mode="In" />
+    <Parameter Name="apec" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_ExisteEquipo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="descrp" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_InsertarEqInsp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_eqinsp" Type="int" Mode="In" />
+    <Parameter Name="nombres" Type="nvarchar" Mode="In" />
+    <Parameter Name="estado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_InsertarInspeccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idins" Type="int" Mode="In" />
+    <Parameter Name="estadoinspeccion" Type="int" Mode="In" />
+    <Parameter Name="descrpinsp" Type="nvarchar" Mode="In" />
+    <Parameter Name="idusuario" Type="int" Mode="In" />
+    <Parameter Name="idequipo" Type="int" Mode="In" />
+    <Parameter Name="monto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_InsertarSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_solicitud" Type="int" Mode="In" />
+    <Parameter Name="Rutcli" Type="nvarchar" Mode="In" />
+    <Parameter Name="Runemp" Type="nvarchar" Mode="In" />
+    <Parameter Name="tiposolicitud" Type="int" Mode="In" />
+    <Parameter Name="fechasolicitud" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_inspeccion_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_listarbanco" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_listarcliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_listareqinsp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_listarinspeccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_listarsolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_LoginUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user" Type="nvarchar" Mode="In" />
+    <Parameter Name="pass" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_solicitud_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_user_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="integracionModelStoreContainer">
+    <EntitySet Name="admin_interface_theme" EntityType="Self.admin_interface_theme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="auth_group" EntityType="Self.auth_group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="auth_group_permissions" EntityType="Self.auth_group_permissions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="auth_permission" EntityType="Self.auth_permission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="auth_user" EntityType="Self.auth_user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="auth_user_groups" EntityType="Self.auth_user_groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="auth_user_user_permissions" EntityType="Self.auth_user_user_permissions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BANCO" EntityType="Self.BANCO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="django_admin_log" EntityType="Self.django_admin_log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="django_content_type" EntityType="Self.django_content_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="django_migrations" EntityType="Self.django_migrations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="django_session" EntityType="Self.django_session" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOG_HISTORIALCLIENTE" EntityType="Self.LOG_HISTORIALCLIENTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOG_HISTORIALEQINSP" EntityType="Self.LOG_HISTORIALEQINSP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOLICITUD" EntityType="Self.SOLICITUD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EQINSP" EntityType="Self.EQINSP" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EQINSP].[idequipo] AS [idequipo], 
+    [EQINSP].[nombres] AS [nombres], 
+    [EQINSP].[estadoequipo] AS [estadoequipo]
+    FROM [dbo].[EQINSP] AS [EQINSP]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="auth_group_permissions_group_id_b120cbf9_fk_auth_group_id" Association="Self.auth_group_permissions_group_id_b120cbf9_fk_auth_group_id">
+      <End Role="auth_group" EntitySet="auth_group" />
+      <End Role="auth_group_permissions" EntitySet="auth_group_permissions" />
+    </AssociationSet>
+    <AssociationSet Name="auth_group_permissions_permission_id_84c5c92e_fk_auth_permission_id" Association="Self.auth_group_permissions_permission_id_84c5c92e_fk_auth_permission_id">
+      <End Role="auth_permission" EntitySet="auth_permission" />
+      <End Role="auth_group_permissions" EntitySet="auth_group_permissions" />
+    </AssociationSet>
+    <AssociationSet Name="auth_permission_content_type_id_2f476e4b_fk_django_content_type_id" Association="Self.auth_permission_content_type_id_2f476e4b_fk_django_content_type_id">
+      <End Role="django_content_type" EntitySet="django_content_type" />
+      <End Role="auth_permission" EntitySet="auth_permission" />
+    </AssociationSet>
+    <AssociationSet Name="auth_user_groups_group_id_97559544_fk_auth_group_id" Association="Self.auth_user_groups_group_id_97559544_fk_auth_group_id">
+      <End Role="auth_group" EntitySet="auth_group" />
+      <End Role="auth_user_groups" EntitySet="auth_user_groups" />
+    </AssociationSet>
+    <AssociationSet Name="auth_user_groups_user_id_6a12ed8b_fk_auth_user_id" Association="Self.auth_user_groups_user_id_6a12ed8b_fk_auth_user_id">
+      <End Role="auth_user" EntitySet="auth_user" />
+      <End Role="auth_user_groups" EntitySet="auth_user_groups" />
+    </AssociationSet>
+    <AssociationSet Name="auth_user_user_permissions_permission_id_1fbb5f2c_fk_auth_permission_id" Association="Self.auth_user_user_permissions_permission_id_1fbb5f2c_fk_auth_permission_id">
+      <End Role="auth_permission" EntitySet="auth_permission" />
+      <End Role="auth_user_user_permissions" EntitySet="auth_user_user_permissions" />
+    </AssociationSet>
+    <AssociationSet Name="auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id" Association="Self.auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id">
+      <End Role="auth_user" EntitySet="auth_user" />
+      <End Role="auth_user_user_permissions" EntitySet="auth_user_user_permissions" />
+    </AssociationSet>
+    <AssociationSet Name="django_admin_log_content_type_id_c4bce8eb_fk_django_content_type_id" Association="Self.django_admin_log_content_type_id_c4bce8eb_fk_django_content_type_id">
+      <End Role="django_content_type" EntitySet="django_content_type" />
+      <End Role="django_admin_log" EntitySet="django_admin_log" />
+    </AssociationSet>
+    <AssociationSet Name="django_admin_log_user_id_c564eba6_fk_auth_user_id" Association="Self.django_admin_log_user_id_c564eba6_fk_auth_user_id">
+      <End Role="auth_user" EntitySet="auth_user" />
+      <End Role="django_admin_log" EntitySet="django_admin_log" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

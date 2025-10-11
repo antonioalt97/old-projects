@@ -1,0 +1,572 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="integracionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="admin_interface_theme">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="title_visible" Type="Boolean" Nullable="false" />
+    <Property Name="logo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="logo_visible" Type="Boolean" Nullable="false" />
+    <Property Name="css_header_background_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="title_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="css_header_text_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="css_header_link_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="css_header_link_hover_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="css_module_background_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="css_module_text_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="css_module_link_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="css_module_link_hover_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="css_module_rounded_corners" Type="Boolean" Nullable="false" />
+    <Property Name="css_generic_link_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="css_generic_link_hover_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="css_save_button_background_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="css_save_button_background_hover_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="css_save_button_text_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="css_delete_button_background_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="css_delete_button_background_hover_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="css_delete_button_text_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="list_filter_dropdown" Type="Boolean" Nullable="false" />
+    <Property Name="related_modal_active" Type="Boolean" Nullable="false" />
+    <Property Name="related_modal_background_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="related_modal_rounded_corners" Type="Boolean" Nullable="false" />
+    <Property Name="logo_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="recent_actions_visible" Type="Boolean" Nullable="false" />
+    <Property Name="favicon" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="related_modal_background_opacity" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="env_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="env_visible_in_header" Type="Boolean" Nullable="false" />
+    <Property Name="env_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="env_visible_in_favicon" Type="Boolean" Nullable="false" />
+    <Property Name="related_modal_close_button_visible" Type="Boolean" Nullable="false" />
+    <Property Name="language_chooser_active" Type="Boolean" Nullable="false" />
+    <Property Name="language_chooser_display" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="list_filter_sticky" Type="Boolean" Nullable="false" />
+    <Property Name="form_pagination_sticky" Type="Boolean" Nullable="false" />
+    <Property Name="form_submit_sticky" Type="Boolean" Nullable="false" />
+    <Property Name="css_module_background_selected_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="css_module_link_selected_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="logo_max_height" Type="Int16" Nullable="false" />
+    <Property Name="logo_max_width" Type="Int16" Nullable="false" />
+    <Property Name="foldable_apps" Type="Boolean" Nullable="false" />
+    <Property Name="language_chooser_control" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="list_filter_highlight" Type="Boolean" Nullable="false" />
+    <Property Name="list_filter_removal_links" Type="Boolean" Nullable="false" />
+    <Property Name="show_fieldsets_as_tabs" Type="Boolean" Nullable="false" />
+    <Property Name="show_inlines_as_tabs" Type="Boolean" Nullable="false" />
+    <Property Name="css_generic_link_active_color" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="auth_group">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="auth_group_permissions" Relationship="Self.auth_group_permissions_group_id_b120cbf9_fk_auth_group_id" FromRole="auth_group" ToRole="auth_group_permissions" />
+    <NavigationProperty Name="auth_user_groups" Relationship="Self.auth_user_groups_group_id_97559544_fk_auth_group_id" FromRole="auth_group" ToRole="auth_user_groups" />
+  </EntityType>
+  <EntityType Name="auth_group_permissions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="group_id" Type="Int32" Nullable="false" />
+    <Property Name="permission_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="auth_group" Relationship="Self.auth_group_permissions_group_id_b120cbf9_fk_auth_group_id" FromRole="auth_group_permissions" ToRole="auth_group" />
+    <NavigationProperty Name="auth_permission" Relationship="Self.auth_group_permissions_permission_id_84c5c92e_fk_auth_permission_id" FromRole="auth_group_permissions" ToRole="auth_permission" />
+  </EntityType>
+  <EntityType Name="auth_permission">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="content_type_id" Type="Int32" Nullable="false" />
+    <Property Name="codename" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="auth_group_permissions" Relationship="Self.auth_group_permissions_permission_id_84c5c92e_fk_auth_permission_id" FromRole="auth_permission" ToRole="auth_group_permissions" />
+    <NavigationProperty Name="django_content_type" Relationship="Self.auth_permission_content_type_id_2f476e4b_fk_django_content_type_id" FromRole="auth_permission" ToRole="django_content_type" />
+    <NavigationProperty Name="auth_user_user_permissions" Relationship="Self.auth_user_user_permissions_permission_id_1fbb5f2c_fk_auth_permission_id" FromRole="auth_permission" ToRole="auth_user_user_permissions" />
+  </EntityType>
+  <EntityType Name="auth_user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="last_login" Type="DateTimeOffset" Precision="7" />
+    <Property Name="is_superuser" Type="Boolean" Nullable="false" />
+    <Property Name="username" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="first_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="last_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="is_staff" Type="Boolean" Nullable="false" />
+    <Property Name="is_active" Type="Boolean" Nullable="false" />
+    <Property Name="date_joined" Type="DateTimeOffset" Nullable="false" Precision="7" />
+    <NavigationProperty Name="auth_user_groups" Relationship="Self.auth_user_groups_user_id_6a12ed8b_fk_auth_user_id" FromRole="auth_user" ToRole="auth_user_groups" />
+    <NavigationProperty Name="auth_user_user_permissions" Relationship="Self.auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id" FromRole="auth_user" ToRole="auth_user_user_permissions" />
+    <NavigationProperty Name="django_admin_log" Relationship="Self.django_admin_log_user_id_c564eba6_fk_auth_user_id" FromRole="auth_user" ToRole="django_admin_log" />
+  </EntityType>
+  <EntityType Name="auth_user_groups">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="group_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="auth_group" Relationship="Self.auth_user_groups_group_id_97559544_fk_auth_group_id" FromRole="auth_user_groups" ToRole="auth_group" />
+    <NavigationProperty Name="auth_user" Relationship="Self.auth_user_groups_user_id_6a12ed8b_fk_auth_user_id" FromRole="auth_user_groups" ToRole="auth_user" />
+  </EntityType>
+  <EntityType Name="auth_user_user_permissions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="permission_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="auth_permission" Relationship="Self.auth_user_user_permissions_permission_id_1fbb5f2c_fk_auth_permission_id" FromRole="auth_user_user_permissions" ToRole="auth_permission" />
+    <NavigationProperty Name="auth_user" Relationship="Self.auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id" FromRole="auth_user_user_permissions" ToRole="auth_user" />
+  </EntityType>
+  <EntityType Name="BANCO">
+    <Key>
+      <PropertyRef Name="idbanco" />
+    </Key>
+    <Property Name="idbanco" Type="Int32" Nullable="false" />
+    <Property Name="nombreclib" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="apellidoclib" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="telefonoclib" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="emailclib" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="direclib" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="hipoteca" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="idcliente" />
+    </Key>
+    <Property Name="idcliente" Type="Int32" Nullable="false" />
+    <Property Name="nombrecli" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="apellidocli" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="telefonocli" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="emailcli" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="direcli" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="servicio" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="django_admin_log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="action_time" Type="DateTimeOffset" Nullable="false" Precision="7" />
+    <Property Name="object_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="object_repr" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="action_flag" Type="Int16" Nullable="false" />
+    <Property Name="change_message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="content_type_id" Type="Int32" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="auth_user" Relationship="Self.django_admin_log_user_id_c564eba6_fk_auth_user_id" FromRole="django_admin_log" ToRole="auth_user" />
+    <NavigationProperty Name="django_content_type" Relationship="Self.django_admin_log_content_type_id_c4bce8eb_fk_django_content_type_id" FromRole="django_admin_log" ToRole="django_content_type" />
+  </EntityType>
+  <EntityType Name="django_content_type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="app_label" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="model" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="auth_permission" Relationship="Self.auth_permission_content_type_id_2f476e4b_fk_django_content_type_id" FromRole="django_content_type" ToRole="auth_permission" />
+    <NavigationProperty Name="django_admin_log" Relationship="Self.django_admin_log_content_type_id_c4bce8eb_fk_django_content_type_id" FromRole="django_content_type" ToRole="django_admin_log" />
+  </EntityType>
+  <EntityType Name="django_migrations">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="app" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="applied" Type="DateTimeOffset" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="django_session">
+    <Key>
+      <PropertyRef Name="session_key" />
+    </Key>
+    <Property Name="session_key" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="session_data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="expire_date" Type="DateTimeOffset" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="LOG_HISTORIALCLIENTE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FECHA" Type="DateTime" Precision="3" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="USUARIO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LOG_HISTORIALEQINSP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FECHA" Type="DateTime" Precision="3" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="USUARIO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SOLICITUD">
+    <Key>
+      <PropertyRef Name="id_solicitud" />
+    </Key>
+    <Property Name="id_solicitud" Type="Int32" Nullable="false" />
+    <Property Name="run_cli" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="run_emp" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tipo_solicitud" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fecha_solicitud" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="EQINSP">
+    <Key>
+      <PropertyRef Name="idequipo" />
+      <PropertyRef Name="nombres" />
+    </Key>
+    <Property Name="idequipo" Type="Int32" Nullable="false" />
+    <Property Name="nombres" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="estadoequipo" Type="Int32" />
+  </EntityType>
+  <Association Name="auth_group_permissions_group_id_b120cbf9_fk_auth_group_id">
+    <End Role="auth_group" Type="Self.auth_group" Multiplicity="1" />
+    <End Role="auth_group_permissions" Type="Self.auth_group_permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_group">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="auth_group_permissions">
+        <PropertyRef Name="group_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="auth_user_groups_group_id_97559544_fk_auth_group_id">
+    <End Role="auth_group" Type="Self.auth_group" Multiplicity="1" />
+    <End Role="auth_user_groups" Type="Self.auth_user_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_group">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="auth_user_groups">
+        <PropertyRef Name="group_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="auth_group_permissions_permission_id_84c5c92e_fk_auth_permission_id">
+    <End Role="auth_permission" Type="Self.auth_permission" Multiplicity="1" />
+    <End Role="auth_group_permissions" Type="Self.auth_group_permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_permission">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="auth_group_permissions">
+        <PropertyRef Name="permission_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="auth_permission_content_type_id_2f476e4b_fk_django_content_type_id">
+    <End Role="django_content_type" Type="Self.django_content_type" Multiplicity="1" />
+    <End Role="auth_permission" Type="Self.auth_permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="django_content_type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="auth_permission">
+        <PropertyRef Name="content_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="auth_user_user_permissions_permission_id_1fbb5f2c_fk_auth_permission_id">
+    <End Role="auth_permission" Type="Self.auth_permission" Multiplicity="1" />
+    <End Role="auth_user_user_permissions" Type="Self.auth_user_user_permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_permission">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="auth_user_user_permissions">
+        <PropertyRef Name="permission_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="auth_user_groups_user_id_6a12ed8b_fk_auth_user_id">
+    <End Role="auth_user" Type="Self.auth_user" Multiplicity="1" />
+    <End Role="auth_user_groups" Type="Self.auth_user_groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="auth_user_groups">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id">
+    <End Role="auth_user" Type="Self.auth_user" Multiplicity="1" />
+    <End Role="auth_user_user_permissions" Type="Self.auth_user_user_permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="auth_user_user_permissions">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="django_admin_log_user_id_c564eba6_fk_auth_user_id">
+    <End Role="auth_user" Type="Self.auth_user" Multiplicity="1" />
+    <End Role="django_admin_log" Type="Self.django_admin_log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="django_admin_log">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="django_admin_log_content_type_id_c4bce8eb_fk_django_content_type_id">
+    <End Role="django_content_type" Type="Self.django_content_type" Multiplicity="0..1" />
+    <End Role="django_admin_log" Type="Self.django_admin_log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="django_content_type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="django_admin_log">
+        <PropertyRef Name="content_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="integracionEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admin_interface_theme" EntityType="Self.admin_interface_theme" />
+    <EntitySet Name="auth_group" EntityType="Self.auth_group" />
+    <EntitySet Name="auth_group_permissions" EntityType="Self.auth_group_permissions" />
+    <EntitySet Name="auth_permission" EntityType="Self.auth_permission" />
+    <EntitySet Name="auth_user" EntityType="Self.auth_user" />
+    <EntitySet Name="auth_user_groups" EntityType="Self.auth_user_groups" />
+    <EntitySet Name="auth_user_user_permissions" EntityType="Self.auth_user_user_permissions" />
+    <EntitySet Name="BANCO" EntityType="Self.BANCO" />
+    <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
+    <EntitySet Name="django_admin_log" EntityType="Self.django_admin_log" />
+    <EntitySet Name="django_content_type" EntityType="Self.django_content_type" />
+    <EntitySet Name="django_migrations" EntityType="Self.django_migrations" />
+    <EntitySet Name="django_session" EntityType="Self.django_session" />
+    <EntitySet Name="LOG_HISTORIALCLIENTE" EntityType="Self.LOG_HISTORIALCLIENTE" />
+    <EntitySet Name="LOG_HISTORIALEQINSP" EntityType="Self.LOG_HISTORIALEQINSP" />
+    <EntitySet Name="SOLICITUD" EntityType="Self.SOLICITUD" />
+    <EntitySet Name="EQINSP" EntityType="Self.EQINSP" />
+    <AssociationSet Name="auth_group_permissions_group_id_b120cbf9_fk_auth_group_id" Association="Self.auth_group_permissions_group_id_b120cbf9_fk_auth_group_id">
+      <End Role="auth_group" EntitySet="auth_group" />
+      <End Role="auth_group_permissions" EntitySet="auth_group_permissions" />
+    </AssociationSet>
+    <AssociationSet Name="auth_user_groups_group_id_97559544_fk_auth_group_id" Association="Self.auth_user_groups_group_id_97559544_fk_auth_group_id">
+      <End Role="auth_group" EntitySet="auth_group" />
+      <End Role="auth_user_groups" EntitySet="auth_user_groups" />
+    </AssociationSet>
+    <AssociationSet Name="auth_group_permissions_permission_id_84c5c92e_fk_auth_permission_id" Association="Self.auth_group_permissions_permission_id_84c5c92e_fk_auth_permission_id">
+      <End Role="auth_permission" EntitySet="auth_permission" />
+      <End Role="auth_group_permissions" EntitySet="auth_group_permissions" />
+    </AssociationSet>
+    <AssociationSet Name="auth_permission_content_type_id_2f476e4b_fk_django_content_type_id" Association="Self.auth_permission_content_type_id_2f476e4b_fk_django_content_type_id">
+      <End Role="django_content_type" EntitySet="django_content_type" />
+      <End Role="auth_permission" EntitySet="auth_permission" />
+    </AssociationSet>
+    <AssociationSet Name="auth_user_user_permissions_permission_id_1fbb5f2c_fk_auth_permission_id" Association="Self.auth_user_user_permissions_permission_id_1fbb5f2c_fk_auth_permission_id">
+      <End Role="auth_permission" EntitySet="auth_permission" />
+      <End Role="auth_user_user_permissions" EntitySet="auth_user_user_permissions" />
+    </AssociationSet>
+    <AssociationSet Name="auth_user_groups_user_id_6a12ed8b_fk_auth_user_id" Association="Self.auth_user_groups_user_id_6a12ed8b_fk_auth_user_id">
+      <End Role="auth_user" EntitySet="auth_user" />
+      <End Role="auth_user_groups" EntitySet="auth_user_groups" />
+    </AssociationSet>
+    <AssociationSet Name="auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id" Association="Self.auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id">
+      <End Role="auth_user" EntitySet="auth_user" />
+      <End Role="auth_user_user_permissions" EntitySet="auth_user_user_permissions" />
+    </AssociationSet>
+    <AssociationSet Name="django_admin_log_user_id_c564eba6_fk_auth_user_id" Association="Self.django_admin_log_user_id_c564eba6_fk_auth_user_id">
+      <End Role="auth_user" EntitySet="auth_user" />
+      <End Role="django_admin_log" EntitySet="django_admin_log" />
+    </AssociationSet>
+    <AssociationSet Name="django_admin_log_content_type_id_c4bce8eb_fk_django_content_type_id" Association="Self.django_admin_log_content_type_id_c4bce8eb_fk_django_content_type_id">
+      <End Role="django_content_type" EntitySet="django_content_type" />
+      <End Role="django_admin_log" EntitySet="django_admin_log" />
+    </AssociationSet>
+    <FunctionImport Name="buscarbanco" ReturnType="Collection(integracionModel.buscarbanco_Result)">
+      <Parameter Name="banco" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ExisteEquipo" ReturnType="Collection(Int32)">
+      <Parameter Name="descrp" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ActualizarEqInsp">
+      <Parameter Name="Id_eqinsp" Mode="In" Type="Int32" />
+      <Parameter Name="nombres" Mode="In" Type="String" />
+      <Parameter Name="estado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ActualizarInspeccion">
+      <Parameter Name="idins" Mode="In" Type="Int32" />
+      <Parameter Name="estadoinspeccion" Mode="In" Type="Int32" />
+      <Parameter Name="descrpinsp" Mode="In" Type="String" />
+      <Parameter Name="idusuario" Mode="In" Type="Int32" />
+      <Parameter Name="idequipo" Mode="In" Type="Int32" />
+      <Parameter Name="monto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ActualizarSolicitud">
+      <Parameter Name="idsolici" Mode="In" Type="Int32" />
+      <Parameter Name="Rutcli" Mode="In" Type="String" />
+      <Parameter Name="Runemp" Mode="In" Type="String" />
+      <Parameter Name="tiposolicitud" Mode="In" Type="Int32" />
+      <Parameter Name="fechasolicitud" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_auth_user_delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_auth_user_insertcliente">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="firstn" Mode="In" Type="String" />
+      <Parameter Name="lastn" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_auth_user_updatecliente">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="firstn" Mode="In" Type="String" />
+      <Parameter Name="lastn" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_buscarbanco" ReturnType="Collection(integracionModel.sp_buscarbanco_Result)">
+      <Parameter Name="CustomerID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_cliente_delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_cliente_insert">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="nom" Mode="In" Type="String" />
+      <Parameter Name="ape" Mode="In" Type="String" />
+      <Parameter Name="tel" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="dire" Mode="In" Type="String" />
+      <Parameter Name="servicio" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_cliente_update">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="nom" Mode="In" Type="String" />
+      <Parameter Name="ape" Mode="In" Type="String" />
+      <Parameter Name="tel" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="dire" Mode="In" Type="String" />
+      <Parameter Name="servicio" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_eqinsp_delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ExisteCliente" ReturnType="Collection(Int32)">
+      <Parameter Name="nombc" Mode="In" Type="String" />
+      <Parameter Name="apec" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ExisteEquipo" ReturnType="Collection(Int32)">
+      <Parameter Name="descrp" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertarEqInsp">
+      <Parameter Name="Id_eqinsp" Mode="In" Type="Int32" />
+      <Parameter Name="nombres" Mode="In" Type="String" />
+      <Parameter Name="estado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertarInspeccion">
+      <Parameter Name="idins" Mode="In" Type="Int32" />
+      <Parameter Name="estadoinspeccion" Mode="In" Type="Int32" />
+      <Parameter Name="descrpinsp" Mode="In" Type="String" />
+      <Parameter Name="idusuario" Mode="In" Type="Int32" />
+      <Parameter Name="idequipo" Mode="In" Type="Int32" />
+      <Parameter Name="monto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertarSolicitud">
+      <Parameter Name="Id_solicitud" Mode="In" Type="Int32" />
+      <Parameter Name="Rutcli" Mode="In" Type="String" />
+      <Parameter Name="Runemp" Mode="In" Type="String" />
+      <Parameter Name="tiposolicitud" Mode="In" Type="Int32" />
+      <Parameter Name="fechasolicitud" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_inspeccion_delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_listarbanco" ReturnType="Collection(integracionModel.sp_listarbanco_Result)" />
+    <FunctionImport Name="sp_listarcliente" ReturnType="Collection(integracionModel.sp_listarcliente_Result)" />
+    <FunctionImport Name="sp_listareqinsp" ReturnType="Collection(integracionModel.sp_listareqinsp_Result)" />
+    <FunctionImport Name="sp_listarinspeccion" ReturnType="Collection(integracionModel.sp_listarinspeccion_Result)" />
+    <FunctionImport Name="sp_listarsolicitud" ReturnType="Collection(integracionModel.sp_listarsolicitud_Result)" />
+    <FunctionImport Name="sp_LoginUser" ReturnType="Collection(Int32)">
+      <Parameter Name="user" Mode="In" Type="String" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_solicitud_delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_user_delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="buscarbanco_Result">
+    <Property Type="Int32" Name="idbanco" Nullable="false" />
+    <Property Type="String" Name="nombreclib" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="apellidoclib" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="telefonoclib" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="emailclib" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="direclib" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="hipoteca" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="sp_buscarbanco_Result">
+    <Property Type="Int32" Name="idbanco" Nullable="false" />
+    <Property Type="String" Name="nombreclib" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="apellidoclib" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="telefonoclib" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="emailclib" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="direclib" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="hipoteca" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="sp_listarbanco_Result">
+    <Property Type="Int32" Name="idbanco" Nullable="false" />
+    <Property Type="String" Name="nombreclib" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="apellidoclib" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="telefonoclib" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="emailclib" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="direclib" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="hipoteca" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="sp_listarcliente_Result">
+    <Property Type="Int32" Name="idcliente" Nullable="false" />
+    <Property Type="String" Name="nombrecli" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="apellidocli" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="telefonocli" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="emailcli" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="direcli" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="servicio" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="sp_listareqinsp_Result">
+    <Property Type="Int32" Name="idequipo" Nullable="false" />
+    <Property Type="String" Name="nombres" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="estadoequipo" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_listarinspeccion_Result">
+    <Property Type="Int32" Name="idinspeccion" Nullable="true" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+    <Property Type="String" Name="descripcion" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="idusuario" Nullable="true" />
+    <Property Type="Int32" Name="idequipo" Nullable="true" />
+    <Property Type="Int32" Name="monto" Nullable="true" />
+    <Property Type="String" Name="fechains" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="sp_listarsolicitud_Result">
+    <Property Type="Int32" Name="id_solicitud" Nullable="false" />
+    <Property Type="String" Name="run_cli" Nullable="false" MaxLength="12" />
+    <Property Type="String" Name="run_emp" Nullable="false" MaxLength="12" />
+    <Property Type="String" Name="tipo_solicitud" Nullable="false" MaxLength="300" />
+    <Property Type="DateTime" Name="fecha_solicitud" Nullable="false" />
+  </ComplexType>
+</Schema>

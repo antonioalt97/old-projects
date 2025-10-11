@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://WebServices/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="WebServiceOkcasa" targetNamespace="http://WebServices/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://192.168.1.89:8080/WebServiceOkcasa?xsd=1" namespace="http://WebServices/" />
+    </xsd:schema>
+  </types>
+  <message name="Login">
+    <part name="parameters" element="tns:Login" />
+  </message>
+  <message name="LoginResponse">
+    <part name="parameters" element="tns:LoginResponse" />
+  </message>
+  <message name="Exception">
+    <part name="fault" element="tns:Exception" />
+  </message>
+  <message name="ExisteCliente">
+    <part name="parameters" element="tns:ExisteCliente" />
+  </message>
+  <message name="ExisteClienteResponse">
+    <part name="parameters" element="tns:ExisteClienteResponse" />
+  </message>
+  <message name="ExisteInspeccion">
+    <part name="parameters" element="tns:ExisteInspeccion" />
+  </message>
+  <message name="ExisteInspeccionResponse">
+    <part name="parameters" element="tns:ExisteInspeccionResponse" />
+  </message>
+  <message name="hello">
+    <part name="parameters" element="tns:hello" />
+  </message>
+  <message name="helloResponse">
+    <part name="parameters" element="tns:helloResponse" />
+  </message>
+  <message name="Login2">
+    <part name="parameters" element="tns:Login2" />
+  </message>
+  <message name="Login2Response">
+    <part name="parameters" element="tns:Login2Response" />
+  </message>
+  <message name="LoginPeruano">
+    <part name="parameters" element="tns:LoginPeruano" />
+  </message>
+  <message name="LoginPeruanoResponse">
+    <part name="parameters" element="tns:LoginPeruanoResponse" />
+  </message>
+  <message name="ExisteCliente2">
+    <part name="parameters" element="tns:ExisteCliente2" />
+  </message>
+  <message name="ExisteCliente2Response">
+    <part name="parameters" element="tns:ExisteCliente2Response" />
+  </message>
+  <message name="ExisteEquipo">
+    <part name="parameters" element="tns:ExisteEquipo" />
+  </message>
+  <message name="ExisteEquipoResponse">
+    <part name="parameters" element="tns:ExisteEquipoResponse" />
+  </message>
+  <portType name="WebServiceOkcasa">
+    <operation name="Login">
+      <input wsam:Action="http://WebServices/WebServiceOkcasa/LoginRequest" message="tns:Login" />
+      <output wsam:Action="http://WebServices/WebServiceOkcasa/LoginResponse" message="tns:LoginResponse" />
+      <fault wsam:Action="http://WebServices/WebServiceOkcasa/Login/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="ExisteCliente">
+      <input wsam:Action="http://WebServices/WebServiceOkcasa/ExisteClienteRequest" message="tns:ExisteCliente" />
+      <output wsam:Action="http://WebServices/WebServiceOkcasa/ExisteClienteResponse" message="tns:ExisteClienteResponse" />
+    </operation>
+    <operation name="ExisteInspeccion">
+      <input wsam:Action="http://WebServices/WebServiceOkcasa/ExisteInspeccionRequest" message="tns:ExisteInspeccion" />
+      <output wsam:Action="http://WebServices/WebServiceOkcasa/ExisteInspeccionResponse" message="tns:ExisteInspeccionResponse" />
+    </operation>
+    <operation name="hello">
+      <input wsam:Action="http://WebServices/WebServiceOkcasa/helloRequest" message="tns:hello" />
+      <output wsam:Action="http://WebServices/WebServiceOkcasa/helloResponse" message="tns:helloResponse" />
+    </operation>
+    <operation name="Login2">
+      <input wsam:Action="http://WebServices/WebServiceOkcasa/Login2Request" message="tns:Login2" />
+      <output wsam:Action="http://WebServices/WebServiceOkcasa/Login2Response" message="tns:Login2Response" />
+      <fault wsam:Action="http://WebServices/WebServiceOkcasa/Login2/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="LoginPeruano">
+      <input wsam:Action="http://WebServices/WebServiceOkcasa/LoginPeruanoRequest" message="tns:LoginPeruano" />
+      <output wsam:Action="http://WebServices/WebServiceOkcasa/LoginPeruanoResponse" message="tns:LoginPeruanoResponse" />
+    </operation>
+    <operation name="ExisteCliente2">
+      <input wsam:Action="http://WebServices/WebServiceOkcasa/ExisteCliente2Request" message="tns:ExisteCliente2" />
+      <output wsam:Action="http://WebServices/WebServiceOkcasa/ExisteCliente2Response" message="tns:ExisteCliente2Response" />
+    </operation>
+    <operation name="ExisteEquipo">
+      <input wsam:Action="http://WebServices/WebServiceOkcasa/ExisteEquipoRequest" message="tns:ExisteEquipo" />
+      <output wsam:Action="http://WebServices/WebServiceOkcasa/ExisteEquipoResponse" message="tns:ExisteEquipoResponse" />
+    </operation>
+  </portType>
+  <binding name="WebServiceOkcasaPortBinding" type="tns:WebServiceOkcasa">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Login">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="ExisteCliente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ExisteInspeccion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="hello">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="Login2">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="LoginPeruano">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ExisteCliente2">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ExisteEquipo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="WebServiceOkcasa">
+    <port name="WebServiceOkcasaPort" binding="tns:WebServiceOkcasaPortBinding">
+      <soap:address location="http://192.168.1.89:8080/WebServiceOkcasa" />
+    </port>
+  </service>
+</definitions>
