@@ -1,0 +1,106 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+  <div class="col-xl-12">
+    <div class="col-12 mb-4">
+      <div class="card border-0 shadow">
+        <div class="card-header">
+          <div class="row align-items-center">
+            <div class="col">
+              <h2 class="fs-5 fw-bold mb-0">Reservas</h2>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th class="border-bottom" scope="col">ID</th>
+                <th class="border-bottom" scope="col">Nombre</th>
+                <th class="border-bottom text-center" scope="col">Cantidad de comensales</th>
+                <th class="border-bottom" scope="col">Fecha</th>
+                <th class="border-bottom" scope="col">Hora</th>
+                <th class="border-bottom" scope="col">Mesa</th>
+                <th class="border-bottom" scope="col">Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if reservas %}
+              {% for reserva in reservas %}
+              <tr>
+                <td class="text-gray-900">{{ reserva.id }}</td>
+                <td class="fw-bolder text-gray-500">{{ reserva.nombre }} {{ reserva.apellido }}</td>
+                <td class="fw-bolder text-gray-500 text-center">{{ reserva.cantidad_comensales }}</td>
+                <td class="fw-bolder text-gray-500">
+                  {{ reserva.fecha_reserva|date:"d/m/Y" }}
+                </td>
+                <td class="fw-bolder text-gray-500">
+                  {{ reserva.tiempo|time:"H:i" }}
+                </td>
+                <td class="fw-bolder text-gray-500">
+                  {{ reserva.mesa.numero_mesa }}
+    
+                </td>
+
+                <td class="fw-bolder text-gray-500">{{ reserva.estado_reserva }}</td>
+              </tr>
+              {% endfor %}
+              {% else %}
+              <tr>
+                <td class="fw-bolder text-gray-500" colspan="7">No haz realizado reservas aún.</td>
+              </tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-12 mb-4">
+      <div class="card border-0 shadow">
+        <div class="card-header border-bottom d-flex align-items-center justify-content-between">
+          <h2 class="fs-5 fw-bold mb-0">Menu del día</h2>
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush list my--3">
+            <li class="list-group-item px-0">
+              <div class="row align-items-center">
+                {% for menu_detail in menu_details %}
+                <div class="col-auto">
+                  <!-- Avatar -->
+                  <a href="#" class="avatar">
+                    <img class="rounded" alt="Image placeholder" src="{{ menu_detail.imagen.url }}">
+                  </a>
+                </div>
+                <div class="col-auto ms--2">
+                  <h4 class="h6 mb-0">
+                    <a href="#">{{ menu_detail.plato }}</a>
+                  </h4>
+                  <div class="d-flex align-items-center">
+                    <div class="bg-success dot rounded-circle me-1"></div>
+                    <small>{{ menu_detail.descripcion }}</small>
+                  </div>
+                </div>
+                <div class="col text-end">
+                  <a href="#" class="btn btn-sm btn-secondary d-inline-flex align-items-center">
+                    <svg class="icon icon-xxs me-2" fill="currentColor" viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd"
+                        d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                    {{menu_detail.tipo_menu}}
+                  </a>
+                </div>
+                {% endfor %}
+              </div>
+
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

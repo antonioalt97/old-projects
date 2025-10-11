@@ -1,0 +1,167 @@
+/* Estilos CSS base */
+body {
+  font-family: 'Open Sans', Arial, sans-serif; /* Fuente más moderna */
+  background: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  color: #5a5a5a; /* Color de texto suave */
+}
+
+.contact-section {
+  display: flex;
+  flex-wrap: wrap; /* Asegura que los elementos se ajusten en pantallas más pequeñas */
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 40px;
+  max-width: 1200px; /* Ancho máximo para controlar el diseño en pantallas grandes */
+  margin: auto; /* Centra la sección */
+}
+
+#map {
+  height: 400px;
+  flex: 1 1 45%; /* Usa flexbox para controlar el tamaño */
+  margin-bottom: 20px; /* Espacio debajo del mapa */
+}
+
+.contact-form {
+  flex: 1 1 45%; /* Usa flexbox para controlar el tamaño */
+  background: #ffffff; /* Fondo blanco para el formulario */
+  padding: 25px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1); /* Sombra suave para resaltar el formulario */
+  border-radius: 8px; /* Bordes redondeados */
+  margin-bottom: 20px; /* Espacio debajo del formulario */
+}
+
+.contact-form h2 {
+  color: #333;
+  margin-bottom: 20px; /* Espacio después del título */
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-bottom: 5px; /* Espacio después de cada etiqueta */
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  padding: 10px;
+  margin-bottom: 15px; /* Espacio después de cada campo de entrada */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: 'Open Sans', Arial, sans-serif; /* Fuente para los campos de entrada */
+}
+
+.contact-form button {
+  padding: 10px 15px;
+  color: white;
+  background-color: #5c6bc0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em; /* Tamaño de fuente para el botón */
+  font-family: 'Open Sans', Arial, sans-serif; /* Fuente para el botón */
+}
+
+.contact-form button:hover {
+  background-color: #3f51b5;
+}
+
+/* Estilos para la sección de información de contacto modernizada */
+.contact-info {
+  background-color: #ffffff; /* Fondo blanco */
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1); /* Sombra para dar profundidad */
+  padding: 20px;
+  border-radius: 8px; /* Bordes redondeados */
+  margin: 20px 0; /* Espacio arriba y abajo */
+  width: calc(90% - 60px); /* Ancho ajustado con base al padding */
+  max-width: 1200px; /* Ancho máximo para alinearse con la sección de contacto */
+  box-sizing: border-box; /* El box-sizing para incluir padding en el ancho */
+}
+
+.contact-info .container {
+  display: flex;
+  flex-direction: column; /* Elementos uno debajo del otro */
+  align-items: center; /* Centra los elementos horizontalmente */
+  text-align: center; /* Texto centrado */
+}
+
+.contact-info p, .contact-info a {
+  margin: 10px 0; /* Espacio vertical entre elementos */
+  color: #5a5a5a; /* Color de texto para la información de contacto */
+  text-decoration: none; /* Remueve la decoración de los enlaces */
+}
+
+.contact-info a:hover {
+  text-decoration: underline; /* Subrayado al pasar el ratón sobre los enlaces */
+}
+
+/* Media queries para ajustes responsivos */
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #map, .contact-form, .contact-info {
+    flex: 1 1 100%; /* Ocupan todo el ancho en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form {
+    padding: 20px; /* Menos padding en pantallas muy pequeñas */
+  }
+
+  .contact-info {
+    padding: 20px; /* Menos padding en pantallas muy pequeñas */
+    width: calc(100% - 40px); /* Ancho ajustado para pantallas pequeñas */
+  }
+}
+
+/* Estilos previos */
+
+/* Estilos para el footer */
+.site-footer {
+  background-color: #ffffff; /* O el color que prefieras */
+  padding: 20px 0;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1); /* Sombra para separar del contenido principal */
+}
+
+.footer-container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* Separa cada bloque de información */
+  flex-wrap: wrap; /* Asegura que los elementos se ajusten en pantallas pequeñas */
+}
+
+.footer-block {
+  flex: 1;
+  min-width: 200px; /* Establece un ancho mínimo para cada bloque */
+  margin: 10px; /* Espacio alrededor de los bloques */
+}
+
+.site-footer p {
+  margin: 10px 0;
+  text-align: center; /* Centra el texto */
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-block {
+    text-align: center; /* Centra el texto en dispositivos móviles */
+    min-width: 0; /* Permite que los bloques se ajusten al contenedor en pantallas pequeñas */
+    max-width: 100%; /* Ajusta el ancho al del contenedor */
+  }
+}
+
+/* Otros estilos de media queries */

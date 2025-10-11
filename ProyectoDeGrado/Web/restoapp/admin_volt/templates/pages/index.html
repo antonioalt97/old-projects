@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <!-- Required meta tags -->
+  {% include 'includes/head.html' %}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+
+  <title>Restaurante Siglo 21</title>
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/home/css/bootstrap.min.css'  %}" />
+
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/home/css/font-awesome.css'  %}" />
+
+  <link rel="stylesheet" href="{% static 'assets/home/css/templatemo-klassy-cafe.css'  %}" />
+
+  <link rel="stylesheet" href="{% static 'assets/home/css/owl-carousel.css'  %}" />
+
+  <link rel="stylesheet" href="{% static 'assets/home/css/lightbox.css'  %}" />
+  <style>
+    .vertical-align-middle {
+      vertical-align: middle;
+      width: 120px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ***** Preloader Start ***** -->
+  <div id="preloader">
+    <div class="jumper">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <a href="/" class="logo" title="Inicio">
+              <img src="{% static '/assets/home/images/21logo.png'  %}" alt="Logo de Restaurante21"
+                class="vertical-align-middle" />
+            </a>
+            <ul class="nav">
+              <li class="scroll-to-section">
+                <a href="#top" class="active">Inicio</a>
+              </li>
+              <li><a href="#contacto">Contactanos</a></li>
+
+              <li class="scroll-to-section"><a href="#menu">Menu</a></li>
+              <li class="scroll-to-section">
+                <a href="#chefs">Nuestros chefs</a>
+              </li>
+              <li class="submenu">
+                {% if user.is_staff %}
+                <a href="/admin/">Panel de Colaboradores</a>
+                {% else %}
+                <a href="{% url 'dashboard' %}">Panel de Clintes</a>
+                {% endif %}
+                <ul>
+                  <li><a href="/accounts/register/">Registrate</a></li>
+                  <li><a href="/accounts/login/">Login</a></li>
+                  <li><a href="/accounts/password-reset/">Olvide mi contraseña</a></li>
+                </ul>
+              </li>
+              <li class="scroll-to-section">
+                <a href="/contact/">Contactanos</a>
+              </li>
+            </ul>
+            <a class="menu-trigger">
+              <span>Menu</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ***** Main Banner Area Start ***** -->
+  <div id="top">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="left-content">
+            <div class="inner-content">
+              <h4>Restaurante Siglo 21</h4>
+              <h6>LA MEJOR EXPERIENCIA GASTRONÓMICA</h6>
+              <div class="main-white-button scroll-to-section">
+                <a href="{% url 'dashboard' %}">Haz Una Reserva</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="main-banner header-text">
+            <div class="Modern-Slider">
+              <!-- Item -->
+              <div class="item">
+                <div class="img-fill">
+                  <img src="{% static '/assets/home/images/logo-cristal.jpg' %}" alt="" />
+                </div>
+              </div>
+              <!-- // Item -->
+              <!-- Item -->
+              <div class="item">
+                <div class="img-fill">
+                  <img src="{% static '/assets/home/images/slide-02.jpg' %}" alt="" />
+                </div>
+              </div>
+              <!-- // Item -->
+              <!-- Item -->
+              <div class="item">
+                <div class="img-fill">
+                  <img src="{% static '/assets/home/images/slide-03.jpg' %}" alt="" />
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="img-fill">
+                  <img src="{% static '/assets/home/images/img-fuera.jpg' %}" alt="" />
+                </div>
+              </div>
+              <!-- // Item -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Main Banner Area End ***** -->
+
+  <!-- ***** About Area Starts ***** -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-xs-12">
+          <div class="left-text-content">
+            <div class="section-heading">
+              <h6>Sobre Nosotros</h6>
+              <h2>
+                Cocina a la altura del futuro con sabor tradicional Para Ti
+              </h2>
+            </div>
+            <p>
+              El Restaurante Siglo 21
+              <a>
+                es reconocido por su exquisita cocina y servicio de primera
+                clase.</a>
+              Aquí, cada plato cuenta una historia y cada sabor lleva el sello
+              de la tradición y la innovación culinaria. <br /><br />Te
+              invitamos a ser parte de esta experiencia gastronómica única.
+            </p>
+            <div class="row">
+              <div class="col-4">
+                <img src="{% static '/assets/home/images/about-thumb-01.jpg' %}" alt="" />
+              </div>
+              <div class="col-4">
+                <img src="{% static '/assets/home/images/about-thumb-02.jpg' %}" alt="" />
+              </div>
+              <div class="col-4">
+                <img src="{% static '/assets/home/images/about-thumb-03.jpg' %}" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-xs-12">
+          <div class="right-content">
+            <div class="thumb">
+              <a rel="nofollow" href="http://youtube.com"><i class="fa fa-play"></i></a>
+              <img src="{% static '/assets/home/images/about-video-bg.jpg' %}" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ***** About Area Ends ***** -->
+
+  <!-- ***** Menu Area Starts ***** -->
+  <section class="section" id="menu">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="section-heading">
+            <h6>Nuestro Menú</h6>
+            <h2>Una selección de platos con sabor de calidad</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="menu-item-carousel">
+      <div class="col-lg-12">
+        <div class="owl-menu-item owl-carousel">
+          <div class="item">
+            <div class="card card1">
+              <div class="price">
+                <h6>$3.700</h6>
+              </div>
+              <div class="info">
+                <h1 class="title">Pastel de Chocolate</h1>
+                <p class="description">
+                  Una delicia clásica con nuestro toque especial.
+                </p>
+                <div class="main-text-button">
+                  <div class="scroll-to-section">
+                    <a href="#reservation">Haz una reservacion <i class="fa fa-angle-down"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="card card2">
+              <div class="price">
+                <h6>$4500</h6>
+              </div>
+              <div class="info">
+                <h1 class="title">Pancakes al futuro!</h1>
+                <p class="description">
+                  Nuestra receta, bañados en salsa de manjar con frutas de
+                  temporada.
+                </p>
+                <div class="main-text-button">
+                  <div class="scroll-to-section">
+                    <a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="card card3">
+              <div class="price">
+                <h6>$18</h6>
+              </div>
+              <div class="info">
+                <h1 class="title">Tall Klassy Bread</h1>
+                <p class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                  sedii do eiusmod teme.
+                </p>
+                <div class="main-text-button">
+                  <div class="scroll-to-section">
+                    <a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="card card4">
+              <div class="price">
+                <h6>$3600</h6>
+              </div>
+              <div class="info">
+                <h1 class="title">Blueberry CheeseCake</h1>
+                <p class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                  sedii do eiusmod teme.
+                </p>
+                <div class="main-text-button">
+                  <div class="scroll-to-section">
+                    <a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="card card5">
+              <div class="price">
+                <h6>$3400</h6>
+              </div>
+              <div class="info">
+                <h1 class="title">Muffin de pie de limon</h1>
+                <p class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                  sedii do eiusmod teme.
+                </p>
+                <div class="main-text-button">
+                  <div class="scroll-to-section">
+                    <a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="card card3">
+              <div class="price">
+                <h6>$7.25</h6>
+              </div>
+              <div class="info">
+                <h1 class="title">Klassic Cake</h1>
+                <p class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                  sedii do eiusmod teme.
+                </p>
+                <div class="main-text-button">
+                  <div class="scroll-to-section">
+                    <a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ***** Menu Area Ends ***** -->
+
+  <!-- ***** Chefs Area Starts ***** -->
+  <section class="section" id="chefs">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <div class="section-heading">
+            <h6>Nuestro equipo</h6>
+            <h2>Siempre con la energía y sabor que tu paladar se merece.</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="chef-item">
+            <div class="thumb">
+              <div class="overlay"></div>
+              <ul class="social-icons">
+                <li>
+                  <a href="#" class="speciality-trigger"
+                    data-img="https://www.comedera.com/wp-content/uploads/2022/12/shutterstock_1951158931.jpg"><img
+                      src="https://cdn-icons-png.flaticon.com/512/3183/3183463.png" alt="Especialidad 1" /></a>
+                </li>
+                <li>
+                  <a href="#" class="speciality-trigger"
+                    data-img="https://www.gourmet.cl/wp-content/uploads/2016/09/Pollo-arvejado-web-570x458.jpg"><img
+                      src="https://cdn-icons-png.flaticon.com/512/4780/4780045.png" alt="Especialidad 2" /></a>
+                </li>
+                <li>
+                  <a href="#" class="speciality-trigger"
+                    data-img="https://www.skorpios.cl/wp-content/uploads/El-cordero-patag%C3%B3nico-de-Skorpios.jpg"><img
+                      src="https://cdn-icons-png.flaticon.com/512/11650/11650305.png" alt="Especialidad 3" /></a>
+                </li>
+              </ul>
+              <img src="{% static '/assets/home/images/chefs-03.png' %}" alt="Chef Emilio Lozano" />
+            </div>
+            <div class="down-content">
+              <h4>Emilio Lozano</h4>
+              <span>Carnes y productos del mar. Mención en...</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="chef-item">
+            <div class="thumb">
+              <div class="overlay"></div>
+              <ul class="social-icons">
+                <!-- Agregar aquí enlaces a imágenes de las especialidades de Esperanza, si las tiene -->
+                <li>
+                  <a href="#" class="speciality-trigger" data-img="URL_IMAGEN_ESPECIALIDAD_1"><img
+                      src="https://cdn-icons-png.flaticon.com/256/920/920582.png" alt="Especialidad 1" /></a>
+                </li>
+                <li>
+                  <a href="#" class="speciality-trigger" data-img="URL_IMAGEN_ESPECIALIDAD_2"><img
+                      src="https://cdn-icons-png.flaticon.com/512/4698/4698198.png" alt="Especialidad 2" /></a>
+                </li>
+                <li>
+                  <a href="#" class="speciality-trigger" data-img="URL_IMAGEN_ESPECIALIDAD_3"><img
+                      src="https://cdn-icons-png.flaticon.com/512/920/920523.png" alt="Especialidad 3" /></a>
+                </li>
+              </ul>
+              <img src="{% static 'assets/home/images/chef_05.png' %}" alt="Esperanza Ferrer" />
+            </div>
+            <div class="down-content">
+              <h4>Esperanza Ferrer</h4>
+              <span>Sommelier. Experta en vinos y licores.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="chef-item">
+            <div class="thumb">
+              <div class="overlay"></div>
+              <ul class="social-icons">
+                <li>
+                  <a href="#" class="speciality-trigger" data-img="URL_IMAGEN_ESPECIALIDAD_1"><img
+                      src="https://cdn-icons-png.flaticon.com/256/2805/2805947.png" alt="Especialidad 1" /></a>
+                </li>
+                <li>
+                  <a href="#" class="speciality-trigger" data-img="URL_IMAGEN_ESPECIALIDAD_2"><img
+                      src="https://cdn-icons-png.flaticon.com/256/706/706164.png" alt="Especialidad 2" /></a>
+                </li>
+                <li>
+                  <a href="#" class="speciality-trigger" data-img="URL_IMAGEN_ESPECIALIDAD_3"><img
+                      src="https://cdn-icons-png.flaticon.com/256/2153/2153788.png" alt="Especialidad 3" /></a>
+                </li>
+              </ul>
+              <img src="{% static 'assets/home/images/chefs-02.png' %}" alt="Chef #2" />
+            </div>
+            <div class="down-content">
+              <h4>Susana Flores</h4>
+              <span>Pastelería y cocina tradicional vegana.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="chef-item">
+            <div class="thumb">
+              <div class="overlay"></div>
+              <ul class="social-icons">
+                <li>
+                  <a href="#" class="speciality-trigger" data-img="URL_IMAGEN_ESPECIALIDAD_1"><img
+                      src="https://cdn-icons-png.flaticon.com/256/6011/6011164.png" alt="Especialidad 1" /></a>
+                </li>
+                <li>
+                  <a href="#" class="speciality-trigger" data-img="URL_IMAGEN_ESPECIALIDAD_2"><img
+                      src="https://cdn-icons-png.flaticon.com/512/8032/8032693.png" alt="Especialidad 2" /></a>
+                </li>
+                <li>
+                  <a href="#" class="speciality-trigger" data-img="URL_IMAGEN_ESPECIALIDAD_3"><img
+                      src="https://cdn-icons-png.flaticon.com/256/992/992754.png" alt="Especialidad 3" /></a>
+                </li>
+              </ul>
+              <img src="{% static '/assets/home/images/chefs-01.png'  %}" alt="Chef #3" />
+            </div>
+            <div class="down-content">
+              <h4>Maria Teresa y Alberto Mendez</h4>
+              <span>Cocina Chilena, pastelería.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+
+    <div id="map"></div>
+
+    <div class="contact-form">
+      <h2>Ponte en Contacto</h2>
+      <form class="form-group" id="contact" action="{% url 'contacto' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="id_name">Nombre:</label>
+          <input type="text" name="name" id="id_name" required>
+        </div>
+        <div class="form-group">
+          <label for="id_email">Correo Electrónico:</label>
+          <input type="email" name="email" id="id_email" required>
+        </div>
+        <div class="form-group">
+          <label for="id_subject">Asunto:</label>
+          <input type="text" name="subject" id="id_subject" required>
+        </div>
+        <div class="form-group">
+          <label for="id_message">Mensaje:</label>
+          <textarea name="message" id="id_message" rows="4" required></textarea>
+        </div>
+        <fieldset>
+          <button type="submit" id="form-submit" class="main-button-icon">Enviar mensaje</button>
+        </fieldset>
+      </form>
+      <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content bg-success">
+            <div class="modal-body">
+              <div id="alertContent">
+                Hemos recibido tu mensaje con éxito!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script>
+   
+  </script>
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-block">
+      <div class="logo">
+        <a href="index.html"><img src="{% static 'assets/home/images/21logo.png'  %}" alt="" width="40%"/></a>
+      </div>
+      </div>
+      <div class="footer-block">
+        <p><strong>Teléfono Fijo:</strong> +56 2 3210 3174</p>
+        <p><strong>Teléfono Celular:</strong> +56 9 3210 3174</p>
+      </div>
+      <div class="footer-block">
+        <p><strong>Email de Contacto:</strong> contacto@Siglo21.cl</p>
+        <p><strong>Email de Prensa:</strong> Prensa@Siglo21.cl</p>
+      </div>
+      <div class="footer-block">
+        <p><strong>Dirección:</strong> Av. San Martín 199, 2520179 Viña del Mar, Valparaíso</p>
+        <div class="right-text-content pl-xl-5">
+          <ul class="social-icons">
+            <li>
+              <a href="#"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-linkedin"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-instagram"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-xs-12">
+          </div>
+        <div class="col-lg-4 col-xs-12">
+          <div class="text-center">
+            <p class="text-dark">
+              © Copyright Sigo XXI. Desarrollado por RestoApp
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-xs-12">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- jQuery -->
+  <script src="{% static 'assets/js/jquery-2.1.0.min.js' %}"></script>
+
+  <!-- Bootstrap -->
+  <script src="{% static 'assets/js/popper.js' %}"></script>
+
+  <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+  <!-- Plugins -->
+  <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+  <script src="{% static 'assets/js/accordions.js' %}"></script>
+  <script src="{% static 'assets/js/datepicker.js' %}"></script>
+  <script src="{% static 'assets/js/scrollreveal.min.js' %}"></script>
+  <script src="{% static 'assets/js/waypoints.min.js' %}"></script>
+  <script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+  <script src="{% static 'assets/js/imgfix.min.js' %}"></script>
+  <script src="{% static 'assets/js/slick.js' %}"></script>
+  <script src="{% static 'assets/js/lightbox.js' %}"></script>
+  <script src="{% static 'assets/js/isotope.js' %}"></script>
+
+  <!-- Global Init -->
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+  <script>
+    $(function () {
+      var selectedClass = "";
+      $("p").click(function () {
+        selectedClass = $(this).attr("data-rel");
+        $("#portfolio").fadeTo(50, 0.1);
+        $("#portfolio div")
+          .not("." + selectedClass)
+          .fadeOut();
+        setTimeout(function () {
+          $("." + selectedClass).fadeIn();
+          $("#portfolio").fadeTo(50, 1);
+        }, 500);
+      });
+    });
+
+    $(document).ready(function () {
+      $('#contact').submit(function (e) {
+        e.preventDefault();
+        var form = $(this);
+        console.log(form.serialize());
+        var url = form.attr('action');
+        $('#form-submit').prop('disabled', true);
+        $.ajax({
+          type: "POST",
+          url: url,
+          data: form.serialize(),
+          success: function (data) {
+            $('#alertModal').modal('show');
+            setTimeout(function () {
+
+              $('#alertModal').modal('hide');
+            }, 4000);
+            $('#contact')[0].reset();
+            $('#form-submit').prop('disabled', false);
+          },
+          error: function (data) {
+            $('#alertContent').html('No se pudo enviar el mensaje, recargue la página e intente nuevamente.');
+            $('#alertModal').modal('show');
+            setTimeout(function () {
+              $('#alertModal').modal('hide');
+            }, 4000);
+            $('#contact')[0].reset();
+            $('#form-submit').prop('disabled', false);
+          }
+        });
+      });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+    var map = L.map('map').setView([-33.02457, -71.55183], 13);
+  
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+  
+    // Definir un nuevo ícono personalizado para el marcador
+    var customIcon = L.icon({
+      iconUrl: 'https://cdn-icons-png.flaticon.com/256/2702/2702391.png', 
+      iconSize: [38, 38], 
+      iconAnchor: [19, 38], 
+      popupAnchor: [0, -38] 
+    });
+  
+    // Crear un marcador con el ícono personalizado
+    var marker = L.marker([-33.02457, -71.55183], { icon: customIcon }).addTo(map);
+  
+    // Agregar un pop-up con la nueva imagen y texto al marcador
+    marker.bindPopup('<a href="https://imgur.com/XYfdlp0"><img src="https://i.imgur.com/XYfdlp0.jpg" width="300" height="auto" title="source: imgur.com" /></a><br>Dirección: Av. San Martín 199, 2520179 Viña del Mar, Valparaíso <br>Horario de atención: 8:30 AM a 3 AM', {
+      minWidth: 300 // Ajusta según el tamaño de tu imagen
+    });
+  
+    // El pop-up se abrirá al hacer clic en el marcador
+    marker.on('click', function(e) {
+      marker.openPopup();
+    });
+  });
+  
+  </script>
+  <!-- Leaflet JS -->
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+{% load static %}
+
+<!-- Core -->
+<script src="{% static 'vendor/@popperjs/core/dist/umd/popper.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+
+<!-- Vendor JS -->
+<script src="{% static 'vendor/onscreen/dist/on-screen.umd.min.js' %}"></script>
+
+<!-- Slider -->
+<script src="{% static 'vendor/nouislider/dist/nouislider.min.js' %}"></script>
+
+<!-- Smooth scroll -->
+<script src="{% static 'vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js' %}"></script>
+
+<!-- Charts -->
+<script src="{% static 'vendor/chartist/dist/chartist.min.js' %}"></script>
+<script src="{% static 'vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js' %}"></script>
+
+<!-- Datepicker -->
+<script src="{% static 'vendor/vanillajs-datepicker/dist/js/datepicker.min.js' %}"></script>
+
+<!-- Sweet Alerts 2 -->
+<script src="{% static 'vendor/sweetalert2/dist/sweetalert2.all.min.js' %}"></script>
+
+<!-- Moment JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+
+<!-- Vanilla JS Datepicker -->
+<script src="{% static 'vendor/vanillajs-datepicker/dist/js/datepicker.min.js' %}"></script>
+
+<!-- Notyf -->
+<script src="{% static 'vendor/notyf/notyf.min.js' %}"></script>
+
+<!-- Simplebar -->
+<script src="{% static 'vendor/simplebar/dist/simplebar.min.js' %}"></script>
+
+<!-- Github buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- Volt JS -->
+<script src="{% static 'assets/js/volt.js' %}"></script>
+
+<script>
+
+    // Creamos una instancia de Notyf
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-primary',
+            cancelButton: 'btn btn-gray'
+        },
+        buttonsStyling: false
+    });
+
+    // Función para crear una reserva
+    document.getElementById('reservation-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/v1/api/create_reserve/');
+        xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'success',
+                        title: 'Muchas Gracias!',
+                        text: 'Tu reserva ha sido creada con éxtio, te enviaremos la confirmación a tu correo electrónico',
+                        showConfirmButton: true,
+                        timer: 2500
+                    })
+                    document.getElementById("reservation-form").reset();
+                    setTimeout(function () { location.reload(); }, 2500);
+                }
+                else {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'danger',
+                        title: 'Lo siento',
+                        text: 'No se pudo crear la reserva',
+                        showConfirmButton: true,
+                        timer: 1500
+                    })
+                }
+            }
+        };
+        xhr.send(formData);
+    });
+
+    // Función para modificar una reserva
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector('#mofidy-reservation-form');
+        let reservaId = null;
+
+        const editButtons = document.querySelectorAll('.btn-transparent');
+
+        editButtons.forEach(button => {
+            button.addEventListener('click', function (event) {
+                reservaId = button.dataset.reservaId;
+                console.log('ID de la reserva seleccionada:', reservaId);
+                form.setAttribute('data-reservaId', reservaId);
+            });
+        });
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            reservaId = form.getAttribute('data-reservaId');
+
+            const formData = new FormData(form);
+            const serializedData = {};
+            formData.forEach(function (value, key) {
+                serializedData[key] = value;
+            });
+            console.log('Datos serializados:', serializedData);
+
+            serializedData['reservaId'] = reservaId;
+            console.log('Datos serializados con ID de la reserva:', serializedData);
+
+            fetch(`/v1/api/modificar_reserva/${reservaId}/`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCSRFToken(),
+                },
+                body: JSON.stringify(serializedData)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        swalWithBootstrapButtons.fire({
+                            icon: 'success',
+                            title: 'Muchas Gracias!',
+                            text: 'Tu reserva ha sido modificada con éxtio!',
+                            showConfirmButton: true,
+                            timer: 2500
+                        })
+                        window.location.reload();
+                    } else {
+                        alert('Error al modificar la reserva');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error en la solicitud:', error);
+                });
+        });
+    });
+
+    // Función para eliminar una reserva
+    document.getElementById("form-modify-client").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/v1/api/modify_client/");
+        xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'success',
+                        title: '¡Éxito!',
+                        text: 'Tu reserva ha sido creada con éxito',
+                        showConfirmButton: true,
+                        timer: 2500
+                    });
+                    document.getElementById("form-modify-client").reset();
+                    setTimeout(function () { location.reload(); }, 2500);
+                } else {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'danger',
+                        title: 'Lo siento',
+                        text: 'No se pudo crear la reserva',
+                        showConfirmButton: true,
+                        timer: 1500
+                    });
+                }
+            }
+        };
+        xhr.send(formData);
+    });
+
+    // Función para eliminar una reserva
+    function eliminarReservas() {
+        var checkboxes = document.querySelectorAll('.form-check-input:checked');
+        var reservasSeleccionadas = [];
+
+        checkboxes.forEach(function (checkbox) {
+            var reservaId = checkbox.id.replace('checkbox', '');
+            reservasSeleccionadas.push(reservaId);
+        });
+        console.log(reservasSeleccionadas)
+        fetch('/v1/api/delete_reserve/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'X-CSRFToken': getCSRFToken(),
+            },
+            body: JSON.stringify(reservasSeleccionadas),
+        })
+            .then(response => {
+                if (response.ok) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'success',
+                        title: 'Muchas Gracias!',
+                        text: 'Tu reserva ha eliminada con éxito',
+                        showConfirmButton: true,
+                        timer: 2500
+                    })
+                    window.location.reload();
+                } else {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'danger',
+                        title: 'Lo siento',
+                        text: 'No se pudo eliminar la reserva',
+                        showConfirmButton: true,
+                        timer: 1500
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error de red:', error);
+            });
+    }
+
+    function getCSRFToken() {
+        const cookies = document.cookie.split(';');
+        const csrfTokenCookie = cookies.find(cookie => cookie.trim().startsWith('csrftoken='));
+        if (csrfTokenCookie) {
+            return csrfTokenCookie.split('=')[1];
+        }
+        return '';
+    }
+
+</script>

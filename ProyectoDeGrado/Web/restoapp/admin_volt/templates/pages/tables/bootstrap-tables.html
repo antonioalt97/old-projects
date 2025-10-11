@@ -1,0 +1,231 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+  <div class="d-block mb-4 mb-md-0">
+    <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+      <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+        <li class="breadcrumb-item">
+          <a href="#">
+            <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+              </path>
+            </svg>
+          </a>
+        </li>
+        <li class="breadcrumb-item"><a href="#">Resto App</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Reservas</li>
+      </ol>
+    </nav>
+    <h2 class="h4">Mis Reservas</h2>
+    <p class="mb-0">Revisa tus órdenes recientes.</p>
+  </div>
+</div>
+<div class="table-settings mb-4">
+  <div class="row align-items-center justify-content-between">
+    <div class="col col-md-6 col-lg-3 col-xl-4">
+      <div class="row pt-4">
+        <div class="col">
+          <button class="btn btn-secondary rounded" onclick="eliminarReservas()">Eliminar
+            Reservas</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card card-body border-0 shadow table-wrapper table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">
+          <input type="checkbox" id="select-all">
+        </th>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Mesa</th>
+        <th class="text-center" scope="col ">Cantida de comensales</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Hora</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Modificar</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if reservas %}
+      {% for reserva in reservas %}
+      <tr>
+        <td>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="checkbox{{ reserva.id }}" {% if reserva.disable %}
+              disabled {% endif %}>
+            <label class="form-check-label" for="checkbox{{ reserva.id }}"></label>
+          </div>
+        </td>
+
+        <td>{{ reserva.id }}</td>
+        <td>{{ reserva.nombre }} {{ reserva.apellido }}</td>
+        <td class="text-center">
+          {{ reserva.mesa.numero_mesa }}
+
+        </td>
+        <td class="text-center">{{ reserva.cantidad_comensales }}</td>
+        <td>
+          {{ reserva.fecha_reserva|date:"d/m/Y" }}
+        </td>
+        <td>
+          {{ reserva.tiempo|time:"H:i" }}
+        </td>
+        <td>{{ reserva.estado_reserva }}</td>
+        <td class="text-center">
+          <button type="button" class="btn btn-transparent" data-bs-toggle="modal" data-reserva-id="{{ reserva.id }}"
+            data-bs-target="#exampleModal1" {% if reserva.disable %} disabled {% endif %}>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil"
+              viewBox="0 0 16 16">
+              <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512">
+                <path opacity="1" fill="#1E3050"
+                  d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z" />
+              </svg>
+            </svg>
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form id="mofidy-reservation-form" data-reserva-id="{{ reserva.id }}" action="/v1/api/modify_reserve/"
+                  method="PUT">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar la reserva</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="contact-form">
+
+                      <div class="row">
+                        <div class="col-lg-6 col-sm-12">
+                          <fieldset>
+                            <input name="name" type="text" id="name" placeholder="Primer Nombre" required=""
+                              value="{{ user_data.first_name }}">
+                          </fieldset>
+                        </div>
+                        <div class="col-lg-6 col-sm-12">
+                          <fieldset>
+                            <input name="last_name" type="text" id="last_name" placeholder="Apellido" required=""
+                              value="{{ user_data.last_name }}">
+                          </fieldset>
+                        </div>
+                        <div class="col-lg-6 col-sm-12">
+                          <fieldset>
+                            <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Tu Correo"
+                              required="" value="{{ user_data.email }}">
+                          </fieldset>
+                        </div>
+                        <div class="col-lg-6 col-sm-12">
+                          <fieldset>
+                            <input name="phone" type="text" id="phone" placeholder="Número De Teléfono" required=""
+                              value="{{ user_data.phone }}">
+                          </fieldset>
+                        </div>
+                        <div class="col-lg-6 col-sm-12">
+                          <fieldset>
+                            <select class="form-select" value="number-guests" name="number-guests" id="number-guests">
+                              <option value="number-guests">Cantidad de comensales</option>
+                              <option name="1" id="1">1</option>
+                              <option name="2" id="2">2</option>
+                              <option name="3" id="3">3</option>
+                              <option name="4" id="4">4</option>
+                            </select>
+                          </fieldset>
+                        </div>
+                        <div class="col-lg-6 col-sm-12">
+                          <div class="input-group">
+                          <input class="form-control"
+                          name="fecha"
+                          data-date-format="dd/mm/yyyy" data-datepicker="" id="fecha" type="text" placeholder="dd/mm/yyyy"
+                            required>
+                          </div>
+                        </div>
+                        <div class="col-lg-12 col-sm-12">
+                          <fieldset>
+                            <input class="form-control" name="time" type="time" id="time" placeholder="Time"
+                              required="">
+                          </fieldset>
+                          <fieldset>
+                            <textarea class="form-control" name="message" rows="6" id="message" placeholder="Message"
+                              required=""></textarea>
+                          </fieldset>
+                        </div>
+                        <div id="alert-message" class="alert alert-success" style="display: none;">
+                        </div>
+                        <div class="col-6">
+                          <fieldset>
+                            <button id="btn-edit-reserva" type="submit" class="btn btn-primary w-100">Guarda
+                              cambios</button>
+                          </fieldset>
+                        </div>
+                        <div class="col-6">
+
+                          <fieldset>
+                            <button type="button" class="btn btn-danger w-100" data-bs-dismiss="modal">Cerrar</button>
+                          </fieldset>
+                        </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+      {% else %}
+      <tr>
+        <td colspan="9" class="fw-bolder text-gray-500">No haz realizado reservas aún.</td>
+      </tr>
+      {% endif %}
+    </tbody>
+  </table>
+    
+  <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
+  <div class="row">
+<div class="col-6">
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination mb-0">
+        <li class="page-item">
+          <a class="page-link" href="#">Anterior</a>
+        </li>
+        <li class="page-item active">
+          <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">4</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">5</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">Siguiente</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<div class="col-6">
+    <div class="fw-normal small mt-4 mt-lg-0">Mostrando <b>{{ reservas|length }}</b> de <b>{{ reservas|length }} entradas</div>
+</div>
+  </div>
+
+</div>
+
+{% endblock content %}
