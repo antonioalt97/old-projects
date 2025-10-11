@@ -1,0 +1,169 @@
+create or replace PROCEDURE AsignarMesaCliente (
+    p_cliente_id IN NUMBER,
+    p_cantidad_personas IN NUMBER
+)
+AS
+    v_mesa_id NUMBER;
+BEGIN
+    -- Buscar una mesa inactiva que tenga la capacidad necesaria
+    SELECT id_mesa
+    INTO v_mesa_id
+    FROM mesa
+    WHERE en_uso = '0' AND activa = '1' AND capacidad = p_cantidad_personas
+    AND ROWNUM = 1;
+
+    -- Si se encontró una mesa inactiva
+    IF v_mesa_id IS NOT NULL THEN
+        -- Asignar la mesa al cliente
+        UPDATE mesa
+        SET en_uso = '1'
+        WHERE id_mesa = v_mesa_id;
+
+        -- Aquí puedes realizar cualquier otra acción relacionada con la asignación de la mesa al cliente.
+        -- Por ejemplo, registrar la relación en una tabla de asignaciones.
+
+        -- Puedes retornar el ID de la mesa asignada (opcional) 
+        DBMS_OUTPUT.PUT_LINE('Mesa asignada al cliente ' || p_cliente_id || ': ' || v_mesa_id);
+    ELSE
+        -- No se encontraron mesas inactivas con capacidad suficiente
+        DBMS_OUTPUT.PUT_LINE('No hay mesas disponibles con la capacidad requerida para el cliente ' || p_cliente_id);
+    END IF;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        -- Manejar la excepción si no se encontraron mesas inactivas con capacidad suficiente
+        DBMS_OUTPUT.PUT_LINE('No hay mesas disponibles con la capacidad requerida para el cliente ' || p_cliente_id);
+    WHEN OTHERS THEN
+        -- Manejar otras excepciones (opcional)
+        DBMS_OUTPUT.PUT_LINE('Ocurrió un error: ' || SQLERRM);
+END AsignarMesaCliente;
+
+
+
+create or replace NONEDITIONABLE PROCEDURE CancelarEstadoPedido(p_pedido_id IN NUMBER) AS
+BEGIN
+  -- Actualiza el estado del pedido en la tabla detalle_pedido
+  UPDATE detalle_pedido
+  SET est_pedido_id_est_pedido = 4
+  WHERE pedido_id_pedido = p_pedido_id;
+
+  -- Confirmar los cambios
+  COMMIT;
+EXCEPTION
+  WHEN OTHERS THEN
+    -- Manejo de errores (puedes personalizarlo según tus necesidades)
+    ROLLBACK;
+    DBMS_OUTPUT.PUT_LINE('Error al Cancelar el estado del pedido: ' || SQLERRM);
+END CancelarEstadoPedido;
+
+
+create or replace NONEDITIONABLE PROCEDURE InsertarDetallePedido(
+    p_descripcion IN VARCHAR2,
+    p_cantidad IN NUMBER,
+   
+    p_receta_id_receta IN NUMBER,
+    p_producto_id_producto IN NUMBER,
+    p_producto_id_u_medida IN NUMBER,
+    p_producto_id_tipo IN NUMBER,
+    p_est_pedido_id_est_pedido IN NUMBER
+) AS
+BEGIN
+    INSERT INTO detalle_pedido (
+        descripcion, 
+        cantidad, 
+        pedido_id_pedido, 
+        receta_id_receta, 
+        producto_id_producto, 
+        producto_id_u_medida, 
+        producto_id_tipo, 
+        est_pedido_id_est_pedido
+    )
+    VALUES (
+        p_descripcion, 
+        p_cantidad, 
+        DETALLE_SECUENCIA.nextval,
+        p_receta_id_receta, 
+        p_producto_id_producto, 
+        p_producto_id_u_medida, 
+        p_producto_id_tipo, 
+        p_est_pedido_id_est_pedido
+    );
+
+    COMMIT;
+END InsertarDetallePedido;
+
+
+create or replace PROCEDURE InsertarPago(
+    
+    p_fecha_pago IN DATE,
+    p_url IN VARCHAR2,
+    p_token IN VARCHAR2,
+    p_orden_pago IN INTEGER,
+    p_tipo_de_pago_id_tipo_pago IN INTEGER,
+   
+    p_cuotas IN INTEGER
+) AS
+BEGIN
+    INSERT INTO pago (
+        id_pago, fecha_pago, url, token, orden_pago,
+        tipo_de_pago_id_tipo_pago, pedido_id_pedido, cuotas
+    )
+    VALUES (
+       sec_pagar.nextval, p_fecha_pago, p_url, p_token, p_orden_pago,
+        p_tipo_de_pago_id_tipo_pago,sec_pagar.nextval,  p_cuotas
+    );
+
+    COMMIT;
+
+    DBMS_OUTPUT.PUT_LINE('Pago insertado exitosamente.');
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error al insertar pago: ' || SQLERRM);
+END;
+
+
+create or replace NONEDITIONABLE PROCEDURE InsertarPedido(
+    p_fecha IN DATE,
+    p_total IN NUMBER,
+    p_propina IN NUMBER
+   
+  
+) AS
+BEGIN
+    INSERT INTO pedido (id_pedido, fecha_hora, total, propina, mesa_id_mesa)
+    VALUES (mi_secuencia.nextval, p_fecha, p_total, p_propina, mi_secuencia.nextval);
+    COMMIT;
+END InsertarPedido;
+
+
+create or replace NONEDITIONABLE PROCEDURE ModificarEstadoPedido(p_pedido_id IN NUMBER) AS
+BEGIN
+  -- Actualiza el estado del pedido en la tabla detalle_pedido
+  UPDATE detalle_pedido
+  SET est_pedido_id_est_pedido = 3
+  WHERE pedido_id_pedido = p_pedido_id;
+
+  -- Confirmar los cambios
+  COMMIT;
+EXCEPTION
+  WHEN OTHERS THEN
+    -- Manejo de errores (puedes personalizarlo según tus necesidades)
+    ROLLBACK;
+    DBMS_OUTPUT.PUT_LINE('Error al modificar el estado del pedido: ' || SQLERRM);
+END ModificarEstadoPedido;
+
+
+
+   CREATE SEQUENCE  "RESTAURANTE"."MI_SECUENCIA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 6 NOCACHE  NOORDER  NOCYCLE  NOKEEP  NOSCALE  GLOBAL ;
+
+CREATE SEQUENCE  "RESTAURANTE"."DETALLE_SECUENCIA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 3 NOCACHE  NOORDER  NOCYCLE  NOKEEP  NOSCALE  GLOBAL ;
+
+   CREATE SEQUENCE  "RESTAURANTE"."MESA_SEQ"  MINVALUE 1 MAXVALUE 999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  GLOBAL ;
+   CREATE SEQUENCE  "RESTAURANTE"."MI_SECUENCIA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 6 NOCACHE  NOORDER  NOCYCLE  NOKEEP  NOSCALE  GLOBAL ;
+
+   CREATE SEQUENCE  "RESTAURANTE"."SEC_PAGAR"  MINVALUE 1 MAXVALUE 999999999 INCREMENT BY 1 START WITH 6 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  GLOBAL ;
+
+
+
+
+
+

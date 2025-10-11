@@ -1,0 +1,343 @@
+INSERT INTO est_pedido (id_est_pedido, descripcion) VALUES (1, 'En proceso');
+INSERT INTO est_pedido (id_est_pedido, descripcion) VALUES (2, 'Listo para servir');
+INSERT INTO est_pedido (id_est_pedido, descripcion) VALUES (3, 'Entregado');
+INSERT INTO est_pedido (id_est_pedido, descripcion) VALUES (4, 'Cancelado');
+
+INSERT INTO pedido (id_pedido, fecha, hora, total, propina, mesa_id_mesa)
+VALUES (1, TO_DATE('2023-10-04', 'YYYY-MM-DD'), TO_TIMESTAMP('2023-10-04 12:30:00', 'YYYY-MM-DD HH24:MI:SS'), 1, 5, 4);
+INSERT INTO pedido (id_pedido, fecha, hora, total, propina, mesa_id_mesa)
+VALUES (2, TO_DATE('2023-10-05', 'YYYY-MM-DD'), TO_TIMESTAMP('2023-10-05 18:45:00', 'YYYY-MM-DD HH24:MI:SS'), 300, 1000,2);
+INSERT INTO pedido (id_pedido, fecha, hora, total, propina, mesa_id_mesa)
+VALUES (3, TO_DATE('2023-10-06', 'YYYY-MM-DD'), TO_TIMESTAMP('2023-10-06 20:15:00', 'YYYY-MM-DD HH24:MI:SS'), 100, 15, 3);
+INSERT INTO pedido (id_pedido, fecha, hora, total, propina, mesa_id_mesa)
+VALUES (4, TO_DATE('2023-10-07', 'YYYY-MM-DD'), TO_TIMESTAMP('2023-10-07 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), 60, 7, 4);
+INSERT INTO pedido (id_pedido, fecha, hora, total, propina, mesa_id_mesa)
+VALUES (5, TO_DATE('2023-10-08', 'YYYY-MM-DD'), TO_TIMESTAMP('2023-10-08 19:30:00', 'YYYY-MM-DD HH24:MI:SS'), 90, 12, 5);
+
+
+
+
+INSERT INTO detalle_pedido (descripcion,cantidad,pedido_id_pedido, receta_id_receta, producto_id_producto, producto_id_u_medida, producto_id_tipo, est_pedido_id_est_pedido) VALUES
+('Producto A',1,1,1,1,1,1,1)
+INSERT INTO detalle_pedido (descripcion,cantidad,pedido_id_pedido, receta_id_receta, producto_id_producto, producto_id_u_medida, producto_id_tipo, est_pedido_id_est_pedido) VALUES
+('Producto A',10,2,2,2,1,2,1)
+
+
+
+
+
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (1, 'Hamburguesa clásica', 2.500, 5.990, 'Hamburguesa Clásica', 'FastFoodCo', 'Comida rápida', 100, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 1, 1, 1);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (2, 'Pizza Margarita', 3.000, 8.990, 'Pizza Margarita', 'PizzaExpress', 'Pizza', 75, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 1, 2, 1);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (3, 'Sushi de salmón', 4.500, 12.990, 'Sushi de Salmón', 'SushiMasters', 'Sushi', 50, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 2, 3, 1);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (4, 'Ensalada César', 1.800, 6.990, 'Ensalada César', 'GreenLeaf', 'Ensalada', 60, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 3, 1, 1);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (5, 'Tacos de carne asada', 3.200, 9.990, 'Tacos de Carne Asada', 'TacoLoco', 'Tacos', 40, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 4, 2, 1);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (6, 'Soda cola', 500, 1.990, 'Soda Cola', 'RefreshCo', 'Bebida', 200, TO_DATE('2024-01-31', 'YYYY-MM-DD'), 5, 4, 1);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (7, 'Tarta de chocolate', 2.800, 7.99, 'Tarta de Chocolate', 'SweetDelights', 'Postre', 30, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 5, 1, 1);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (8, 'Pasta Alfredo', 2.000, 8.490, 'Pasta Alfredo', 'ItalianEats', 'Pasta', 55, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 3, 2, 1);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (9, 'Pollo a la parrilla', 3.500, 10.990, 'Pollo a la Parrilla', 'GrillMaster', 'Pollo', 70, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 1, 3, 1);
+
+create sequence sec_usuario 
+start with 1 
+increment by 1
+maxvalue 999999999
+minvalue 1;
+
+insert into ROL values('1', 'Administrador');
+insert into ROL values('2', 'Cocina');
+insert into ROL values('3', 'Bodega');
+insert into ROL values('4', 'Finanzas');
+insert into ROL values('5', 'Cliente');
+
+INSERT INTO tipo_menu  VALUES('1', 'Menu Verano Social');
+INSERT INTO tipo_menu VALUES ('2', 'Menu Invierno Eventos');
+INSERT INTO tipo_menu VALUES ('3', 'Menu Verano Local');
+INSERT INTO tipo_menu VALUES ('4', 'Menu Primavera Social');
+INSERT INTO tipo_menu VALUES ('5', 'Menu Otoño Eventos');
+INSERT INTO tipo_menu VALUES ('6', 'Menu Verano Restaurante');
+INSERT INTO tipo_menu VALUES ('7', 'Menu Invierno Local');
+INSERT INTO tipo_menu VALUES ('8', 'Menu Primavera Eventos');
+INSERT INTO tipo_menu VALUES ('9', 'Menu Otoño Social');
+INSERT INTO tipo_menu VALUES ('10', 'Menu Verano Playa');
+INSERT INTO tipo_menu VALUES ('11', 'Menu Primavera Local');
+INSERT INTO tipo_menu VALUES ('12', 'Menu Otoño Restaurant');
+INSERT INTO tipo_menu VALUES ('13', 'Menu Invierno Playa 2023');
+INSERT INTO tipo_menu VALUES ('14', 'Menu Primavera Restaurant');
+INSERT INTO tipo_menu VALUES ('15', 'Menu Otoño Local 2023');
+
+INSERT INTO receta VALUES ('1', 'Pastel de Choclo', 'Delicioso pastel de maíz chileno.', '90', 8000,'');
+INSERT INTO receta VALUES ('2', 'Cazuela de Pollo', 'Tradicional cazuela chilena con pollo.', '120', 10000,'');
+INSERT INTO receta VALUES ('3', 'Sopaipillas', 'Frituras chilenas de masa de zapallo.', '60', 3000,'');
+INSERT INTO receta VALUES ('4', 'Ensalada de Quinoa', 'Ensalada vegana de quinoa y vegetales frescos.', '30', 6000,'');
+INSERT INTO receta VALUES ('5', 'Paila Marina', 'Sopa de mariscos chilena.', '90', 15000,'');
+INSERT INTO receta VALUES ('6', 'Empanadas de Pino', 'Empanadas rellenas de carne y cebolla.', '45', 5000,'');
+INSERT INTO receta VALUES ('7', 'Curanto', 'Plato tradicional chilote con mariscos y carne.', '180', 18000,'');
+INSERT INTO receta VALUES ('8', 'Vegan Burger', 'Hamburguesa vegana con quinoa y vegetales.', '30', 7000,'');
+INSERT INTO receta VALUES ('9', 'Cazuela Vegana', 'Cazuela vegana con garbanzos y verduras.', '60', 8000,'');
+INSERT INTO receta VALUES ('10', 'Churrasco', 'Sándwich de carne con tomate y mayo.', '20', 6000,'');
+INSERT INTO receta VALUES ('11', 'Asado a la Parrilla', 'Delicioso asado de carne a la parrilla.', '150', 12000,'');
+INSERT INTO receta VALUES ('12', 'Ceviche de Pescado', 'Refrescante ceviche de pescado con limón y cilantro.', '30', 8500,'');
+INSERT INTO receta VALUES ('13', 'Tarta de Manzana', 'Postre clásico de tarta de manzana.', '60', 5500,'');
+INSERT INTO receta VALUES ('14', 'Sándwich de Pollo BBQ', 'Sándwich de pollo a la barbacoa con ensalada.', '20', 7000,'');
+INSERT INTO receta VALUES ('15', 'Chupe de Mariscos', 'Sopa chilena de mariscos con queso.', '120', 16000,'');
+
+INSERT INTO menu VALUES ('1', 'Menu2023-1', ' Pastel de Choclo', '8000', '', '1', '1');
+INSERT INTO menu VALUES ('2', 'Menu2023-1', ' Paila Marina', '15000', '', '1', '1');
+INSERT INTO menu VALUES ('3', 'Menu2023-1', ' Churrasco', '6000', '', '1', '1');
+INSERT INTO menu VALUES ('4', 'Menu2023-1', ' Asado a la parrilla', '12000', '', '1', '1');
+INSERT INTO menu VALUES ('5', 'Menu2023-1', ' Ceviche de Pescado', '8500', '', '1', '1');
+INSERT INTO menu VALUES ('6', 'Menu2023-1', ' Sandwich de Pollo BBQ', '7000', '', '1', '1');
+INSERT INTO menu VALUES ('7', 'Menu2023-1', ' Chupe de Mariscos', '16000', '', '1', '1');
+
+insert into menu values (8,'Menu2023-1','Espaguetti Aglio olio', 9500,null,1,1);
+insert into menu values (9,'Menu2023-1','Lasagna', 10000,null,1,1);
+insert into menu values (10,'Menu2023-1','Ravioles', 9000,null,1,1);
+insert into menu values (11,'Menu2023-1','Pechuga Pollo a la Parrilla', 9500,null,1,1);
+insert into menu values (12,'Menu2023-2','Pastel Ferrero', 3500,null,1,1);
+insert into menu values (13,'Menu2023-2','Pastel Zanahoria', 3500,null,1,1);
+insert into menu values (14,'Menu2023-2','Pay de Limon', 4500,null,1,1);
+insert into menu values (15,'Menu2023-2','Pay de Nuez', 4500,null,1,1);
+insert into menu values (16,'Menu2023-2','Pay de Platano', 4500,null,1,1);
+insert into menu values (17,'Menu2023-2','Pastel Tres Leches', 4000,null,1,1);
+insert into menu values (18,'Menu2023-3','Amaretto', 3500,null,1,1);
+insert into menu values (19,'Menu2023-3','Bebida', 3500,null,1,1);
+insert into menu values (20,'Menu2023-3','Cafe Cortado', 3000,null,1,1);
+insert into menu values (21,'Menu2023-3','Cafe Expresso', 3500,null,1,1);
+insert into menu values (22,'Menu2023-3','Cerveza Corona', 2500,null,1,1);
+insert into menu values (23,'Menu2023-3','Cola-Cola', 1500,null,1,1);
+insert into menu values (24,'Menu2023-3','Copa Vino Bernet', 3500,null,1,1);
+insert into menu values (25,'Menu2023-3','Copa Vino Blanco Bernet', 3500,null,1,1);
+insert into menu values (26,'Menu2023-3','Jugo Natural', 1500,null,1,1);
+insert into menu values (27,'Menu2023-3','Pipeno', 3500,null,1,1);
+insert into menu values (28,'Menu2023-4','Pastel Vegano Naranja', 3500,null,1,1);
+insert into menu values (29,'Menu2023-4','Sopa Brocoli', 3500,null,1,1);
+insert into menu values (30,'Menu2023-4','Sopa Coliflor', 4500,null,1,1);
+insert into menu values (31,'Menu2023-4','Tazon Vegano Verduras', 5500,null,1,1);
+insert into menu values (32,'Menu2023-5','Ensalada Choclo', 2500,null,1,1);
+insert into menu values (33,'Menu2023-5','Ensalada Chilena', 2700,null,1,1);
+insert into menu values (34,'Menu2023-5','Ensalada Pepino', 2500,null,1,1);
+insert into menu values (35,'Menu2023-5','Ensalada Lechuga Tomate', 2700,null,1,1);
+
+
+CREATE OR REPLACE DIRECTORY fotos_directory AS 'C:\imagenes';
+
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'pastel-choclo.jpg')
+WHERE id_menu= 1;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'paila-marina.jpg')
+WHERE id_menu= 2;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'churrasco.jpg')
+WHERE id_menu= 3;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'asado-parrilla.jpg')
+WHERE id_menu= 4;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'ceviche-de-pescado.jpg')
+WHERE id_menu= 5;
+
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'sandwich-pollo.jpg')
+WHERE id_menu= 6;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'chupe-mariscos.jpg')
+WHERE id_menu= 7;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'espagueti-aglio-olio.jpg')
+WHERE id_menu= 8;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'lasagna.jpg')
+WHERE id_menu= 9;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'ravioles.jpg')
+WHERE id_menu= 10;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'pechuga-parrilla.jpg')
+WHERE id_menu= 11;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'pastel-ferrero.jpg')
+WHERE id_menu= 12;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'pastel-zanahoria.jpg')
+WHERE id_menu= 13;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'pay-limon.jpg')
+WHERE id_menu= 14;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'pay-nuez1.jpg')
+WHERE id_menu= 15;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'pay-platano.jpg')
+WHERE id_menu= 16;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'tres-leches.jpg')
+WHERE id_menu= 17;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'amaretto.jpg')
+WHERE id_menu= 18;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'bebidas.jpg')
+WHERE id_menu= 19;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'cafe-cortado.jpg')
+WHERE id_menu= 20;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'cafe-expresso.jpg')
+WHERE id_menu= 21;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'cerveza-corona.jpg')
+WHERE id_menu= 22;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'Cocacola.jpg')
+WHERE id_menu= 23;
+
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'copa-de-vino-cabernet.jpg')
+WHERE id_menu= 24;
+
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'copa-de-vino-blanco.jpg')
+WHERE id_menu= 25;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'jugo-natural.jpg')
+WHERE id_menu= 26;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'pipeno.jpg')
+WHERE id_menu= 27;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'pastel-vegano-de-naranja.jpg')
+WHERE id_menu= 28;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'sopa-de-brocoli.jpg')
+WHERE id_menu= 29;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'sopa-vegetariana-coliflor.jpg')
+WHERE id_menu= 30;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'tazon-vegano-verduras.jpg')
+WHERE id_menu= 31;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'ensalada-choclo.jpg')
+WHERE id_menu= 32;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'ensalada-chilena.jpg')
+WHERE id_menu= 33;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'ensalada-de-pepino.jpg')
+WHERE id_menu= 34;
+
+UPDATE menu
+SET foto = BFILENAME('FOTOS_DIRECTORY', 'lechuga-tomate.jpg')
+WHERE id_menu= 35;
+
+INSERT INTO receta_menu VALUES (1, 1);
+INSERT INTO receta_menu VALUES (5, 2);
+INSERT INTO receta_menu VALUES (10, 3);
+INSERT INTO receta_menu VALUES (11, 4);
+INSERT INTO receta_menu VALUES (12, 5);
+INSERT INTO receta_menu VALUES (14, 6);
+INSERT INTO receta_menu VALUES (15, 7);
+
+INSERT INTO TIPO_DE_PAGO VALUES (1,'CREDITO');
+insert into TIPO_DE_PAGO VALUES (2,'DEBITO');
+insert into TIPO_DE_PAGO VALUES (3,'EFECTIVO');
+
+Insert into USUARIO values(Sec_Usuario.Nextval, '123', 'chriss', 'fuentes', 'chriss@gmail.com', 'puente 11', '1', '920349292', 'Hombre', '1');
+Insert Into Usuario Values(Sec_Usuario.Nextval, 'kony', 'konstanza ', 'bosch', 'kony@gmail.com', 'ciudad del sol', '1','998237474','Mujer','2');
+Insert Into Usuario Values(Sec_Usuario.Nextval, 'm123', 'marcela ', 'campos', 'marcela@gmail.com', 'peñalolen', '1', '9651231', 'Mujer', '3');
+Insert Into Usuario Values(Sec_Usuario.Nextval, '333', 'jesus', 'nazareth', 'jesus@gmail.com', 'el cielo', '1', '977876541', 'Hombre', '4');
+Insert Into Usuario Values(Sec_Usuario.Nextval, 'juli', 'francisco', 'juillet', 'juilletf@gmail.com', 'Navidad 123', '1', '977876541', 'Hombre', '5');
+
+
+INSERT INTO PROVEEDOR VALUES ('1','Bebidas CCU', 'CCU@gmail.com','Quilicura 123');
+INSERT INTO PROVEEDOR VALUES ('2','Bebidas Cocacola', 'Cocacola@gmail.com','Providencia 123');
+INSERT INTO PROVEEDOR VALUES ('3','Vinos', 'Vinos@gmail.com','Viña Pirque 1A');
+INSERT INTO PROVEEDOR VALUES ('4', 'Condimentos', 'Condimentos@gmail.com','San Jose de Maipo 42');
+INSERT INTO PROVEEDOR VALUES ('5','Vegetales SUR', 'Vegetales@gmail.com', 'Frutillar 32');
+INSERT INTO PROVEEDOR VALUES ('6','Mercaderia', 'Mercaderia@gmail.com','Concha y toro 18213');
+
+INSERT INTO TIPO_PRODUCTO VALUES ('1','Bebidas');
+INSERT INTO TIPO_PRODUCTO VALUES ('2','Vinos');
+INSERT INTO TIPO_PRODUCTO VALUES ('3','Vegetales');
+INSERT INTO TIPO_PRODUCTO VALUES ('4','Carnes/Pescados');
+INSERT INTO TIPO_PRODUCTO VALUES ('5','Condimentos');
+INSERT INTO TIPO_PRODUCTO VALUES ('6','Alimentos no perecible');
+
+create sequence mesa_seq 
+start with 1 
+increment by 1
+maxvalue 999999999
+minvalue 1;
+
+INSERT INTO MESA VALUES(mesa_seq.nextval, 10, 5, 'PASILLO', '0', '1');
+INSERT INTO MESA VALUES(mesa_seq.nextval, 12, 3, 'VENTANA', '0', '1');
+INSERT INTO MESA VALUES(mesa_seq.nextval, 14, 4, 'PASILLO', '0', '1');
+INSERT INTO MESA VALUES(mesa_seq.nextval, 16, 7, 'PASILLO', '0', '1');
+INSERT INTO MESA VALUES(mesa_seq.nextval, 18, 4, 'VENTANA', '0', '1');
+INSERT INTO MESA VALUES(mesa_seq.nextval, 20, 4, 'PASILLO', '0', '1');
+INSERT INTO MESA VALUES(mesa_seq.nextval, 22, 6, 'VENTANA', '0', '1');
+
+CREATE SEQUENCE cod_seq START WITH 221 INCREMENT BY 1;
+CREATE SEQUENCE reserva_seq START WITH 4 INCREMENT BY 1;
+
+INSERT INTO RESERVA VALUES (reserva_seq.nextval, cod_seq.nextval, TO_DATE('2023-9-5', 'YYYY-MM-DD'), 6, 'A', 5, 5, 1, 'Una mesa con velas');
+INSERT INTO RESERVA VALUES (reserva_seq.nextval, cod_seq.nextval, TO_DATE('2023-9-11', 'YYYY-MM-DD'), 6, 'A', 5, 5, 2, 'Mesa En la Ventana');
+INSERT INTO RESERVA VALUES (reserva_seq.nextval, cod_seq.nextval, TO_DATE('2023-10-3', 'YYYY-MM-DD'), 6, 'A', 5, 5, 6, 'Una mesa en el medio para 4 personas');
+INSERT INTO RESERVA VALUES (reserva_seq.nextval, cod_seq.nextval, TO_DATE('2023-10-5', 'YYYY-MM-DD'), 6, 'A', 5, 5, 7, 'Una en ventana para 6 personas');
+INSERT INTO RESERVA VALUES (reserva_seq.nextval, cod_seq.nextval, TO_DATE('2023-10-7', 'YYYY-MM-DD'), 6, 'A', 5, 5, 5, 'Una mesa con ventana');
+INSERT INTO RESERVA VALUES (reserva_seq.nextval, cod_seq.nextval, TO_DATE('2023-10-8', 'YYYY-MM-DD'), 6, 'A', 5, 5, 4, 'Una mesa con velas');
+
+INSERT INTO unidad_de_medida (id_u_medida, codigo_u_medida, descripcion) VALUES (1, 'Kg', 'Kilogramo');
+INSERT INTO unidad_de_medida (id_u_medida, codigo_u_medida, descripcion) VALUES (2, 'g', 'Gramo');
+INSERT INTO unidad_de_medida (id_u_medida, codigo_u_medida, descripcion) VALUES (3, 'L', 'Litro');
+INSERT INTO unidad_de_medida (id_u_medida, codigo_u_medida, descripcion) VALUES (4, 'ml', 'Mililitro');
+INSERT INTO unidad_de_medida (id_u_medida, codigo_u_medida, descripcion) VALUES (5, 'Un', 'Unidad');
+
+create sequence producto_seq 
+start with 2 
+increment by 1
+maxvalue 999999999
+minvalue 1;

@@ -1,0 +1,220 @@
+select * from detalle_pedido
+select * from pago
+select * from pedido;
+select * from mesa;
+select * from producto;
+select * from menu
+select * from producto_menu;
+select * from receta
+select * from est_pedido
+select * from producto_receta
+select * from producto_menu
+select * from tipo_de_pago
+select * from tipo_producto
+select * from unidad_de_medida
+select * from proveedor
+select * from receta_menu
+select * from reserva
+select * from usuario
+select * from rol
+select * from tipo_de_pago
+select * from tipo_menu
+select * from tipo_producto
+select * from usuario_pedido
+
+
+
+
+
+-- INSERT  rol
+INSERT INTO rol VALUES (5,'Cliente');
+
+INSERT INTO menu (id_menu, codigo_menu, nombre, precio, disponible, tipo_menu_id_tipo_menu)
+VALUES (3, 'MENU003', 'Ensalada César', 500, 1, 3);
+INSERT INTO menu (id_menu, codigo_menu, nombre, precio, disponible, tipo_menu_id_tipo_menu)
+VALUES (6, 'MENU006', 'Tacos de Pescado', 900, 1, 5);
+INSERT INTO menu (id_menu, codigo_menu, nombre, precio, disponible, tipo_menu_id_tipo_menu)
+VALUES (7, 'MENU007', 'Pollo a la Parrilla', 1000, 1, 3);
+INSERT INTO menu (id_menu, codigo_menu, nombre, precio, disponible, tipo_menu_id_tipo_menu)
+VALUES (4, 'MENU004', 'Sushi Combo', 1500, 1, 4);
+INSERT INTO menu (id_menu, codigo_menu, nombre, precio, disponible, tipo_menu_id_tipo_menu)
+VALUES (5, 'MENU005', 'Pasta Alfredo', 700, 1, 2);
+INSERT INTO menu (id_menu, codigo_menu, nombre, precio, disponible, tipo_menu_id_tipo_menu)
+VALUES (10, 'MENU010', 'Sándwich de Pavo', 750, 1, 1);
+select * from menu 
+
+
+INSERT INTO est_pedido (id_est_pedido, descripcion) VALUES (1, 'En proceso');
+INSERT INTO est_pedido (id_est_pedido, descripcion) VALUES (2, 'Listo para servir');
+INSERT INTO est_pedido (id_est_pedido, descripcion) VALUES (3, 'Entregado');
+INSERT INTO est_pedido (id_est_pedido, descripcion) VALUES (4, 'Cancelado');
+
+
+INSERT INTO mesa (id_mesa, numero_mesa, capacidad, descripcion, en_uso, activa) VALUES (1, 101, 4, 'Mesa 101', 'S', 'S');
+INSERT INTO mesa (id_mesa, numero_mesa, capacidad, descripcion, en_uso, activa) VALUES (2, 102, 2, 'Mesa 102', 'N', 'S');
+INSERT INTO mesa (id_mesa, numero_mesa, capacidad, descripcion, en_uso, activa) VALUES (3, 103, 6, 'Mesa 103', 'S', 'S');
+INSERT INTO mesa (id_mesa, numero_mesa, capacidad, descripcion, en_uso, activa) VALUES (4, 104, 2, 'Mesa 104', 'N', 'S');
+INSERT INTO mesa (id_mesa, numero_mesa, capacidad, descripcion, en_uso, activa) VALUES (5, 105, 8, 'Mesa 105', 'S', 'S');
+INSERT INTO mesa (id_mesa, numero_mesa, capacidad, descripcion, en_uso, activa) VALUES (6, 106, 4, 'Mesa 106', 'N', 'S');
+INSERT INTO mesa (id_mesa, numero_mesa, capacidad, descripcion, en_uso, activa) VALUES (7, 107, 6, 'Mesa 107', 'S', 'S');
+INSERT INTO mesa (id_mesa, numero_mesa, capacidad, descripcion, en_uso, activa) VALUES (8, 108, 2, 'Mesa 108', 'N', 'S');
+INSERT INTO mesa (id_mesa, numero_mesa, capacidad, descripcion, en_uso, activa) VALUES (9, 109, 4, 'Mesa 109', 'S', 'S');
+INSERT INTO mesa (id_mesa, numero_mesa, capacidad, descripcion, en_uso, activa) VALUES (10, 110, 2, 'Mesa 110', 'N', 'S');
+
+
+INSERT INTO usuario_pedido (comentario_especial, usuario_id_usuario,usuario_rol_id_rol, pedido_id_pedido) VALUES ('Muy buen pedido',4,4,1)
+
+INSERT INTO usuario_pedido (comentario_especial, usuario_id_usuario,usuario_rol_id_rol, pedido_id_pedido) VALUES ('Muy buen pedido',4,4,2)
+
+INSERT INTO producto_receta (cantidad_producto,receta_id_receta,producto_id_producto,producto_id_u_medida,producto_id_tipo) values (5,1,1,1,1)
+
+INSERT INTO producto_receta (cantidad_producto,receta_id_receta,producto_id_producto,producto_id_u_medida,producto_id_tipo) values (5,2,1,1,1)
+
+INSERT INTO producto_menu (producto_id_producto, producto_id_u_medida, producto_id_tipo, menu_id_menu)
+values (1,1,1,3)
+INSERT INTO producto_menu (producto_id_producto, producto_id_u_medida, producto_id_tipo, menu_id_menu)
+values (2,1,2,6)
+INSERT INTO producto_menu (producto_id_producto, producto_id_u_medida, producto_id_tipo, menu_id_menu)
+values (3,2,3,7)
+
+
+INSERT INTO reserva (id_reserva, codigo_reserva, fecha, cantidad_comensales, estado_reserva, usuario_id_usuario, usuario_rol_id_rol, mesa_id_mesa)
+VALUES (1, 'RES2023001', TO_DATE('2023-10-10', 'YYYY-MM-DD'), 4, 'A', 4, 4, 1);
+INSERT INTO reserva (id_reserva, codigo_reserva, fecha, cantidad_comensales, estado_reserva, usuario_id_usuario, usuario_rol_id_rol, mesa_id_mesa)
+VALUES (2, 'RES2023002', TO_DATE('2023-10-11', 'YYYY-MM-DD'), 2, 'P', 4, 4, 2);
+INSERT INTO reserva (id_reserva, codigo_reserva, fecha, cantidad_comensales, estado_reserva, usuario_id_usuario, usuario_rol_id_rol, mesa_id_mesa)
+VALUES (3, 'RES2023003', TO_DATE('2023-10-12', 'YYYY-MM-DD'), 6, 'A', 4, 4, 3);
+
+
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (1, 'Hamburguesa clásica', 2.500, 5.990, 'Hamburguesa Clásica', 'FastFoodCo', 'Comida rápida', 100, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 1, 1, 1);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (2, 'Pizza Margarita', 3.000, 8.990, 'Pizza Margarita', 'PizzaExpress', 'Pizza', 75, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 1, 2, 2);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (3, 'Sushi de salmón', 4.500, 12.990, 'Sushi de Salmón', 'SushiMasters', 'Sushi', 50, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 2, 3, 3);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (4, 'Ensalada César', 1.800, 6.990, 'Ensalada César', 'GreenLeaf', 'Ensalada', 60, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 3, 1, 4);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (5, 'Tacos de carne asada', 3.200, 9.990, 'Tacos de Carne Asada', 'TacoLoco', 'Tacos', 40, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 4, 2, 5);
+
+INSERT INTO receta_menu (receta_id_receta, menu_id_menu) VALUES (1,3);
+INSERT INTO receta_menu (receta_id_receta, menu_id_menu) VALUES (2,6);
+
+
+INSERT INTO detalle_pedido (descripcion,cantidad,pedido_id_pedido, receta_id_receta, producto_id_producto, producto_id_u_medida, producto_id_tipo, est_pedido_id_est_pedido) VALUES
+('Producto A',1,1,1,1,1,1,1)
+INSERT INTO detalle_pedido (descripcion,cantidad,pedido_id_pedido, receta_id_receta, producto_id_producto, producto_id_u_medida, producto_id_tipo, est_pedido_id_est_pedido) VALUES
+('Producto A',10,2,2,2,1,2,1)
+
+
+INSERT INTO receta (id_receta, nombre, descripcion, tiempo_preparacion, precio)
+VALUES (3, 'Sushi de salmón', 'Rollos de sushi con salmón fresco y aguacate', 30, 18.750);
+INSERT INTO receta (id_receta, nombre, descripcion, tiempo_preparacion, precio)
+VALUES (4, 'Pizza Margherita', 'Pizza con tomate, mozzarella y albahaca', 25, 10.990);
+INSERT INTO receta (id_receta, nombre, descripcion, tiempo_preparacion, precio)
+VALUES (5, 'Ensalada César', 'Ensalada fresca con lechuga, pollo y aderezo César', 15, 8.950);
+INSERT INTO receta (id_receta, nombre, descripcion, tiempo_preparacion, precio)
+VALUES (6, 'Tacos al pastor', 'Tacos de cerdo marinado con piña y cebolla', 35, 9.500);
+INSERT INTO receta (id_receta, nombre, descripcion, tiempo_preparacion, precio)
+VALUES (7, 'Pasta Alfredo', 'Fettuccine en salsa Alfredo cremosa', 20, 12.250);
+INSERT INTO receta (id_receta, nombre, descripcion, tiempo_preparacion, precio)
+VALUES (8, 'Sopa de lentejas', 'Sopa casera de lentejas con vegetales', 40, 7.990);
+INSERT INTO receta (id_receta, nombre, descripcion, tiempo_preparacion, precio)
+VALUES (9, 'Hamburguesa clásica', 'Hamburguesa con queso, lechuga y tomate', 15, 9.705);
+INSERT INTO receta (id_receta, nombre, descripcion, tiempo_preparacion, precio)
+VALUES (10, 'Parrillada mixta', 'Asado de carne, pollo y cerdo a la parrilla', 50, 22.909);
+
+
+INSERT INTO pedido (id_pedido, fecha, hora, total, propina, mesa_id_mesa)
+VALUES (1, TO_DATE('2023-10-04', 'YYYY-MM-DD'), TO_TIMESTAMP('2023-10-04 12:30:00', 'YYYY-MM-DD HH24:MI:SS'), 1, 5, 4);
+INSERT INTO pedido (id_pedido, fecha, hora, total, propina, mesa_id_mesa)
+VALUES (2, TO_DATE('2023-10-05', 'YYYY-MM-DD'), TO_TIMESTAMP('2023-10-05 18:45:00', 'YYYY-MM-DD HH24:MI:SS'), 300, 1000,2);
+INSERT INTO pedido (id_pedido, fecha, hora, total, propina, mesa_id_mesa)
+VALUES (3, TO_DATE('2023-10-06', 'YYYY-MM-DD'), TO_TIMESTAMP('2023-10-06 20:15:00', 'YYYY-MM-DD HH24:MI:SS'), 100, 15, 3);
+INSERT INTO pedido (id_pedido, fecha, hora, total, propina, mesa_id_mesa)
+VALUES (4, TO_DATE('2023-10-07', 'YYYY-MM-DD'), TO_TIMESTAMP('2023-10-07 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), 60, 7, 4);
+INSERT INTO pedido (id_pedido, fecha, hora, total, propina, mesa_id_mesa)
+VALUES (5, TO_DATE('2023-10-08', 'YYYY-MM-DD'), TO_TIMESTAMP('2023-10-08 19:30:00', 'YYYY-MM-DD HH24:MI:SS'), 90, 12, 5);
+INSERT INTO pedido (id_pedido, fecha, hora, total, propina, mesa_id_mesa)
+
+
+
+
+INSERT INTO pago (id_pago, fecha_pago, url, token, orden_pago, tipo_de_pago_id_tipo_pago, pedido_id_pedido, cuotas)
+VALUES (1, TO_DATE('2023-10-04', 'YYYY-MM-DD'), 'https://ejemplo.com/pago1', 'token123', 12345, 1, 1, 3);
+INSERT INTO pago (id_pago, fecha_pago, url, token, orden_pago, tipo_de_pago_id_tipo_pago, pedido_id_pedido, cuotas)
+VALUES (2, TO_DATE('2023-10-05', 'YYYY-MM-DD'), 'https://ejemplo.com/pago2', 'token456', 54321, 2, 2, 2);
+INSERT INTO pago (id_pago, fecha_pago, url, token, orden_pago, tipo_de_pago_id_tipo_pago, pedido_id_pedido, cuotas)
+VALUES (3, TO_DATE('2023-10-06', 'YYYY-MM-DD'), 'https://ejemplo.com/pago3', 'token789', 67890, 1, 3, 1);
+
+
+
+
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (1, 'Hamburguesa clásica', 2.500, 5.990, 'Hamburguesa Clásica', 'FastFoodCo', 'Comida rápida', 100, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 1, 1, 1);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (2, 'Pizza Margarita', 3.000, 8.990, 'Pizza Margarita', 'PizzaExpress', 'Pizza', 75, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 1, 2, 1);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (3, 'Sushi de salmón', 4.500, 12.990, 'Sushi de Salmón', 'SushiMasters', 'Sushi', 50, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 2, 3, 1);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (4, 'Ensalada César', 1.800, 6.990, 'Ensalada César', 'GreenLeaf', 'Ensalada', 60, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 3, 1, 1);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (5, 'Tacos de carne asada', 3.200, 9.990, 'Tacos de Carne Asada', 'TacoLoco', 'Tacos', 40, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 4, 2, 1);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (6, 'Soda cola', 500, 1.990, 'Soda Cola', 'RefreshCo', 'Bebida', 200, TO_DATE('2024-01-31', 'YYYY-MM-DD'), 5, 4, 1);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (7, 'Tarta de chocolate', 2.800, 7.99, 'Tarta de Chocolate', 'SweetDelights', 'Postre', 30, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 5, 1, 1);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (8, 'Pasta Alfredo', 2.000, 8.490, 'Pasta Alfredo', 'ItalianEats', 'Pasta', 55, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 3, 2, 1);
+INSERT INTO producto (id_producto, descripcion, precio_compra, precio_venta, nombre, marca, categoria, stock, fecha_vencimiento, unidad_de_medida_id_u_medida, tipo_producto_id_tipo, proveedor_id)
+VALUES (9, 'Pollo a la parrilla', 3.500, 10.990, 'Pollo a la Parrilla', 'GrillMaster', 'Pollo', 70, TO_DATE('2023-12-31', 'YYYY-MM-DD'), 1, 3, 1);
+
+
+
+INSERT INTO proveedor (id, nombre, email, direccion) VALUES (1, 'Proveedor A', 'proveedorA@example.com', 'Calle 123, Ciudad');
+INSERT INTO proveedor (id, nombre, email, direccion) VALUES (2, 'Proveedor B', 'proveedorB@example.com', 'Avenida XYZ, Otra Ciudad');
+INSERT INTO proveedor (id, nombre, email, direccion) VALUES (3, 'Proveedor C', 'proveedorC@example.com', 'Carrera 456, Otra Localidad');
+INSERT INTO proveedor (id, nombre, email, direccion) VALUES (4, 'Proveedor D', 'proveedorD@example.com', 'Avenida Principal, Ciudad Principal');
+INSERT INTO proveedor (id, nombre, email, direccion) VALUES (5, 'Proveedor E', 'proveedorE@example.com', 'Calle Secundaria, Ciudad Secundaria');
+INSERT INTO proveedor (id, nombre, email, direccion) VALUES (6, 'Proveedor F', 'proveedorF@example.com', 'Avenida Principal, Ciudad Secundaria');
+INSERT INTO proveedor (id, nombre, email, direccion) VALUES (7, 'Proveedor G', 'proveedorG@example.com', 'Calle 789, Otra Localidad');
+INSERT INTO proveedor (id, nombre, email, direccion) VALUES (8, 'Proveedor H', 'proveedorH@example.com', 'Avenida XYZ, Otra Ciudad');
+INSERT INTO proveedor (id, nombre, email, direccion) VALUES (9, 'Proveedor I', 'proveedorI@example.com', 'Calle 321, Ciudad Principal');
+INSERT INTO proveedor (id, nombre, email, direccion) VALUES (10, 'Proveedor J', 'proveedorJ@example.com', 'Avenida 987, Ciudad Secundaria');
+
+
+-- Insertar tipo de pago
+INSERT INTO tipo_de_pago (id_tipo_pago, descripcion) VALUES (1, 'Efectivo');
+INSERT INTO tipo_de_pago (id_tipo_pago, descripcion) VALUES (2, 'Tarjeta de crédito');
+INSERT INTO tipo_de_pago (id_tipo_pago, descripcion) VALUES (3, 'Cheque');
+INSERT INTO tipo_de_pago (id_tipo_pago, descripcion) VALUES (4, 'Transferencia bancaria');
+INSERT INTO tipo_de_pago (id_tipo_pago, descripcion) VALUES (5, 'Pago móvil');
+INSERT INTO tipo_de_pago (id_tipo_pago, descripcion) VALUES (6, 'PayPal');
+INSERT INTO tipo_de_pago (id_tipo_pago, descripcion) VALUES (7, 'Bitcoin');
+INSERT INTO tipo_de_pago (id_tipo_pago, descripcion) VALUES (8, 'Vale de comida');
+INSERT INTO tipo_de_pago (id_tipo_pago, descripcion) VALUES (9, 'Criptomoneda');
+INSERT INTO tipo_de_pago (id_tipo_pago, descripcion) VALUES (10, 'Pago por QR');
+
+
+
+-- insert tipo_menu
+INSERT INTO tipo_menu (id_tipo_menu, tipo_menu) VALUES (1, 'Desayuno');
+INSERT INTO tipo_menu (id_tipo_menu, tipo_menu) VALUES (2, 'Almuerzo');
+INSERT INTO tipo_menu (id_tipo_menu, tipo_menu) VALUES (3, 'Cena');
+INSERT INTO tipo_menu (id_tipo_menu, tipo_menu) VALUES (4, 'Bebidas');
+INSERT INTO tipo_menu (id_tipo_menu, tipo_menu) VALUES (5, 'Postres');
+
+
+-- insert tipo de producto
+INSERT INTO tipo_producto (id_tipo, tipo_producto) VALUES (1, 'Entrada');
+INSERT INTO tipo_producto (id_tipo, tipo_producto) VALUES (2, 'Plato Principal');
+INSERT INTO tipo_producto (id_tipo, tipo_producto) VALUES (3, 'Acompañamiento');
+INSERT INTO tipo_producto (id_tipo, tipo_producto) VALUES (4, 'Bebida');
+INSERT INTO tipo_producto (id_tipo, tipo_producto) VALUES (5, 'Postre');
+
+-- insert unidad medida
+INSERT INTO unidad_de_medida (id_u_medida, codigo_u_medida, descripcion) VALUES (1, 'Kg', 'Kilogramo');
+INSERT INTO unidad_de_medida (id_u_medida, codigo_u_medida, descripcion) VALUES (2, 'g', 'Gramo');
+INSERT INTO unidad_de_medida (id_u_medida, codigo_u_medida, descripcion) VALUES (3, 'L', 'Litro');
+INSERT INTO unidad_de_medida (id_u_medida, codigo_u_medida, descripcion) VALUES (4, 'ml', 'Mililitro');
+INSERT INTO unidad_de_medida (id_u_medida, codigo_u_medida, descripcion) VALUES (5, 'Un', 'Unidad');
